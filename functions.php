@@ -1,7 +1,7 @@
 <?php
 /**
  *	Functions
- */
+ 
 
 // Tutorial Page
 function woomarqt_register_tutorials_menu_page() {
@@ -101,3 +101,5 @@ if ( $custom_post_types['vacatures'] ) {
     }
     add_action('init', 'woomarqt_vacatures');
 }
+
+*/
