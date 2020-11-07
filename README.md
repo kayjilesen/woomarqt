@@ -1,2 +1,2 @@
-# Clocky
+# WooMarqt
 Conversion optimized WooCommerce Template
