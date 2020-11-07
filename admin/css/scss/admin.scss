@@ -1,1 +1,12 @@
 /* WooMarqt Admin Styles */
+
+.acf-table {
+    .acf-copyright-icon {
+        width: 25%;
+        
+        img {
+            max-height: 35px;
+            object-fit: contain;
+        }
+    }
+}

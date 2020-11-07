@@ -112,7 +112,7 @@ function custom_woomarqt_styles() {
     wp_enqueue_style('input'); // Menu
 
     if(is_admin()){
-        wp_register_style( 'admin-css', get_template_directory_uri() . '/admin/css/admin.min.css', array(), filemtime(get_theme_file_path('/admin/css/admin.min.css'), 'all') );
+        wp_register_style( 'admin-css', get_template_directory_uri() . '/admin/css/admin.min.css', array(), filemtime(get_theme_file_path('/admin/css/admin.min.css')), 'all' );
         wp_enqueue_style( 'admin-css' );
     }
 }
