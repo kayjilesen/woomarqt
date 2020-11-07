@@ -6,7 +6,7 @@
 // Tutorial Page
 function woomarqt_register_tutorials_menu_page() {
     add_menu_page(
-        __( 'Tutorials', 'woomarqt' ),
+        __( 'Tutorials', 'clocky' ),
         'Tutorials',
         'edit_posts',
         'tutorials',

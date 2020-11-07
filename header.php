@@ -4,7 +4,11 @@
  */
 
  $topbar = get_field('topbar', 'option');
+ $header = get_field('head', 'option');
  $subbar = get_field('subbar', 'option');
+ $uspbar = get_field('usp', 'option');
+
+ $huisstijl = get_field('huisstijl', 'option');
 
 ?>
 
