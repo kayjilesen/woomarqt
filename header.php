@@ -3,6 +3,9 @@
  *	Header
  */
 
+ $topbar = get_field('topbar', 'option');
+ $subbar = get_field('subbar', 'option');
+
 ?>
 
 <!DOCTYPE html>
@@ -19,3 +22,17 @@
 </head>
 
 <body <?php body_class(); ?>>
+    <header>
+        <?php
+
+            // Show Topbar when Active
+            if($topbar['show_topbar']) include 'blocks/header/top.php';
+            // Show Head - Default = Active
+            include 'blocks/header/head.php';
+            // Show Subbar when Active
+            if($subbar['show_subbar']) include 'blocks/header/top.php';
+            // Show USP's - Default = Active
+            include 'blocks/header/usp.php';
+
+        ?>
+    </header>
