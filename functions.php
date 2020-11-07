@@ -1,7 +1,7 @@
 <?php
 /**
  *	Functions
- 
+ */ 
 
 // Tutorial Page
 function woomarqt_register_tutorials_menu_page() {
@@ -20,8 +20,8 @@ add_action( 'admin_menu', 'woomarqt_register_tutorials_menu_page' );
 // Advanced Custom Fields Options Page
 if ( function_exists('acf_add_options_page') ) {
 	acf_add_options_page(array(
-		'page_title' 	=>  'woomarqt',
-		'menu_title'	=>  'woomarqt',
+		'page_title' 	=>  'Woomarqt',
+		'menu_title'	=>  'Woomarqt',
 		'menu_slug' 	=>  'woomarqt-settings',
 		'capability'	=>  'edit_posts',
         'redirect'		=>  false,
@@ -101,5 +101,3 @@ if ( $custom_post_types['vacatures'] ) {
     }
     add_action('init', 'woomarqt_vacatures');
 }
-
-*/
