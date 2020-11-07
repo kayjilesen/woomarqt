@@ -105,11 +105,13 @@ if ( $custom_post_types['vacatures'] ) {
 // Load Custom WooMarqt Styles 
 function custom_woomarqt_styles() {    
 
-    wp_register_style('menu', get_template_directory_uri() . '/css/menu.min.css', array(),  filemtime(get_theme_file_path('/css/menu.min.css')), 'all');
-    wp_enqueue_style('menu'); // Menu
+    if(!is_admin()){
+        wp_register_style('menu', get_template_directory_uri() . '/assets/css/menu.min.css', array(),  filemtime(get_theme_file_path('/assets/css/menu.min.css')), 'all');
+        wp_enqueue_style('menu'); // Menu
 
-    wp_register_style('input', get_template_directory_uri() . '/css/input.min.css', array(),  filemtime(get_theme_file_path('/css/input.min.css')), 'all');
-    wp_enqueue_style('input'); // Menu
+        wp_register_style('input', get_template_directory_uri() . '/assets/css/input.min.css', array(),  filemtime(get_theme_file_path('/assets/css/input.min.css')), 'all');
+        wp_enqueue_style('input'); // Menu
+    }
 
     if(is_admin()){
         wp_register_style( 'admin-css', get_template_directory_uri() . '/admin/css/admin.min.css', array(), filemtime(get_theme_file_path('/admin/css/admin.min.css')), 'all' );
