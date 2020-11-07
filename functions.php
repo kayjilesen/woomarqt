@@ -71,6 +71,18 @@ if ( function_exists('acf_add_options_page') ) {
 		'menu_title'	=> 'Header',
 		'parent_slug'	=> 'woomarqt-settings',
     ));
+
+    acf_add_options_sub_page(array(
+		'page_title' 	=> 'Shoppagina',
+		'menu_title'	=> 'Shoppagina',
+		'parent_slug'	=> 'woomarqt-settings',
+    ));
+
+    acf_add_options_sub_page(array(
+		'page_title' 	=> 'Productpagina',
+		'menu_title'	=> 'Productpagina',
+		'parent_slug'	=> 'woomarqt-settings',
+    ));
     
     acf_add_options_sub_page(array(
 		'page_title' 	=> 'Footer',
