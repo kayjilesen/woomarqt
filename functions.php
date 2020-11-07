@@ -20,8 +20,8 @@ add_action( 'admin_menu', 'woomarqt_register_tutorials_menu_page' );
 // Advanced Custom Fields Options Page
 if ( function_exists('acf_add_options_page') ) {
 	acf_add_options_page(array(
-		'page_title' 	=>  'Woomarqt',
-		'menu_title'	=>  'Woomarqt',
+		'page_title' 	=>  'WooMarqt',
+		'menu_title'	=>  'WooMarqt',
 		'menu_slug' 	=>  'woomarqt-settings',
 		'capability'	=>  'edit_posts',
         'redirect'		=>  false,
