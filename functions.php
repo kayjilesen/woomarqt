@@ -4,9 +4,9 @@
  */
 
 // Tutorial Page
-function clocky_register_tutorials_menu_page() {
+function woomarqt_register_tutorials_menu_page() {
     add_menu_page(
-        __( 'Tutorials', 'clocky' ),
+        __( 'Tutorials', 'woomarqt' ),
         'Tutorials',
         'edit_posts',
         'tutorials',
@@ -15,14 +15,14 @@ function clocky_register_tutorials_menu_page() {
         99
     );
 }
-add_action( 'admin_menu', 'clocky_register_tutorials_menu_page' );
+add_action( 'admin_menu', 'woomarqt_register_tutorials_menu_page' );
 
 // Advanced Custom Fields Options Page
 if ( function_exists('acf_add_options_page') ) {
 	acf_add_options_page(array(
-		'page_title' 	=>  'Clocky',
-		'menu_title'	=>  'Clocky',
-		'menu_slug' 	=>  'clocky-settings',
+		'page_title' 	=>  'woomarqt',
+		'menu_title'	=>  'woomarqt',
+		'menu_slug' 	=>  'woomarqt-settings',
 		'capability'	=>  'edit_posts',
         'redirect'		=>  false,
         'icon_url'		=>  'dashicons-menu-alt',
@@ -32,13 +32,13 @@ if ( function_exists('acf_add_options_page') ) {
     acf_add_options_sub_page(array(
 		'page_title' 	=> 'Header',
 		'menu_title'	=> 'Header',
-		'parent_slug'	=> 'clocky-settings',
+		'parent_slug'	=> 'woomarqt-settings',
     ));
     
     acf_add_options_sub_page(array(
 		'page_title' 	=> 'Footer',
 		'menu_title'	=> 'Footer',
-		'parent_slug'	=> 'clocky-settings',
+		'parent_slug'	=> 'woomarqt-settings',
 	));
 }
 
@@ -46,13 +46,13 @@ if ( function_exists('acf_add_options_page') ) {
 $custom_post_types = get_field('custom_post_types', 'option');
 
 if ( $custom_post_types['faqs'] ) {
-    function clocky_faqs() {
-        register_post_type('clocky_faqs',
+    function woomarqt_faqs() {
+        register_post_type('woomarqt_faqs',
             array(
                 'labels'    =>  array(
-                    'name'              =>      __('FAQ\'s', 'clocky'),
-                    'singular_name'     =>      __('FAQ', 'clocky'),
-                    'add_new'           =>      __('Nieuwe FAQ', 'clocky'),
+                    'name'              =>      __('FAQ\'s', 'woomarqt'),
+                    'singular_name'     =>      __('FAQ', 'woomarqt'),
+                    'add_new'           =>      __('Nieuwe FAQ', 'woomarqt'),
                 ),
                     'public'            =>      true,
                     'has_archive'       =>      true,
@@ -61,17 +61,17 @@ if ( $custom_post_types['faqs'] ) {
             )
         );
     }
-    add_action('init', 'clocky_faqs');
+    add_action('init', 'woomarqt_faqs');
 }
 
 if ( $custom_post_types['looks'] ) {
-    function clocky_looks() {
-        register_post_type('clocky_looks',
+    function woomarqt_looks() {
+        register_post_type('woomarqt_looks',
             array(
                 'labels'    =>  array(
-                    'name'              =>      __('Looks', 'clocky'),
-                    'singular_name'     =>      __('Look', 'clocky'),
-                    'add_new'           =>      __('Nieuwe look', 'clocky'),
+                    'name'              =>      __('Looks', 'woomarqt'),
+                    'singular_name'     =>      __('Look', 'woomarqt'),
+                    'add_new'           =>      __('Nieuwe look', 'woomarqt'),
                 ),
                     'public'            =>      true,
                     'has_archive'       =>      true,
@@ -80,17 +80,17 @@ if ( $custom_post_types['looks'] ) {
             )
         );
     }
-    add_action('init', 'clocky_looks');
+    add_action('init', 'woomarqt_looks');
 }
 
 if ( $custom_post_types['vacatures'] ) {
-    function clocky_vacatures() {
-        register_post_type('clocky_vacatures',
+    function woomarqt_vacatures() {
+        register_post_type('woomarqt_vacatures',
             array(
                 'labels'    =>  array(
-                    'name'              =>      __('Vacatures', 'clocky'),
-                    'singular_name'     =>      __('Vacature', 'clocky'),
-                    'add_new'           =>      __('Nieuwe vacature', 'clocky'),
+                    'name'              =>      __('Vacatures', 'woomarqt'),
+                    'singular_name'     =>      __('Vacature', 'woomarqt'),
+                    'add_new'           =>      __('Nieuwe vacature', 'woomarqt'),
                 ),
                     'public'            =>      true,
                     'has_archive'       =>      true,
@@ -99,5 +99,5 @@ if ( $custom_post_types['vacatures'] ) {
             )
         );
     }
-    add_action('init', 'clocky_vacatures');
+    add_action('init', 'woomarqt_vacatures');
 }
