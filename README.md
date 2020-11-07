@@ -1,2 +1,2 @@
-# clocky
+# Clocky
 Conversion optimized WooCommerce Template
