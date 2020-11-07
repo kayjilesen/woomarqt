@@ -3,6 +3,43 @@
  *	Functions
  */ 
 
+// Add Menu's
+function woomarqt_nav()
+{
+	wp_nav_menu(
+	array(
+		'theme_location'  => 'header-menu',
+		'menu'            => '',
+		'container'       => 'div',
+		'container_class' => 'menu-{menu slug}-container',
+		'container_id'    => '',
+		'menu_class'      => 'menu',
+		'menu_id'         => '',
+		'echo'            => true,
+		'fallback_cb'     => 'wp_page_menu',
+		'before'          => '',
+		'after'           => '',
+		'link_before'     => '',
+		'link_after'      => '',
+		'items_wrap'      => '<ul>%3$s</ul>',
+		'depth'           => 0,
+		'walker'          => ''
+		)
+	);
+}
+
+// Register Custom Blank Navigation
+function register_custom_menu()
+{
+    register_nav_menus(array( // Using array to specify more menus if needed
+        'header-menu' => __('Header Menu', 'Hoofdmenu'), // Main Navigation
+        'sidebar-menu' => __('Sidebar Menu', 'Hoofdmenu'), // Sidebar Navigation
+        'extra-menu' => __('Extra Menu', 'Hoofdmenu') // Extra Navigation if needed (duplicate as many as you need!)
+    ));
+}
+
+add_action('init', 'register_custom_menu'); // Add HTML5 Blank Menu
+
 // Tutorial Page
 function woomarqt_register_tutorials_menu_page() {
     add_menu_page(
