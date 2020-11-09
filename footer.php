@@ -25,5 +25,10 @@ $vervoerders = get_field('vervoerders', 'option');
 <?php endif; ?>
 
 <?php wp_footer(); ?>
+
+<!-- Load Heading Font -->
+<link href="https://fonts.googleapis.com/css2?family=<?php get_field('heading_font', 'option') ?>&display=swap" rel="stylesheet">
+<!-- Load Body Font -->
+<link href="https://fonts.googleapis.com/css2?family=<?php get_field('body_font', 'option') ?>&display=swap" rel="stylesheet">
 </body>
 </html>
