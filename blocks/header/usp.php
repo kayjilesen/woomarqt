@@ -1,9 +1,9 @@
-<div id="usp" class="navigation-bar lightColor">
-    <div class="innerWrapper max-w-screen-xl flex py-3 px-4 mx-auto">
+<div id="usp" class="navigation-bar lightColor w-full">
+    <div class="innerWrapper flex py-3 px-4 mx-auto <?php echo $menuStyling['width']; ?> w-full">
         <?php   
         if(!empty($uspbar['usps'])) :
             foreach($uspbar['usps'] as $usp){
-                echo '<div class="uspBlock text-sm mr-8"><i class="mr-2 ' . $usp['icon'] . '"></i>' . $usp['usp'] . '</div>';
+                echo '<div class="uspBlock flex items-center text-sm mr-8"><div class="mr-1">' . getIcon( $usp['icon'], '1.6em' ) .  '</div>' . $usp['usp'] . '</div>';
             }
         endif;
         ?>
