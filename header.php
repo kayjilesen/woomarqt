@@ -25,9 +25,9 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
     <!-- Load Heading Font -->
-    <link href="https://fonts.googleapis.com/css2?family=<?php get_field('heading-font', 'option') ?>&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=<?php get_field('heading_font', 'option') ?>&display=swap" rel="stylesheet">
     <!-- Load Body Font -->
-    <link href="https://fonts.googleapis.com/css2?family=<?php get_field('body-font', 'option') ?>&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=<?php get_field('body_font', 'option') ?>&display=swap" rel="stylesheet">
     <!-- Load Tailwind CSS CDN -->
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 
