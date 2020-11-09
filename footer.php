@@ -4,31 +4,24 @@
  */
 
 //  Define Variables
+$preset = get_field('footer_preset', 'option');
 $copyright = get_field('copyright', 'option');
 $betaalmethodes = get_field('betaalmethodes', 'option');
 $vervoerders = get_field('vervoerders', 'option');
 
+if ($preset === 'Footer 1') { ?>
+    <section class="footer container bg-gray-200">
+        <p>Test</p>
+    </section>
+<?php } else if ($preset === 'Footer 2') {
+    print_r('Footer 2');
+}
+
 ?>
 
-<?php if( have_rows('betaalmethodes', 'option') ): ?>
 
-<ul>
-
-<?php while( have_rows('betaalmethodes', 'option') ): the_row(); ?>
-    <?php print_r(the_sub_field('betaalmethodes')); ?>
-    <li><img src="/wp-content/themes/woomarqt/assets/img/payment-methods/<?php the_sub_field('title'); ?>.svg"></li>
-
-<?php endwhile; ?>
-
-</ul>
-
-<?php endif; ?>
 
 <?php wp_footer(); ?>
 
-<!-- Load Heading Font -->
-<link href="https://fonts.googleapis.com/css2?family=<?php get_field('heading_font', 'option') ?>&display=swap" rel="stylesheet">
-<!-- Load Body Font -->
-<link href="https://fonts.googleapis.com/css2?family=<?php get_field('body_font', 'option') ?>&display=swap" rel="stylesheet">
 </body>
 </html>

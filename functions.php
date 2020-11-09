@@ -65,6 +65,12 @@ if ( function_exists('acf_add_options_page') ) {
         'icon_url'		=>  'dashicons-menu-alt',
 		'position'		=>  3
     ));
+
+    acf_add_options_sub_page(array(
+		'page_title' 	=> 'Bedrijfsgegevens',
+		'menu_title'	=> 'Bedrijfsgegevens',
+		'parent_slug'	=> 'woomarqt-settings',
+    ));
     
     acf_add_options_sub_page(array(
 		'page_title' 	=> 'Header',
