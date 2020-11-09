@@ -166,6 +166,11 @@ function custom_woomarqt_styles() {
 
         wp_register_style('input', get_template_directory_uri() . '/assets/css/input.min.css', array(),  filemtime(get_theme_file_path('/assets/css/input.min.css')), 'all');
         wp_enqueue_style('input'); // Menu
+
+        if(file_exists(get_template_directory() . '/assets/css/generated.min.css')){
+            wp_register_style('generated', get_template_directory_uri() . '/assets/css/generated.min.css', array(),  filemtime(get_theme_file_path('/assets/css/generated.min.css')), 'all');
+            wp_enqueue_style('generated'); // Menu
+        }
     }
 
     if(is_admin()){
@@ -177,3 +182,27 @@ function custom_woomarqt_styles() {
 add_action('init', 'custom_woomarqt_styles'); // Add Stylesheets
 
 include 'blocks/icons.php';
+
+function generateCSS($post_ID)  {
+    $file = TEMPLATEPATH . '/assets/css/generated.min.css';
+    $content = 'Test content!';
+    if(file_exists($file)){
+        $file = fopen($file, 'w+');
+        $content = getCSSContent();
+        fputs($file, $content);
+        fclose($file);
+    } else {
+        $file = fopen($file, 'w');
+        $content = getCSSContent();
+        fputs($file, $content);
+        fclose($file);
+    }
+} 
+add_action('acf/save_post', 'generateCSS');
+
+function getCSSContent(){
+    $huisstijl = get_field('huisstijl', 'option');
+    $content = '';
+    $content .= '.priColor{background-color:' . $huisstijl['primary_color'] . ';}';
+    return $content;
+}
