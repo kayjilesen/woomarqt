@@ -175,3 +175,5 @@ function custom_woomarqt_styles() {
 }
 
 add_action('init', 'custom_woomarqt_styles'); // Add Stylesheets
+
+include 'blocks/icons.php';
