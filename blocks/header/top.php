@@ -1,5 +1,5 @@
-<div id="top" class="navigation-bar <?php if($topbar['sticky_topbar']) echo 'sticky'; ?> w-full">
-    <div class="flex justify-between items-center px-4 py-1 md:justify-start md:space-x-10 mx-auto <?php echo $menuStyling['width']; ?> w-full">
+<div id="top" class="navigation-bar <?php if($topbar['sticky_topbar']) echo 'sticky'; ?> w-full <?php echo ( $topbar['styling']['height'] === 'auto' ? '' : 'h-' . $topbar['styling']['height'] ); ?>">
+    <div class="flex justify-between items-center py-<?php echo $topbar['styling']['padding_y']; ?> px-<?php echo $topbar['styling']['padding_x']; ?> md:justify-start md:space-x-10 mx-auto <?php echo $menuStyling['width']; ?> w-full">
         <?php
             if(!empty($topbarOptions['text'])) :
         

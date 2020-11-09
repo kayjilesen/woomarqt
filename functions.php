@@ -181,11 +181,11 @@ function custom_woomarqt_styles() {
 
 add_action('init', 'custom_woomarqt_styles'); // Add Stylesheets
 
-include 'blocks/icons.php';
+include 'blocks/functions/icons.php';
+include 'blocks/functions/css.php';
 
 function generateCSS($post_ID)  {
     $file = TEMPLATEPATH . '/assets/css/generated.min.css';
-    $content = 'Test content!';
     if(file_exists($file)){
         $file = fopen($file, 'w+');
         $content = getCSSContent();
@@ -199,10 +199,3 @@ function generateCSS($post_ID)  {
     }
 } 
 add_action('acf/save_post', 'generateCSS');
-
-function getCSSContent(){
-    $huisstijl = get_field('huisstijl', 'option');
-    $content = '';
-    $content .= '.priColor{background-color:' . $huisstijl['primary_color'] . ';}';
-    return $content;
-}
