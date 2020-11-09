@@ -7,5 +7,10 @@ header {
             flex-direction: row;
             flex-wrap: wrap;
         }
+        .logoCol {
+            img {
+                max-height: 50px;
+            }
+        }
     }
 }
