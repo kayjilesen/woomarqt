@@ -34,7 +34,7 @@ function register_custom_menu()
     register_nav_menus(array( // Using array to specify more menus if needed
         'header-menu' => __('Header Menu', 'Hoofdmenu'), // Main Navigation
         'sidebar-menu' => __('Sidebar Menu', 'Hoofdmenu'), // Sidebar Navigation
-        'extra-menu' => __('Extra Menu', 'Hoofdmenu') // Extra Navigation if needed (duplicate as many as you need!)
+        'extra-menu' => __('Extra Menu', 'Hoofdmenu')
     ));
 }
 
