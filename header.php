@@ -4,7 +4,9 @@
  */
 
 //  Define Variables
+$menuOrder = get_field('menu_order', 'option');
 $topbar = get_field('topbar', 'option');
+$topbarOptions = get_field('topbar_options', 'option');
 $header = get_field('head', 'option');
 $subbar = get_field('subbar', 'option');
 $uspbar = get_field('usp', 'option');
@@ -34,14 +36,15 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
     <header>
         <?php
 
+            if(!$menuOrder['default_order'] && $menuOrder['usps_on_top'] && $uspbar['show_usps']) include 'blocks/header/usp.php';
             // Show Topbar when Active
             if($topbar['show_topbar']) include 'blocks/header/top.php';
             // Show Head - Default = Active
             include 'blocks/header/head.php';
             // Show Subbar when Active
-            if($subbar['show_subbar']) include 'blocks/header/top.php';
+            if($subbar['show_subbar']) include 'blocks/header/sub.php';
             // Show USP's - Default = Active
-            include 'blocks/header/usp.php';
+            if( ( $menuOrder['default_order'] || ( !$menuOrder['default_order'] && !$menuOrder['usps_on_top'] )) && $uspbar['show_usps']) include 'blocks/header/usp.php';
 
         ?>
     </header>

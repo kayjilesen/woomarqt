@@ -8,7 +8,7 @@
 <div id="head" class="navigation-bar priColor <?php if($header['sticky_head']) echo 'sticky'; ?>">
 
     <div class="navbar-nav max-w-7xl mx-auto px-4 sm:px-6m max-w-screen-xl">
-        <div class="flex justify-between items-center py-3 md:justify-start md:space-x-10">
+        <div class="flex justify-between items-center py-2 md:justify-start md:space-x-10">
             <div class="hidden md:flex items-center justify-start space-x-8 md:flex-1 lg:w-0 logoCol">
                 <?php  if(!empty($huisstijl['logo'])) echo ($header['kleur_logo'] ? '<img src="' . $huisstijl['logo']['url'] . '" alt="' . $huisstijl['logo']['alt'] . '">' : '<img src="' . $huisstijl['logo_light']['url'] . '" alt="' . $huisstijl['logo_light']['alt'] . '">' ); ?>
             </div>
