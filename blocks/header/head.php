@@ -5,21 +5,21 @@
 
 ?>
 
-<div id="head" class="navigation-bar priColor <?php if($header['sticky_head']) echo 'sticky '; ?><?php echo $header['custom_volgorde'] . ' '; ?>">
+<div id="head" class="navigation-bar priColor <?php if($header['sticky_head']) echo 'sticky '; ?><?php echo $header['custom_volgorde'] . ( $header['styling']['height'] === 'auto' ? '' : 'h-' . $header['styling']['height'] ); ?> items-center flex flex-row w-full">
 
-    <div class="navbar-nav max-w-7xl mx-auto px-4 sm:px-6m max-w-screen-xl">
-        <div class="flex justify-between items-center py-2 md:justify-start md:space-x-10">
-            <div class="md:flex items-center justify-start space-x-8 md:flex-1 lg:w-0 logoCol">
-                <?php  if(!empty($huisstijl['logo'])) echo ($header['kleur_logo'] ? '<img src="' . $huisstijl['logo']['url'] . '" alt="' . $huisstijl['logo']['alt'] . '">' : '<img src="' . $huisstijl['logo_light']['url'] . '" alt="' . $huisstijl['logo_light']['alt'] . '">' ); ?>
+    <div class="navbar-nav mx-auto px-4 sm:px-6m <?php echo $menuStyling['width']; ?> w-full">
+        <div class="flex justify-between items-center py-<?php echo $header['styling']['padding_y']; ?> px-<?php echo $header['styling']['padding_x']; ?> md:justify-start md:space-x-10">
+            <div class="md:flex items-center justify-start space-x-8 md:flex-1 lg:w-3/12 logoCol">
+                <?php  if(!empty($huisstijl['logo'])) echo '<a href="' . home_url() . '">' . ($header['kleur_logo'] ? '<img src="' . $huisstijl['logo']['url'] . '" alt="' . $huisstijl['logo']['alt'] . '">' : '<img src="' . $huisstijl['logo_light']['url'] . '" alt="' . $huisstijl['logo_light']['alt'] . '">' ) . '</a>'; ?>
             </div>
-            <nav class="md:flex space-x-10 menuCol">
+            <nav class="md:flex space-x-10 menuCol lg:w-6/12 justify-center">
                 <?php
                     for($i = 0; $i < count($menuitems); $i++){
                         if($menuitems[$i]->menu_item_parent == 0){
                             $firstChild = true;
                             echo ($firstParent == true ? $firstParent = false : '</div>');
                             echo '<div class="nav-item ' . ($i < (count($menuitems)-1)?($menuitems[$i + 1]->menu_item_parent != 0 ? 'dropdown' : ''):'') . ($menuitems[$i]->title == 'Contact' ? 'contact ' : '') . (get_the_title() ===  $menuitems[$i]->title ? 'active' : '') . '">';
-                                echo '<a title="Hous Pagina ' . $menuitems[$i]->title . '" href="' .  $menuitems[$i]->url . '" class="nav-link title">';
+                                echo '<a title="' . get_bloginfo( ) . ' Pagina ' . $menuitems[$i]->title . '" href="' .  $menuitems[$i]->url . '" class="nav-link title">';
                                     echo '<h3>' .  $menuitems[$i]->title . ($i < (count($menuitems)-1)?($menuitems[$i + 1]->menu_item_parent != 0 ? '<i class="fas fa-chevron-down"></i>' : ''): '') . '</h3>';
                                 echo '</a>';
                         } else {
@@ -27,14 +27,14 @@
                                 $firstChild = false;
                                 echo '<div class="dropdown-menu">';
                             }
-                            echo '<a class="dropdown-item" title="Hous Pagina ' . $menuitems[$i]->title . '" href="' . $menuitems[$i]->url . '"><h6>' . $menuitems[$i]->title . '</h6></a>';
+                            echo '<a class="dropdown-item" title="' . get_bloginfo(  ) . ' Pagina ' . $menuitems[$i]->title . '" href="' . $menuitems[$i]->url . '"><h6>' . $menuitems[$i]->title . '</h6></a>';
                             echo ($menuitems[$i + 1]->menu_item_parent == 0 ? '</div>' : '');
                         }
                     }
                     echo '</div>';
                 ?> 
                 </nav>
-                <div class="md:flex items-center justify-end space-x-8 md:flex-1 lg:w-0 searchCol">
+                <div class="md:flex items-center justify-end space-x-8 md:flex-1 lg:w-3/12 searchCol">
                     <?php if($header['show_searchbar']) echo '<input type="text" name="search" placeholder="" value="">'; ?>
                 </div>
             </div>

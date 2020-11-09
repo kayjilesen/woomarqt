@@ -5,6 +5,7 @@
 
 //  Define Variables
 $menuOrder = get_field('menu_order', 'option');
+$menuStyling = get_field('menu_styling', 'option');
 $topbar = get_field('topbar', 'option');
 $topbarOptions = get_field('topbar_options', 'option');
 $header = get_field('head', 'option');
