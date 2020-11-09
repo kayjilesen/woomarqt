@@ -12,7 +12,7 @@
             <div class="md:flex items-center justify-start space-x-8 md:flex-1 lg:w-3/12 logoCol">
                 <?php  if(!empty($huisstijl['logo'])) echo '<a href="' . home_url() . '">' . ($header['kleur_logo'] ? '<img src="' . $huisstijl['logo']['url'] . '" alt="' . $huisstijl['logo']['alt'] . '">' : '<img src="' . $huisstijl['logo_light']['url'] . '" alt="' . $huisstijl['logo_light']['alt'] . '">' ) . '</a>'; ?>
             </div>
-            <nav class="md:flex space-x-10 menuCol lg:w-6/12 justify-center">
+            <nav class="hidden md:flex space-x-10 menuCol lg:w-6/12 justify-center">
                 <?php
                     for($i = 0; $i < count($menuitems); $i++){
                         if($menuitems[$i]->menu_item_parent == 0){

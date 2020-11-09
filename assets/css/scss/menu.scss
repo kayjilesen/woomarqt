@@ -2,11 +2,6 @@
 
 header {
     #head {
-        nav {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
         .logoCol {
             img {
                 max-height: 50px;
@@ -14,15 +9,7 @@ header {
         }
 
         &.lsmi {
-            .logoCol {
-                order: 1;
-            }
-            .menuCol {
-                order: 3;
-            }
-            .searchCol {
-                order: 2;
-            }
+
         }
         &.lmsi {
             .logoCol {

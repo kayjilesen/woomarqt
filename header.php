@@ -37,7 +37,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
     <header>
         <?php
 
-            if(!$menuOrder['default_order'] && $menuOrder['usps_on_top'] && $uspbar['show_usps']) include 'blocks/header/usp.php';
+            if($menuOrder === 'uths' && $uspbar['show_usps']) include 'blocks/header/usp.php';
             // Show Topbar when Active
             if($topbar['show_topbar']) include 'blocks/header/top.php';
             // Show Head - Default = Active
@@ -45,7 +45,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
             // Show Subbar when Active
             if($subbar['show_subbar']) include 'blocks/header/sub.php';
             // Show USP's - Default = Active
-            if( ( $menuOrder['default_order'] || ( !$menuOrder['default_order'] && !$menuOrder['usps_on_top'] )) && $uspbar['show_usps']) include 'blocks/header/usp.php';
+            if($menuOrder === 'thsu' && $uspbar['show_usps']) include 'blocks/header/usp.php';
 
         ?>
     </header>
