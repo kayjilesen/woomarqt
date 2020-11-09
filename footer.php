@@ -13,21 +13,35 @@ $toon_vervoerders = get_field('toon_vervoerders', 'option');
 $toon_contact = get_field('toon_contact', 'option');
 $toon_klantenservice = get_field('toon_klantenservice', 'option');
 
-if ($toon_widgets) { ?>
-    <section class="footer container bg-gray-200 grid-cols-4 gap-8 grid-flow-row">
-        <?php if ($toon_contact) { ?>
-            <div class="col-auto">
-                <p>Toon contact</p>
-            </div>
+?>
+
+<footer>
+    <section id="footer" class="w-full bg-gray-200">
+    <?php if ($toon_widgets) { ?>
+        <div id="footer-widgets" class="py-10 mx-auto max-w-screen-sm max-w-screen-md max-w-screen-lg max-w-screen-xl grid grid-cols-4">
+            <?php if ($toon_contact) { ?>
+                <div class="col-auto">
+                    <h5>Contact</h5>
+                </div>
+            <?php } ?>
+            <?php if ($toon_klantenservice) { ?>
+                <div class="col-auto">
+                    <h5>Klantenservice</h5>
+                </div>
+            <?php } ?>
+        </div>
         <?php } ?>
-        <?php if ($toon_klantenservice) { ?>
-            <div class="col-auto">
-                <p>Toon klantenservice</p>
-            </div>
+        <?php if ($toon_copyright) { ?>
+        <div id="footer-copyright" class="py-10 mx-auto max-w-screen-sm max-w-screen-md max-w-screen-lg max-w-screen-xl grid">
+            <?php if ($toon_contact) { ?>
+                <div class="col-auto">
+                    <p>Copyright &copy; <?php echo date("Y") . " " . get_bloginfo('name') . " | " . "powered by <a href='#'>WooMarqt</a>" ?></p>
+                </div>
+            <?php } ?>
+        </div>
         <?php } ?>
     </section>
-<?php } ?>
-
+</footer>
 
 
 <?php wp_footer(); ?>
