@@ -7,21 +7,6 @@ header {
                 max-height: 50px;
             }
         }
-
-        &.lsmi {
-
-        }
-        &.lmsi {
-            .logoCol {
-                order: 1;
-            }
-            .menuCol {
-                order: 2;
-            }
-            .searchCol {
-                order: 3;
-            }
-        }
     }
 }
 

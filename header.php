@@ -36,7 +36,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
 <body <?php body_class(); ?>>
     <header>
         <?php
-
+            // Show USP's - When First
             if($menuOrder === 'uths' && $uspbar['show_usps']) include 'blocks/header/usp.php';
             // Show Topbar when Active
             if($topbar['show_topbar']) include 'blocks/header/top.php';
@@ -44,7 +44,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
             include 'blocks/header/head.php';
             // Show Subbar when Active
             if($subbar['show_subbar']) include 'blocks/header/sub.php';
-            // Show USP's - Default = Active
+            // Show USP's - Default = Active - When First
             if($menuOrder === 'thsu' && $uspbar['show_usps']) include 'blocks/header/usp.php';
 
         ?>
