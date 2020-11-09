@@ -3,6 +3,9 @@
  *	Functions
  */ 
 
+include 'functions/icons.php';
+include 'functions/css.php';
+
 // Add Menu's
 function woomarqt_nav()
 {
@@ -180,9 +183,6 @@ function custom_woomarqt_styles() {
 }
 
 add_action('init', 'custom_woomarqt_styles'); // Add Stylesheets
-
-include 'blocks/functions/icons.php';
-include 'blocks/functions/css.php';
 
 function generateCSS($post_ID)  {
     $file = TEMPLATEPATH . '/assets/css/generated.min.css';
