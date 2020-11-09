@@ -5,14 +5,14 @@
 
 ?>
 
-<div id="head" class="navigation-bar priColor <?php if($header['sticky_head']) echo 'sticky'; ?>">
+<div id="head" class="navigation-bar priColor <?php if($header['sticky_head']) echo 'sticky '; ?><?php echo $header['custom_volgorde'] . ' '; ?>">
 
     <div class="navbar-nav max-w-7xl mx-auto px-4 sm:px-6m max-w-screen-xl">
         <div class="flex justify-between items-center py-2 md:justify-start md:space-x-10">
-            <div class="hidden md:flex items-center justify-start space-x-8 md:flex-1 lg:w-0 logoCol">
+            <div class="md:flex items-center justify-start space-x-8 md:flex-1 lg:w-0 logoCol">
                 <?php  if(!empty($huisstijl['logo'])) echo ($header['kleur_logo'] ? '<img src="' . $huisstijl['logo']['url'] . '" alt="' . $huisstijl['logo']['alt'] . '">' : '<img src="' . $huisstijl['logo_light']['url'] . '" alt="' . $huisstijl['logo_light']['alt'] . '">' ); ?>
             </div>
-            <nav class="hidden md:flex space-x-10 menuCol">
+            <nav class="md:flex space-x-10 menuCol">
                 <?php
                     for($i = 0; $i < count($menuitems); $i++){
                         if($menuitems[$i]->menu_item_parent == 0){
@@ -34,7 +34,7 @@
                     echo '</div>';
                 ?> 
                 </nav>
-                <div class="hidden md:flex items-center justify-end space-x-8 md:flex-1 lg:w-0 searchCol">
+                <div class="md:flex items-center justify-end space-x-8 md:flex-1 lg:w-0 searchCol">
                     <?php if($header['show_searchbar']) echo '<input type="text" name="search" placeholder="" value="">'; ?>
                 </div>
             </div>
