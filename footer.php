@@ -13,11 +13,12 @@ $footer_carriers            =   get_field('footer_carriers', 'option');
 ?>
 
 <footer id="footer" class="w-full">
-    <?php print_r($footer_settings['show_usps']); ?>
     <?php if ($footer_settings['show_usps']) { ?>
 
         <section id="footer-usps" class="w-full">
-            <div class="py8 mx-auto max-w-screen-sm max-w-screen-md max-w-screen-lg max-w-screen-xl"></div>
+            <div class="py8 mx-auto max-w-screen-sm max-w-screen-md max-w-screen-lg max-w-screen-xl">
+                <p>Hier komen USP's</p>
+            </div>
         </section>
 
     <?php } ?>
@@ -52,12 +53,12 @@ $footer_carriers            =   get_field('footer_carriers', 'option');
 
                 <?php if ($footer_settings['show_payment_methods']) { ?>
                     <div class="inline-flex flex-auto">
-                        <?php if ($footer_payment_methods['ideal']) { ?>
+                        <?php if ($footer_payment_methods['payment_methods']['ideal']) { ?>
                             <svg height="35">
                                 <image href="https://woomarqt.nl/wp-content/themes/woomarqt/assets/img/payment-methods/ideal.svg" height="35" />
                             </svg>
                         <?php } ?>
-                        <?php if ($footer_payment_methods['paypal']) { ?>
+                        <?php if ($footer_payment_methods['payment_methods']['paypal']) { ?>
                             <svg height="35">
                                 <image href="https://woomarqt.nl/wp-content/themes/woomarqt/assets/img/payment-methods/paypal.svg" height="35" />
                             </svg>
