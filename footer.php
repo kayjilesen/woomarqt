@@ -13,6 +13,7 @@ $footer_carriers            =   get_field('footer_carriers', 'option');
 ?>
 
 <footer id="footer" class="w-full">
+    <?php print_r($footer_settings['show_usps']); ?>
     <?php if ($footer_settings['show_usps']) { ?>
 
         <section id="footer-usps" class="w-full">
