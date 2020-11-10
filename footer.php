@@ -3,76 +3,72 @@
  *	Footer
  */
 
-//  Define Variables
-$toon_usps = get_field('toon_usps', 'option');
-$usps_overnemen = get_field('usps_overnemen', 'option');
-$toon_widgets = get_field('toon_widgets', 'option');
-$toon_copyright = get_field('toon_copyright', 'option');
-$toon_betaalmethodes = get_field('toon_betaalmethodes', 'option');
-$betaalmethodes = get_field('betaalmethodes', 'option');
-$toon_vervoerders = get_field('toon_vervoerders', 'option');
-$toon_contact = get_field('toon_contact', 'option');
-$toon_klantenservice = get_field('toon_klantenservice', 'option');
+$footer_settings            =   get_field('footer_settings', 'option');
+$footer_usps                =   get_field('footer_usps', 'option');
+$footer_widgets             =   get_field('footer_widgets', 'option');
+$footer_copyright           =   get_field('footer-copyright', 'option');
+$footer_payment_methods     =   get_field('footer_payment_methods', 'option');
+$footer_carriers            =   get_field('footer_carriers', 'option');
 
 ?>
 
 <footer id="footer" class="w-full">
-    <section id="footer-widgets" class="w-full">
-        <?php if ($toon_widgets) { ?>
+    <?php if ($footer_settings['show_usps']) { ?>
+
+        <section id="footer-usps" class="w-full">
+            <div class="py8 mx-auto max-w-screen-sm max-w-screen-md max-w-screen-lg max-w-screen-xl"></div>
+        </section>
+
+    <?php } ?>
+
+    <?php if ($footer_settings['show_widgets']) { ?>
+
+        <section id="footer-widgets" class="w-full">
             <div class="py-10 mx-auto max-w-screen-sm max-w-screen-md max-w-screen-lg max-w-screen-xl grid grid-cols-4">
-                <?php if ($toon_contact) { ?>
+                <?php if ($footer_settings['show_contact']) { ?>
                     <div class="col-auto">
                         <h5>Contact</h5>
                     </div>
                 <?php } ?>
-                <?php if ($toon_klantenservice) { ?>
+
+                <?php if ($footer_settings['show_service']) { ?>
                     <div class="col-auto">
                         <h5>Klantenservice</h5>
                     </div>
                 <?php } ?>
             </div>
-        <?php } ?>
-    </section>
+        </section>
 
-    <section id="footer-copyright" class="w-full">
-        <?php if ($toon_copyright) { ?>
+    <?php } ?>
+
+    <?php if ($footer_settings['show_copyright']) { ?>
+
+        <section id="footer-copyright" class="w-full">
             <div class="py-6 mx-auto max-w-screen-sm max-w-screen-md max-w-screen-lg max-w-screen-xl grid grid-cols-2 text-sm">
-                <?php if ($toon_copyright) { ?>
-                    <div class="col-auto">
-                        <p>Copyright &copy; <?php echo date("Y") . " " . get_bloginfo('name') . " | " . "powered by <a href='#'>WooMarqt</a>" ?></p>
-                    </div>
-                <?php } ?>
+                <div class="col-auto">
+                    <p>Copyright &copy; <?php echo date("Y") . " " . get_bloginfo('name') . " | " . "powered by <a href='#'>WooMarqt</a>" ?></p>
+                </div>
 
-                <?php if ($toon_betaalmethodes) { ?>
+                <?php if ($footer_payment_methods) { ?>
                     <div class="inline-flex flex-auto">
-                        <div class="">
-                            <?php if ($betaalmethodes['ideal']) { ?>
-                                <svg height="35">
-                                    <image href="https://woomarqt.nl/wp-content/themes/woomarqt/assets/img/payment-methods/ideal.svg" height="35" />
-                                </svg>
-                            <?php } ?>
-                        </div>
-                        <div class="">
-                            <?php if ($betaalmethodes['paypal']) { ?>
-                                <svg height="35">
-                                    <image href="https://woomarqt.nl/wp-content/themes/woomarqt/assets/img/payment-methods/paypal.svg" height="35" />
-                                </svg>
-                            <?php } ?>
-                        </div>
-                        <div class="">
-                            <?php if ($betaalmethodes['creditcard']) { ?>
-                                <svg height="35">
-                                    <image href="https://woomarqt.nl/wp-content/themes/woomarqt/assets/img/payment-methods/creditcard.svg" height="35" />
-                                </svg>
-                            <?php } ?>
-                        </div>
+                        <?php if ($payment_methods['ideal']) { ?>
+                            <svg height="35">
+                                <image href="https://woomarqt.nl/wp-content/themes/woomarqt/assets/img/payment-methods/ideal.svg" height="35" />
+                            </svg>
+                        <?php } ?>
+                        <?php if ($payment_methods['paypal']) { ?>
+                            <svg height="35">
+                                <image href="https://woomarqt.nl/wp-content/themes/woomarqt/assets/img/payment-methods/paypal.svg" height="35" />
+                            </svg>
+                        <?php } ?>
                     </div>
                 <?php } ?>
             </div>
-        <?php } ?>
-    </section>
-</footer>
+        </section>
 
+    <?php } ?>
+
+</footer>
 
 <?php wp_footer(); ?>
 

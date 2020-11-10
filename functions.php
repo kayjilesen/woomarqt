@@ -184,18 +184,18 @@ function custom_woomarqt_styles() {
 
 add_action('init', 'custom_woomarqt_styles'); // Add Stylesheets
 
-function generateCSS($post_ID)  {
+function generate_css($post_ID)  {
     $file = TEMPLATEPATH . '/assets/css/generated.min.css';
     if(file_exists($file)){
         $file = fopen($file, 'w+');
-        $content = getCSSContent();
+        $content = get_css_content();
         fputs($file, $content);
         fclose($file);
     } else {
         $file = fopen($file, 'w');
-        $content = getCSSContent();
+        $content = get_css_content();
         fputs($file, $content);
         fclose($file);
     }
 } 
-add_action('acf/save_post', 'generateCSS');
+add_action('acf/save_post', 'generate_css');

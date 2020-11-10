@@ -1,11 +1,19 @@
 <?php
 
-function getCSSContent(){
+function get_css_content(){
     $huisstijl = get_field('huisstijl', 'option');
     $header = get_field('head', 'option');
     $topbar = get_field('topbar', 'option');
     $subbar = get_field('topbar', 'option');
     $uspbar = get_field('usp', 'option');
+
+    // Footer Variables
+    $footer_settings            =   get_field('footer_settings', 'option');
+    $footer_usps                =   get_field('footer_usps', 'option');
+    $footer_widgets             =   get_field('footer_widgets', 'option');
+    $footer_copyright           =   get_field('footer-copyright', 'option');
+    $footer_payment_methods     =   get_field('footer_payment_methods', 'option');
+    $footer_carriers            =   get_field('footer_carriers', 'option');
 
     $content = '/* Generated CSS file based on Theme Settings */';
 
@@ -18,8 +26,8 @@ function getCSSContent(){
     if($uspbar['show_usps']) $content .= '#usp{background-color:' . $uspbar['styling']['background_color'] . ';color:' . $uspbar['styling']['text_color'] . '}#usp svg{color: ' . $uspbar['icon_color'] . ';}';
 
     // Footer CSS
-    $content .= '#footer-widgets{background-color:' . get_field('widgets_achtergrondkleur', 'option') . ';}';
-    $content .= '#footer-copyright{background-color:' . get_field('copyright_achtergrondkleur', 'option') . ';}';
+    $content .= '#footer-widgets{background-color:' . get_field($footer_widgets['background_color'], 'option') . ';}';
+    $content .= '#footer-copyright{background-color:' . get_field($footer_copyright['background_color'], 'option') . ';}';
     
     return $content;
 }
