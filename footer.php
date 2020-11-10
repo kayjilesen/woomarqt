@@ -6,7 +6,7 @@
 $footer_settings            =   get_field('footer_settings', 'option');
 $footer_usps                =   get_field('footer_usps', 'option');
 $footer_widgets             =   get_field('footer_widgets', 'option');
-$footer_copyright           =   get_field('footer-copyright', 'option');
+$footer_copyright           =   get_field('footer_copyright', 'option');
 $footer_payment_methods     =   get_field('footer_payment_methods', 'option');
 $footer_carriers            =   get_field('footer_carriers', 'option');
 
