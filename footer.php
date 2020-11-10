@@ -52,8 +52,6 @@ $footer_carriers            =   get_field('footer_carriers', 'option');
                 </div>
 
                 <?php if ($footer_settings['show_payment_methods']) { ?>
-                    <div class="inline-flex flex-auto">
-                    <?php print_r($footer_payment_methods['payment_methods']['ideal']); ?>
                         <?php if ($footer_payment_methods['payment_methods']['ideal']) { ?>
                             <svg height="35">
                                 <image href="https://woomarqt.nl/wp-content/themes/woomarqt/assets/img/payment-methods/ideal.svg" height="35" />
@@ -64,7 +62,6 @@ $footer_carriers            =   get_field('footer_carriers', 'option');
                                 <image href="https://woomarqt.nl/wp-content/themes/woomarqt/assets/img/payment-methods/paypal.svg" height="35" />
                             </svg>
                         <?php } ?>
-                    </div>
                 <?php } ?>
             </div>
         </section>
