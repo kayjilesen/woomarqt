@@ -26,6 +26,7 @@ function get_css_content(){
     if($uspbar['show_usps']) $content .= '#usp{background-color:' . $uspbar['styling']['background_color'] . ';color:' . $uspbar['styling']['text_color'] . '}#usp svg{color: ' . $uspbar['icon_color'] . ';}';
 
     // Footer CSS
+    $content .= '#footer-usps{background-color:' . get_field($footer_usps['background_color'], 'option') . ';}';
     $content .= '#footer-widgets{background-color:' . get_field($footer_widgets['background_color'], 'option') . ';}';
     $content .= '#footer-copyright{background-color:' . get_field($footer_copyright['background_color'], 'option') . ';}';
     
