@@ -44,10 +44,28 @@ $toon_klantenservice = get_field('toon_klantenservice', 'option');
                 <?php } ?>
 
                 <?php if ($toon_betaalmethodes) { ?>
-                    <div class="col-auto">
-                        <?php if ($betaalmethodes['ideal']) { ?>
-                            <img src="/wp-content/themes/woomarqt/assets/img/payment-methods/ideal.svg">
-                        <?php } ?>
+                    <div class="inline-flex flex-auto">
+                        <div class="">
+                            <?php if ($betaalmethodes['ideal']) { ?>
+                                <svg height="35">
+                                    <image href="https://woomarqt.nl/wp-content/themes/woomarqt/assets/img/payment-methods/ideal.svg" height="35" />
+                                </svg>
+                            <?php } ?>
+                        </div>
+                        <div class="">
+                            <?php if ($betaalmethodes['paypal']) { ?>
+                                <svg height="35">
+                                    <image href="https://woomarqt.nl/wp-content/themes/woomarqt/assets/img/payment-methods/paypal.svg" height="35" />
+                                </svg>
+                            <?php } ?>
+                        </div>
+                        <div class="">
+                            <?php if ($betaalmethodes['creditcard']) { ?>
+                                <svg height="35">
+                                    <image href="https://woomarqt.nl/wp-content/themes/woomarqt/assets/img/payment-methods/creditcard.svg" height="35" />
+                                </svg>
+                            <?php } ?>
+                        </div>
                     </div>
                 <?php } ?>
             </div>
