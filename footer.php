@@ -26,13 +26,13 @@ $footer_carriers            =   get_field('footer_carriers', 'option');
 
         <section id="footer-widgets" class="w-full">
             <div class="py-10 mx-auto max-w-screen-sm max-w-screen-md max-w-screen-lg max-w-screen-xl grid grid-cols-4">
-                <?php if ($footer_settings['show_contact']) { ?>
+                <?php if ($footer_widgets['show_contact']) { ?>
                     <div class="col-auto">
                         <h5>Contact</h5>
                     </div>
                 <?php } ?>
 
-                <?php if ($footer_settings['show_service']) { ?>
+                <?php if ($footer_widgets['show_service']) { ?>
                     <div class="col-auto">
                         <h5>Klantenservice</h5>
                     </div>
@@ -50,14 +50,14 @@ $footer_carriers            =   get_field('footer_carriers', 'option');
                     <p>Copyright &copy; <?php echo date("Y") . " " . get_bloginfo('name') . " | " . "powered by <a href='#'>WooMarqt</a>" ?></p>
                 </div>
 
-                <?php if ($footer_payment_methods) { ?>
+                <?php if ($footer_settings['show_payment_methods']) { ?>
                     <div class="inline-flex flex-auto">
-                        <?php if ($payment_methods['ideal']) { ?>
+                        <?php if ($footer_payment_methods['ideal']) { ?>
                             <svg height="35">
                                 <image href="https://woomarqt.nl/wp-content/themes/woomarqt/assets/img/payment-methods/ideal.svg" height="35" />
                             </svg>
                         <?php } ?>
-                        <?php if ($payment_methods['paypal']) { ?>
+                        <?php if ($footer_payment_methods['paypal']) { ?>
                             <svg height="35">
                                 <image href="https://woomarqt.nl/wp-content/themes/woomarqt/assets/img/payment-methods/paypal.svg" height="35" />
                             </svg>
