@@ -26,9 +26,9 @@ function get_css_content(){
     if($uspbar['show_usps']) $content .= '#usp{background-color:' . $uspbar['styling']['background_color'] . ';color:' . $uspbar['styling']['text_color'] . '}#usp svg{color: ' . $uspbar['icon_color'] . ';}';
 
     // Footer CSS
-    $content .= '#footer-usps{background-color:' . $footer_usps['background_color'] . ';}';
-    $content .= '#footer-widgets{background-color:' . $footer_widgets['background_color'] . ';}';
-    $content .= '#footer-copyright{background-color:' . $footer_copyright['background_color'] . ';}';
+    $content .= '#footer-usps{ background-color: ' . $footer_usps['background_color'] . ';}';
+    $content .= '#footer-widgets{ background-color: ' . $footer_widgets['background_color'] . ';}';
+    $content .= '#footer-copyright{ background-color: ' . $footer_copyright['background_color'] . ';}';
     
     return $content;
 }
