@@ -37,7 +37,6 @@ $footer_carriers            =   get_field('footer_carriers', 'option');
                     <div class="">
                         <h5 class="mb-4 text-xl">Klantenservice</h5>
                         <?php
-                            print_r($footer_widgets['service_menu']);
                             if ($footer_widgets['service_menu']) :
                                 ?> <ul> <?php
                                     foreach ($footer_widgets['service_menu'] as $page => $page_value) {
