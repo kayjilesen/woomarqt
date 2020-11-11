@@ -29,19 +29,18 @@ $footer_carriers            =   get_field('footer_carriers', 'option');
             <div class="py-10 mx-auto max-w-screen-sm max-w-screen-md max-w-screen-lg max-w-screen-xl grid grid-cols-4">
                 <?php if ($footer_widgets['show_contact']) { ?>
                     <div class="">
-                        <h5>Contact</h5>
+                        <h5 class="mb-4">Contact</h5>
                     </div>
                 <?php } ?>
 
                 <?php if ($footer_widgets['show_service']) { ?>
                     <div class="">
-                        <h5>Klantenservice</h5>
+                        <h5 class="mb-4">Klantenservice</h5>
                         <?php
-                            // print_r($footer_widgets['service_menu']);
                             if ($footer_widgets['service_menu']) :
                                 ?> <ul> <?php
-                                    foreach ($footer_widgets['service_menu'] as $page) {
-                                        print_r($page['page']);
+                                    foreach ($footer_widgets['service_menu'] as $page => $page_value) {
+                                        ?> <li class="mb-2"><a href="<?php echo esc_url(get_permalink($page_value['page']->ID)) ?>"> <?php echo $page_value['page']->post_title; ?> </a></li> <?php
                                     }
                                 ?> </ul> <?php
                             endif;
