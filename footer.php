@@ -40,9 +40,12 @@ $footer_carriers            =   get_field('footer_carriers', 'option');
                             print_r($footer_widgets['service_menu']);
                             if ($footer_widgets['service_menu']) :
                                 ?> <ul> <?php
-                                    foreach ($footer_widgets['service_menu'] as $page => $page_value) {
-                                        ?> <li class="mb-2"><a href="<?php echo esc_url(get_permalink($page_value['page']->ID)) ?>"> <?php echo $page_value['page']->post_title; ?> </a></li> <?php
+                                    foreach ($footer_widgets['service_menu'] as $page) {
+                                        ?> <li class="mb-2"><a href="<?php echo esc_url(get_permalink($page['page']->ID)) ?>"> <?php echo $page['page']->post_title; ?> </a></li> <?php
                                     }
+                                    // foreach ($footer_widgets['service_menu'] as $page => $page_value) {
+                                    //     ?> <li class="mb-2"><a href="<?php echo esc_url(get_permalink($page_value['page']->ID)) ?>"> <?php echo $page_value['page']->post_title; ?> </a></li> <?php
+                                    // }
                                 ?> </ul> <?php
                             endif;
                         ?>
