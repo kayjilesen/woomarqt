@@ -18,13 +18,13 @@
         if($layout['acf_fc_layout'] === 'producten'){
             echo '<section id="block' . $blockIndex . '" class="product bg-gray-300 py-' . $layout['styling']['padding_y'] . ' px-' . $layout['styling']['padding_x'] . '">';
                 echo '<div class="row ' . $layout['styling']['width'] . ' mx-auto">';       
-                    echo 'test';
+                    echo 'Product blok!';
                 echo '</div>';
             echo '</section>';
         }
         if($layout['acf_fc_layout'] === 'custom'){
 
-            echo '<section id="block' . $blockIndex . '" class="custom bg-gray-300 py-' . $layout['styling']['padding_y'] . ' px-' . $layout['styling']['padding_x'] . '">';
+            echo '<section id="block' . $blockIndex . '" class="custom bg-gray-600 py-' . $layout['styling']['padding_y'] . ' px-' . $layout['styling']['padding_x'] . '">';
                 echo '<div class="row flex flex-wrap ' . $layout['styling']['width'] . ' mx-auto">';     
                     foreach($layout['kolommen'] as $kolom){
                         echo '<div class="column lg:' . $kolom['breedte'] . ' flex flex-col">';
@@ -37,9 +37,9 @@
                                             echo '<' . $content['type'] . '>' . $content['tekst'] . '</' . $content['type'] . '>';
                                         } else if($content['acf_fc_layout'] === 'cta'){
                                             if($content['type'] === 'button'){
-                                                echo '<a class="button" href="' . $content['link'] . '">' . $content['tekst'] . '</a>';
+                                                echo '<a class="button" href="' . $content['link']['url'] . '">' . $content['tekst'] . '</a>';
                                             } else if($content['type'] === 'text'){
-                                                echo '<a class="text" href="' . $content['link'] . '">' . $content['tekst'] . '</a>';
+                                                echo '<a class="text" href="' . $content['link']['url'] . '">' . $content['tekst'] . '</a>';
                                             }
                                         }
                                     }
