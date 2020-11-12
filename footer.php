@@ -60,16 +60,34 @@ $footer_carriers            =   get_field('footer_carriers', 'option');
                     <p>Copyright &copy; <?php echo date("Y") . " " . get_bloginfo('name') . " | " . "powered by <a href='#'>WooMarqt</a>" ?></p>
                 </div>
 
-                <?php if ($footer_settings['show_payment_methods']) { ?>
+                <?php if ($footer_settings['show_payment_methods'] || $footer_settings['show_carriers']) { ?>
                     <div class="grid grid-flow-col auto-cols-min gap-3 justify-end">
-                        <?php foreach (get_field('footer_payment_methods', 'option') as $payment_method) { ?>
-                            <?php foreach ($payment_method as $key => $value) { ?>
-                                    <?php if ($value) { ?>
-                                        <svg height="30" width="40">
-                                            <image href="https://woomarqt.nl/wp-content/themes/woomarqt/assets/img/payment-methods/<?php echo $key; ?>.svg" height="30" />
-                                        </svg>
+                        <?php if ($footer_settings['show_payment_methods']) { ?>
+                            
+                                <?php foreach (get_field('footer_payment_methods', 'option') as $payment_method) { ?>
+                                    <?php foreach ($payment_method as $key => $value) { ?>
+                                            <?php if ($value) { ?>
+                                                <svg height="30" width="40">
+                                                    <image href="https://woomarqt.nl/wp-content/themes/woomarqt/assets/img/payment-methods/<?php echo $key; ?>.svg" height="30" />
+                                                </svg>
+                                            <?php } ?>
                                     <?php } ?>
-                            <?php } ?>
+                                <?php } ?>
+                            
+                        <?php } ?>
+
+                        <?php if ($footer_settings['show_carriers']) { ?>
+                            
+                                <?php foreach (get_field('footer_carriers', 'option') as $carrier) { ?>
+                                    <?php foreach ($carrier as $key => $value) { ?>
+                                            <?php if ($value) { ?>
+                                                <svg height="30" width="40">
+                                                    <image href="https://woomarqt.nl/wp-content/themes/woomarqt/assets/img/carriers/<?php echo $key; ?>.svg" height="30" />
+                                                </svg>
+                                            <?php } ?>
+                                    <?php } ?>
+                                <?php } ?>
+                            
                         <?php } ?>
                     </div>
                 <?php } ?>
@@ -84,11 +102,3 @@ $footer_carriers            =   get_field('footer_carriers', 'option');
 
 </body>
 </html>
-<!-- 
-                                <?php print_r($payment_method); ?>
-                                <?php $image_url = get_field_object($footer_payment_methods['payment_methods']); ?>
-                                <?php print_r($image_url); ?>
-                                <!-- <svg height="30" width="40">
-                                    <image href="<?php $footer_payment_methods['payment_methods']['payment_method'] ?>" height="30" />
-                                </svg> -->
-                            
