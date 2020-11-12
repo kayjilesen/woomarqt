@@ -29,6 +29,10 @@ function get_css_content(){
     $content .= '#footer-usps{ background-color: ' . $footer_usps['background_color'] . ';}';
     $content .= '#footer-widgets{ background-color: ' . $footer_widgets['background_color'] . ';}';
     $content .= '#footer-copyright{ background-color: ' . $footer_copyright['background_color'] . ';}';
+
+    // Fonts
+    $content .= 'h1, h2, h3, h4, h5, h6 { font-family: ' . $huisstijl['heading_font'] . ', "Arial";}';
+    $content .= 'p, ul, ul li, ol, ol li { font-family: ' . $huisstijl['body_font'] . ', "Arial";}';
     
     return $content;
 }
