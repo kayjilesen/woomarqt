@@ -14,7 +14,7 @@
     $blockIndex = 1;
 
     foreach(get_field('blok') as $layout){
-        print_r($layout);
+
         if($layout['acf_fc_layout'] === 'producten'){
             echo '<section id="block' . $blockIndex . '" class="product bg-gray-300 py-' . $layout['styling']['padding_y'] . ' px-' . $layout['styling']['padding_x'] . '">';
                 echo '<div class="row ' . $layout['styling']['width'] . ' mx-auto">';       
@@ -49,13 +49,9 @@
 
                         echo '</div>';
                     }
-                   
-                    echo '<div><pre>';
-                    print_r($layout['kolommen']);
-                    echo '</pre></div>';
                 echo '</div>';
             echo '</section>';
-            
+
         }
         $blockIndex++;
     }
