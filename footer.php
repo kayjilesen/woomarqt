@@ -65,7 +65,7 @@ $footer_carriers            =   get_field('footer_carriers', 'option');
                             <?php foreach (get_field('footer_payment_methods', 'option') as $payment_method) { ?>
                                 <?php foreach ($payment_method as $key => $value) { ?>
                                     <?php if ($value) { ?>
-                                        <img src="https://woomarqt.nl/wp-content/themes/woomarqt/assets/img/payment-methods/<?php echo $key; ?>.png" alt="<?php echo $key; ?>">
+                                        <img src="https://woomarqt.nl/wp-content/themes/woomarqt/assets/img/payment-methods/<?php echo $key; ?>.png" alt="<?php echo $key; ?>" height="30">
                                     <?php } ?>
                                 <?php } ?>
                             <?php } ?>
@@ -75,7 +75,7 @@ $footer_carriers            =   get_field('footer_carriers', 'option');
                             <?php foreach (get_field('footer_carriers', 'option') as $carrier) { ?>
                                 <?php foreach ($carrier as $key => $value) { ?>
                                     <?php if ($value) { ?>
-                                        <img src="https://woomarqt.nl/wp-content/themes/woomarqt/assets/img/carriers/<?php echo $key; ?>.png" alt="<?php echo $key; ?>">
+                                        <img src="https://woomarqt.nl/wp-content/themes/woomarqt/assets/img/carriers/<?php echo $key; ?>.png" alt="<?php echo $key; ?>" height="30">
                                     <?php } ?>
                                 <?php } ?>
                             <?php } ?>
