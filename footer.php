@@ -32,6 +32,60 @@ $footer_carriers            =   get_field('footer_carriers', 'option');
                 <?php if ($footer_widgets['show_contact']) { ?>
                     <div class="">
                         <h5 class="mb-4 text-xl">Contact</h5>
+
+                        <?php
+                            $company = get_field('company', 'option');
+                            $address = get_field('address', 'option');
+                            $zip = get_field('zip', 'option');
+                            $city = get_field('city', 'option');
+                            $email_address = get_field('email_address', 'option');
+                            $phone = get_field('phone', 'option');
+                            $coc = get_field('coc', 'option');
+                            $vat = get_field('vat', 'option');
+                        ?>
+
+                        <?php if ($company) { ?>
+                            <div class="mb-2">
+                                <?php echo $company; ?>
+                            </div>
+                        <?php } ?>
+
+                        <?php if ($address) { ?>
+                            <div class="mb-2">
+                                <?php echo $address; ?>
+                            </div>
+                        <?php } ?>
+
+                        <?php if ($zip && $city) { ?>
+                            <div class="mb-2">
+                                <?php echo $zip, $city; ?>
+                            </div>
+                        <?php } ?>
+
+                        <?php if ($email_address) { ?>
+                            <div class="mb-2">
+                                <?php echo $email_address; ?>
+                            </div>
+                        <?php } ?>
+
+                        <?php if ($phone) { ?>
+                            <div class="mb-2">
+                                <?php echo $phone; ?>
+                            </div>
+                        <?php } ?>
+
+                        <?php if ($coc) { ?>
+                            <div class="mb-2">
+                                <?php echo $coc; ?>
+                            </div>
+                        <?php } ?>
+
+                        <?php if ($vat) { ?>
+                            <div class="mb-2">
+                                <?php echo $vat; ?>
+                            </div>
+                        <?php } ?>
+                        
                     </div>
                 <?php } ?>
 
