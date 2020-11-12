@@ -1,4 +1,4 @@
-<div id="usp" class="navigation-bar lightColor w-full <?php echo ( $uspbar['styling']['height'] === 'auto' ? '' : 'h-' . $uspbar['styling']['height'] ); ?>">
+<div id="usp" class="navigation-bar w-full <?php echo ( $uspbar['styling']['height'] === 'auto' ? '' : 'h-' . $uspbar['styling']['height'] ); ?>">
     <div class="innerWrapper flex py-<?php echo $uspbar['styling']['padding_y']; ?> px-<?php echo $uspbar['styling']['padding_x']; ?> mx-auto <?php echo $menuStyling['width']; ?> w-full">
         <?php   
         if(!empty($uspbar['usps'])) :
