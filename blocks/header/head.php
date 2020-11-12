@@ -5,7 +5,7 @@
 
 ?>
 
-<div id="head" class="navigation-bar priColor <?php if($header['sticky_head']) echo 'sticky '; ?><?php echo $header['custom_volgorde'] . ( $header['styling']['height'] === 'auto' ? '' : 'h-' . $header['styling']['height'] ); ?> items-center flex flex-row w-full">
+<div id="head" class="navigation-bar <?php if($header['sticky_head']) echo 'sticky '; ?><?php echo $header['custom_volgorde'] . ( $header['styling']['height'] === 'auto' ? '' : 'h-' . $header['styling']['height'] ); ?> items-center flex flex-row w-full">
 
     <div class="navbar-nav mx-auto sm:px-6m <?php echo $menuStyling['width']; ?> w-full">
         <div class="flex justify-between items-center py-<?php echo $header['styling']['padding_y']; ?> px-<?php echo $header['styling']['padding_x']; ?> md:justify-start md:space-x-10">
