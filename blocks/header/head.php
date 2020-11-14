@@ -28,7 +28,7 @@
                                 echo '<div class="dropdown-menu">';
                             }
                             echo '<a class="dropdown-item" title="' . get_bloginfo(  ) . ' Pagina ' . $menuitems[$i]->title . '" href="' . $menuitems[$i]->url . '"><h6>' . $menuitems[$i]->title . '</h6></a>';
-                            echo ($menuitems[$i + 1]->menu_item_parent == 0 ? '</div>' : '');
+                            echo (!empty($menuitems[$i + 1]) && $menuitems[$i + 1]->menu_item_parent == 0 ? '</div>' : '');
                         }
                     }
                     echo '</div>';
