@@ -30,6 +30,11 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
     <!-- Load Tailwind CSS CDN -->
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 
+    <!-- Load Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=<?php $huisstijl['heading_font'] ?>&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=<?php $huisstijl['body_font'] ?>&display=swap" rel="stylesheet">
+
 	<?php wp_head(); ?>
 </head>
 
