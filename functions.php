@@ -160,6 +160,14 @@ if ( $custom_post_types['vacatures'] ) {
     add_action('init', 'woomarqt_vacatures');
 }
 
+// Load Custom WooMarqt Scripts
+function custom_woomarqt_scripts() {
+
+    wp_register_script('script-woomarqt', get_template_directory_uri() . '/assets/js/script.js', array('jquery'), filemtime(get_theme_file_path('/assets/js/script.js'))); // Conditional script(s)
+    wp_enqueue_script('script-woomarqt'); // Basic Script
+}
+add_action('wp_print_scripts', 'custom_woomarqt_scripts'); // Add Conditional Page Scripts
+
 // Load Custom WooMarqt Styles 
 function custom_woomarqt_styles() {    
 
