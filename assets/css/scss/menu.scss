@@ -13,6 +13,45 @@ header {
 
 @media (max-width: 992px){
 
+    body.show-menu {
+        overflow-y: hidden;
+    }
+
+    .mobileNavContainer {
+        top: 0;
+        position: fixed;
+        height: 100vh;
+        background-color: white;
+        transition: 0.4s;
+        left: -100%;
+    }
+    .show-menu .mobileNavContainer {
+        display: flex;
+        flex-direction: column;
+        left: 0;
+        box-shadow: 5px 0px 30px rgba(0,0,0,0.12);
+
+        .nav-item {
+            padding: 0px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            flex-direction: row;
+            &.dropdown {
+            }
+            a.nav-link {
+                color: black;
+                font-weight: 400;
+                min-height: 50px;
+                padding: 0px 20px;
+            }
+            .openDropdown {
+                position: relative;
+                height: 50px;
+                width: 50px;
+                background-color: #ddd;
+            }
+        }
+    }
     .mobileNav {
         order: 99;
 
@@ -42,7 +81,7 @@ header {
         order: 100 !important;
         flex-direction: column;
         margin: 0px;
-        padding: 30px;
+        padding: 0px;
 
         .nav-item {
             margin: 0px;
