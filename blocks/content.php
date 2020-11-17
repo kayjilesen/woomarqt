@@ -13,21 +13,45 @@
 
     $blockIndex = 1;
 
-    foreach(get_field('blok') as $layout){
+    foreach(get_field('blok') as $layout){ 
         if($layout['acf_fc_layout'] === 'producten'){
             $filter = $layout['type'];
-            $productQuery = new WP_Query( array(
-                'posts_per_page' => $layout['styling']['aantal_in_rij']['label'],
-                'post_type' => 'product',
-                'post_status' => 'publish',
-                'ignore_sticky_posts' => 1,
-                'meta_key' => 'total_sales',
-                'orderby' => 'meta_value_num',
-                'order' => 'DESC',
-            ) );
+            if($filter === 'category') {
+                foreach ( $layout['categorie'] as $term => $val ) $cats_array[] = $val;
+                $productQuery = new WP_Query( array(
+                    'posts_per_page' => $layout['styling']['aantal_in_rij']['label'],
+                    'post_type' => 'product',
+                    'post_status' => 'publish',
+                    'orderby' => 'date',
+                    'order' => 'DESC',
+                    'tax_query' => array( 
+                        array(
+                            'taxonomy' => 'product_cat',
+                            'field' => 'id',
+                            'terms' => $layout['categorie']
+                        )),
+                ));
+            } else if($filter === 'new'){
+                $productQuery = new WP_Query( array(
+                    'posts_per_page' => $layout['styling']['aantal_in_rij']['label'],
+                    'post_type' => 'product',
+                    'post_status' => 'publish',
+                    'orderby' => 'date',
+                    'order' => 'DESC',
+                ));
+            } else if($filter === 'popular'){
+                $productQuery = new WP_Query( array(
+                    'posts_per_page' => $layout['styling']['aantal_in_rij']['label'],
+                    'post_type' => 'product',
+                    'post_status' => 'publish',
+                    'meta_key' => 'total_sales',
+                    'orderby' => 'meta_value_num',
+                    'order' => 'DESC',
+                ));
+            }
 
             echo '<section id="block' . $blockIndex . '" class="product bg-gray-300 py-' . $layout['styling']['padding_y'] . ' px-' . $layout['styling']['padding_x'] . '">';
-                echo '<div class="row ' . $layout['styling']['width'] . ' mx-auto">';
+                echo '<div class="row ' . $layout['styling']['width'] . ' mx-auto">';       
                     if($productQuery->have_posts()) :
                         echo '<div class="grid grid-flow-col auto-cols-fr gap-6">';
                         while($productQuery->have_posts()) : $productQuery->the_post();
@@ -56,7 +80,7 @@
         if($layout['acf_fc_layout'] === 'custom'){
 
             echo '<section id="block' . $blockIndex . '" class="custom bg-gray-600 py-' . $layout['styling']['padding_y'] . ' px-' . $layout['styling']['padding_x'] . '">';
-                echo '<div class="row flex flex-wrap ' . $layout['styling']['width'] . ' mx-auto">';     
+                echo '<div class="row  sm:px-3 flex flex-wrap ' . $layout['styling']['width'] . ' mx-auto">';     
                     foreach($layout['kolommen'] as $kolom){
                         echo '<div class="column lg:' . $kolom['breedte'] . ' flex flex-col">';
 

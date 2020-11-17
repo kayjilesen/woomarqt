@@ -7,7 +7,7 @@
 
 <div id="head" class="navigation-bar <?php if($header['sticky_head']) echo 'sticky '; ?><?php echo $header['custom_volgorde'] . ( $header['styling']['height'] === 'auto' ? '' : 'h-' . $header['styling']['height'] ); ?> items-center flex flex-row w-full">
 
-    <div class="navbar-nav mx-auto sm:px-6m <?php echo $menuStyling['width']; ?> w-full">
+    <div class="navbar-nav sm:px-3 mx-auto sm:px-6m <?php echo $menuStyling['width']; ?> w-full">
         <div class="flex justify-between items-center py-<?php echo $header['styling']['padding_y']; ?> px-<?php echo $header['styling']['padding_x']; ?> md:justify-start md:space-x-10">
             <div class="md:flex items-center justify-start space-x-8 md:flex-1 lg:w-3/12 logoCol">
                 <?php  if(!empty($huisstijl['logo'])) echo '<a href="' . home_url() . '">' . ($header['kleur_logo'] ? '<img src="' . $huisstijl['logo']['url'] . '" alt="' . $huisstijl['logo']['alt'] . '">' : '<img src="' . $huisstijl['logo_light']['url'] . '" alt="' . $huisstijl['logo_light']['alt'] . '">' ) . '</a>'; ?>
