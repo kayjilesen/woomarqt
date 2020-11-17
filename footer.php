@@ -45,44 +45,44 @@ $footer_carriers            =   get_field('footer_carriers', 'option');
                         ?>
 
                         <?php if ($company) { ?>
-                            <div class="mb-2">
-                                <?php echo $company; ?>
+                            <div class="grid grid-flow-col auto-cols-max gap-4 items-center mb-4">
+                                <?php echo getIcon( 'company', '1em' ), $company; ?>
                             </div>
                         <?php } ?>
 
                         <?php if ($address) { ?>
-                            <div class="mb-2">
-                                <?php echo $address; ?>
+                            <div class="grid grid-flow-col auto-cols-max gap-4 items-center mb-2">
+                                <?php echo getIcon( 'address', '1em' ), $address; ?>
                             </div>
                         <?php } ?>
 
                         <?php if ($zip && $city) { ?>
-                            <div class="mb-2">
-                                <?php echo $zip, $city; ?>
+                            <div class="grid grid-flow-col auto-cols-max gap-4 items-center mb-4">
+                                <?php echo getIcon( 'city', '1em' ), $zip . ' ' . $city; ?>
                             </div>
                         <?php } ?>
 
                         <?php if ($email_address) { ?>
-                            <div class="mb-2">
-                                <?php echo $email_address; ?>
+                            <div class="grid grid-flow-col auto-cols-max gap-4 items-center mb-2">
+                                <?php echo getIcon( 'email', '1em' ), $email_address; ?>
                             </div>
                         <?php } ?>
 
                         <?php if ($phone) { ?>
-                            <div class="mb-2">
-                                <?php echo $phone; ?>
+                            <div class="grid grid-flow-col auto-cols-max gap-4 items-center mb-4">
+                                <?php echo getIcon( 'phone', '1em' ), $phone; ?>
                             </div>
                         <?php } ?>
 
                         <?php if ($coc) { ?>
-                            <div class="mb-2">
-                                <?php echo $coc; ?>
+                            <div class="grid grid-flow-col auto-cols-max gap-4 items-center mb-2">
+                                <?php echo getIcon( 'coc', '1em' ), $coc; ?>
                             </div>
                         <?php } ?>
 
                         <?php if ($vat) { ?>
-                            <div class="mb-2">
-                                <?php echo $vat; ?>
+                            <div class="grid grid-flow-col auto-cols-max gap-4 items-center mb-2">
+                                <?php echo getIcon( 'vat', '1em' ), $vat; ?>
                             </div>
                         <?php } ?>
                         

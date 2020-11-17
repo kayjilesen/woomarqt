@@ -51,7 +51,7 @@
             }
 
             echo '<section id="block' . $blockIndex . '" class="product bg-gray-300 py-' . $layout['styling']['padding_y'] . ' px-' . $layout['styling']['padding_x'] . '">';
-                echo '<div class="row ' . $layout['styling']['width'] . ' mx-auto">';       
+                echo '<div class="row ' . $layout['styling']['width'] . ' mx-auto">';
                     if($productQuery->have_posts()) :
                         echo '<div class="grid grid-flow-col auto-cols-fr gap-6">';
                         while($productQuery->have_posts()) : $productQuery->the_post();
