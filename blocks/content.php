@@ -27,26 +27,24 @@
             ) );
 
             echo '<section id="block' . $blockIndex . '" class="product bg-gray-300 py-' . $layout['styling']['padding_y'] . ' px-' . $layout['styling']['padding_x'] . '">';
-                echo '<div class="row ' . $layout['styling']['width'] . ' mx-auto">';       
-                    echo 'Product blok!';
+                echo '<div class="row ' . $layout['styling']['width'] . ' mx-auto">';
                     if($productQuery->have_posts()) :
-                        echo '<div class="flex w-full flex-wrap max-w-screen-xl mx-auto">';
+                        echo '<div class="grid grid-flow-col auto-cols-fr gap-6">';
                         while($productQuery->have_posts()) : $productQuery->the_post();
                             global $product;
                             $image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'single-post-thumbnail' );
-                            $price = get_post_meta( get_the_ID(), '_regular_price', true);
-                            $sale = get_post_meta( get_the_ID(), '_sale_price', true);	
+                            $price = wc_price( wc_get_price_to_display( $product, array( 'price' => $product->get_regular_price() ) ) );
+                            $onSale = $product->get_sale_price();
+                            $sale = wc_price( wc_get_price_to_display( $product, array( 'price' => $product->get_sale_price() ) ) );
         
-                            echo '<div class="sm:' . $layout['styling']['aantal_in_rij_mobiel']['value'] . ' lg:' . $layout['styling']['aantal_in_rij']['value'] . ' py-' . $layout['productstyling']['margin_y'] . ' px-' . $layout['productstyling']['margin_x'] . '">';
-                                echo '<div class="productBlock' . ($layout['productstyling']['shadow'] ? ' shadow-lg' : '') . ' py-' . $layout['productstyling']['padding_y'] . ' px-' . $layout['productstyling']['padding_x'] . ' bg-white ' . $layout['productstyling']['border_radius'] . '">';
-                                    echo '<a href="' . get_the_permalink() . '" class="imageWrapper">';
-                                        echo '<img src="' . $image[0] . '" alt="">';
-                                    echo '</a>';
-                                    echo '<div class="infoWrapper mt-6">';
-                                        echo '<h4><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h4>';
-                                        echo '<span class="price">' . $price . '</span>';
-                                        echo '<div class="w-full bg-green-600 text-white text-center py-3 mt-3 rounded single-add-to-cart-button">In winkelwagen</div>';
-                                    echo '</div>';
+                            echo '<div class="productBlock' . ($layout['productstyling']['shadow'] ? ' shadow-lg' : '') . ' py-' . $layout['productstyling']['padding_y'] . ' px-' . $layout['productstyling']['padding_x'] . ' bg-white ' . $layout['productstyling']['border_radius'] . '">';
+                                echo '<a href="' . get_the_permalink() . '" class="imageWrapper">';
+                                    echo '<img src="' . $image[0] . '" alt="">';
+                                echo '</a>';
+                                echo '<div class="infoWrapper mt-6">';
+                                    echo '<h4 class="text-lg"><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h4>';
+                                    echo $onSale !== '' ? '<del class="text-opacity-25">' . $price . '</del> ' . $sale : $price;
+                                    echo '<div class="w-full bg-green-600 text-white text-center py-3 mt-3 rounded single-add-to-cart-button">In winkelwagen</div>';
                                 echo '</div>';
                             echo '</div>';
                         endwhile;   

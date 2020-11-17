@@ -32,7 +32,9 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
 
     <!-- Load Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- Heading Font -->
     <link href="https://fonts.googleapis.com/css2?family=<?php echo $huisstijl['heading_font'] ?>&display=swap" rel="stylesheet">
+    <!-- Body Font -->
     <link href="https://fonts.googleapis.com/css2?family=<?php echo $huisstijl['body_font'] ?>&display=swap" rel="stylesheet">
 
 	<?php wp_head(); ?>
@@ -51,6 +53,5 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
             if($subbar['show_subbar']) include 'blocks/header/sub.php';
             // Show USP's - Default = Active - When First
             if($menuOrder === 'thsu' && $uspbar['show_usps']) include 'blocks/header/usp.php';
-
         ?>
     </header>
