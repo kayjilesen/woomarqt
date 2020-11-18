@@ -59,3 +59,4 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
         <div class="headerOverlay"></div>
     </header>
     <div id="search"></div>
+    <div id="cart"></div>

@@ -199,13 +199,13 @@ header {
     
 } 
 
-.productWrapper {
+.productWrapper, .cartWrapper {
     max-width: 300px;
 
     .foundProduct {
 
     }
-    .foundProductImage {
+    .foundProductImage img, .cartImage img {
         width: 60px;
         object-fit: contain;
     }

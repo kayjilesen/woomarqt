@@ -68,7 +68,7 @@
                                 echo '<div class="infoWrapper mt-6">';
                                     echo '<h4 class="text-lg"><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h4>';
                                     echo $onSale !== '' ? '<del class="text-opacity-25">' . $price . '</del> ' . $sale : $price;
-                                    echo '<div class="w-full bg-green-600 text-white text-center py-3 mt-3 rounded single-add-to-cart-button">In winkelwagen</div>';
+                                    echo '<div class="w-full bg-green-600 text-white text-center py-3 mt-3 rounded single-add-to-cart-button" data-product-id="' . get_the_ID() . '">In winkelwagen</div>';
                                 echo '</div>';
                             echo '</div>';
                         endwhile;   

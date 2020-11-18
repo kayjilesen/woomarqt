@@ -39,7 +39,7 @@
                     ?> 
                 </nav>
                 <div class="md:flex items-center justify-end space-x-8 md:flex-1 lg:w-3/12 searchCol">
-                    <?php if($header['show_searchbar']) echo '<form id="searchForm" action="' . get_permalink() . '" method="GET"><input type="text" name="search" placeholder="Zoeken..." value=""><button type="submit" class="searchSubmit flex items-center justify-center">' . getIcon('search', '1em') . '</button></form>'; ?>
+                    <?php if($header['show_searchbar']) echo '<form id="searchForm" action="' . get_permalink() . '" method="GET"><input type="text" class="focus:outline-none" name="search" placeholder="Zoeken..." value=""><button type="submit" class="searchSubmit flex items-center justify-center">' . getIcon('search', '1em') . '</button></form>'; ?>
                 </div>
             </div>
             <div class="flex lg:hidden mobileNav">
