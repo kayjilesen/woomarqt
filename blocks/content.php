@@ -53,7 +53,7 @@
             echo '<section id="block' . $blockIndex . '" class="product bg-gray-300 py-' . $layout['styling']['padding_y'] . ' px-' . $layout['styling']['padding_x'] . '">';
                 echo '<div class="row ' . $layout['styling']['width'] . ' mx-auto">';
                     if($productQuery->have_posts()) :
-                        echo '<div class="grid grid-flow-col auto-cols-fr gap-6">';
+                        echo '<div class="grid grid-cols-1 md:grid-cols-2 lg:auto-cols-fr lg:grid-flow-col gap-6">';
                         while($productQuery->have_posts()) : $productQuery->the_post();
                             global $product;
                             $image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'single-post-thumbnail' );
