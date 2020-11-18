@@ -110,13 +110,13 @@ $footer_carriers            =   get_field('footer_carriers', 'option');
 
     <?php if ($footer_settings['show_copyright']) { ?>
         <section id="footer-copyright" class="w-full px-4 lg:px-0">
-            <div class="py-6 mx-auto max-w-screen-sm max-w-screen-md max-w-screen-lg max-w-screen-xl grid grid-cols-2 text-sm">
+            <div class="py-6 mx-auto max-w-screen-sm max-w-screen-md max-w-screen-lg max-w-screen-xl grid grid-cols-1 lg:grid-flow-col text-sm">
                 <div class="grid self-center">
-                    <p>Copyright &copy; <?php echo date("Y") . " " . get_bloginfo('name') . " | " . "powered by <a href='#'>WooMarqt</a>" ?></p>
+                    <p class="text-center lg:text-left">Copyright &copy; <?php echo date("Y") . " " . get_bloginfo('name') . " | " . "powered by <a href='#'>WooMarqt</a>" ?></p>
                 </div>
 
                 <?php if ($footer_settings['show_payment_methods'] || $footer_settings['show_carriers']) { ?>
-                    <div class="grid grid-flow-col auto-cols-min gap-3 justify-end">
+                    <div class="grid grid-flow-col auto-cols-min gap-3 justify-center lg:justify-end mt-4 lg:mt-0">
                         <?php if ($footer_settings['show_payment_methods']) { ?>
                             <?php foreach (get_field('footer_payment_methods', 'option') as $payment_method) { ?>
                                 <?php foreach ($payment_method as $key => $value) { ?>
