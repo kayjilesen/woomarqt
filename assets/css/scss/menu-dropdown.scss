@@ -1,11 +1,17 @@
 @media (min-width: 993px){
     .nav-item {
         &.dropdown {
-            &:hover .dropdown-menu {
-                transform: scaleY(1);
-                opacity: 1;
-                transition: 0.35s;
-                height: unset;
+            &:hover {
+
+                svg {
+                    transform: rotate(180deg);
+                }
+                .dropdown-menu {
+                    transform: scaleY(1);
+                    opacity: 1;
+                    transition: 0.35s;
+                    height: unset;
+                }
             }
         }
     }
@@ -53,13 +59,8 @@ nav {
                 height: unset;
             }
 
-            i {
-                margin-left: 6px;
-                font-size: 0.8em;
-                transition: 0.5s;
-            }
-            &:hover a h3 i {
-                transform: rotate(180deg);
+            svg {
+                transition: 0.3s;
             }
 
             .dropdown-menu {
@@ -83,10 +84,6 @@ nav {
                     position: relative;
                     display: block;
                     min-width: 240px;   
-
-                    &:nth-child(even){
-
-                    }
 
                     h6 {
                         font-size: 1em;

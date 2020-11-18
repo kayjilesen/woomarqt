@@ -46,4 +46,18 @@ jQuery(document).ready(function(){
         }
         return false;
     }
+
+    // USP Slider 
+    function initSlick(){
+        let uspSlider = document.getElementById('uspSlider');
+        if(uspSlider && jQuery(window).width() < 769){
+            jQuery('.autoplay').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1, 
+                autoplay: true,
+                autoplaySpeed: 2000,
+            });
+        }
+    }
+    initSlick();
 });

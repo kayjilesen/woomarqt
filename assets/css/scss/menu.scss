@@ -6,7 +6,7 @@ header {
         .logoCol {
             order: 1;
             img { 
-                max-height: 50px;
+                max-height: 40px;
             }
         }
         .mobileNavContainer {
@@ -29,6 +29,9 @@ header {
             input {
                 border-radius: 0px;
             }
+        }
+        .iconRow {
+            order: 200;
         }
         .searchSubmit {
             color: black;
@@ -67,6 +70,16 @@ header {
             .searchSubmit {
                 border: 0px;
             }
+
+            .mobileNav {
+                order: 1;
+            }
+            .logoCol {
+                order: 2;
+            }
+        }
+        #usp {
+            height: 45px;
         }
     }
 

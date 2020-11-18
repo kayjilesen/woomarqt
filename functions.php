@@ -163,8 +163,15 @@ if ( $custom_post_types['vacatures'] ) {
 // Load Custom WooMarqt Scripts
 function custom_woomarqt_scripts() {
 
+    $usps = get_field('usp', 'option');
+    if($usps['show_usps']){
+        wp_register_script('slider-slick', get_template_directory_uri() . '/assets/js/slider.js', filemtime(get_theme_file_path('/assets/js/slider.js'))); // Conditional script(s)
+        wp_enqueue_script('slider-slick'); // Slick Slider Script
+    }   
+
     wp_register_script('script-woomarqt', get_template_directory_uri() . '/assets/js/script.js', array('jquery'), filemtime(get_theme_file_path('/assets/js/script.js'))); // Conditional script(s)
     wp_enqueue_script('script-woomarqt'); // Basic Script
+
 }
 add_action('wp_print_scripts', 'custom_woomarqt_scripts'); // Add Conditional Page Scripts
 
@@ -181,6 +188,14 @@ function custom_woomarqt_styles() {
         if(file_exists(get_template_directory() . '/assets/css/generated.min.css')){
             wp_register_style('generated', get_template_directory_uri() . '/assets/css/generated.min.css', array(),  filemtime(get_theme_file_path('/assets/css/generated.min.css')), 'all');
             wp_enqueue_style('generated'); // Menu
+        }
+
+        $usps = get_field('usp', 'option');
+        if($usps['show_usps']){
+            wp_register_style('slick', get_template_directory_uri() . '/assets/libs/slick/slick-theme.css', array(),  filemtime(get_theme_file_path('/assets/libs/slick/slick-theme.css')), 'all');
+            wp_enqueue_style('slick'); // Menu
+            wp_register_style('slick-css', get_template_directory_uri() . '/assets/libs/slick/slick.css', array(),  filemtime(get_theme_file_path('/assets/libs/slick/slick.css')), 'all');
+            wp_enqueue_style('slick-css'); // Menu
         }
     }
 
