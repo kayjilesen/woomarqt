@@ -2,6 +2,12 @@ jQuery(document).ready(function(){
 
     checkMenu();
 
+    jQuery('.headerOverlay').click(function(e){
+        if(jQuery('body').hasClass('show-menu')){
+            jQuery('body').removeClass('show-menu');
+        }
+    });
+
     jQuery('#toggleMenu').click(function(e){
         if(jQuery('body').hasClass('show-menu')){
             jQuery('body').removeClass('show-menu');

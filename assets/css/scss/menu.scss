@@ -20,6 +20,27 @@ header {
                 justify-content: space-between;
             }
         }
+        #searchForm {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            min-height: 44px;
+
+            input {
+                border-radius: 0px;
+            }
+        }
+        .searchSubmit {
+            color: black;
+            padding: 0px;
+            text-align: center;
+            background-color: white;
+            height: 100%;
+            min-height: 42px;
+            min-width: 42px;
+            border: 1px solid #eee;
+            border-left: 0px;
+        }
     }
 }
 
@@ -27,9 +48,30 @@ header {
 
     body.show-menu {
         overflow-y: hidden;
+
+        .headerOverlay {
+            content: '';
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            background-color: rgba(0,0,0,0.12);
+            z-index: 1;
+        }
+    }
+
+    header {
+        #head {
+            position: relative;
+            .searchSubmit {
+                border: 0px;
+            }
+        }
     }
 
     .mobileNavContainer {
+        z-index: 2;
         top: 0;
         position: fixed;
         height: 100vh;
@@ -71,7 +113,8 @@ header {
                 position: relative;
                 height: 50px;
                 width: 50px;
-                background-color: #eee;
+                background-color: white;
+                border-left: 1px solid #eee;
                 color: black;
 
                 svg {

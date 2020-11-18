@@ -56,4 +56,5 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
             // Show USP's - Default = Active - When First
             if($menuOrder === 'thsu' && $uspbar['show_usps']) include 'blocks/header/usp.php';
         ?>
+        <div class="headerOverlay"></div>
     </header>
