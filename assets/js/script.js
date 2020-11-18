@@ -60,4 +60,31 @@ jQuery(document).ready(function(){
         }
     }
     initSlick();
+
+    // AJAX Search
+    jQuery('#searchForm').submit(function(e){
+        var data = {
+            search:  jQuery(this).find('input[name="search"]').val(),
+            action: 'ajax_search'
+        }
+        // Post to the server
+        jQuery.post( admin_url, data, function( data ) {
+
+			// Parse the XML response with jQuery
+            // Get the Status
+			var status = jQuery( data ).find( 'response_data' ).text();
+			// Get the Message
+			var message = jQuery( data ).find( 'supplemental message' ).text();
+			// If we are successful, add the success message and remove the link
+			if( status == 'success' ) {
+                jQuery('#search').html(data);
+			} else {
+                // An error occurred, alert an error message
+                jQuery('#search').html(data);
+			}
+		});
+        // Prevent the default behavior for the link
+        e.preventDefault();
+    });
+
 });

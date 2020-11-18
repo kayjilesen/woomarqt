@@ -1,18 +1,18 @@
 <?php
-/**
- *	Footer
- */
+    /**
+     *	Footer
+    */
 
-$footer_settings            =   get_field('footer_settings', 'option');
-$footer_usps                =   get_field('footer_usps', 'option');
-$footer_widgets             =   get_field('footer_widgets', 'option');
-$footer_copyright           =   get_field('footer_copyright', 'option');
-$footer_payment_methods     =   get_field('footer_payment_methods', 'option');
-$footer_carriers            =   get_field('footer_carriers', 'option');
+    $footer_settings            =   get_field('footer_settings', 'option');
+    $footer_usps                =   get_field('footer_usps', 'option');
+    $footer_widgets             =   get_field('footer_widgets', 'option');
+    $footer_copyright           =   get_field('footer_copyright', 'option');
+    $footer_payment_methods     =   get_field('footer_payment_methods', 'option');
+    $footer_carriers            =   get_field('footer_carriers', 'option');
+
+    if(!empty(get_field('blok'))) include 'blocks/content.php'; 
 
 ?>
-
-<?php include 'blocks/content.php'; ?>
 
 <footer id="footer" class="w-full">
     <?php if ($footer_settings['show_usps']) { ?>
@@ -143,6 +143,10 @@ $footer_carriers            =   get_field('footer_carriers', 'option');
     <?php } ?>
 
 </footer>
+
+<script type="text/javascript">
+    var admin_url = "<?php echo admin_url('admin-ajax.php'); ?>";
+</script>
 
 <?php wp_footer(); ?>
 

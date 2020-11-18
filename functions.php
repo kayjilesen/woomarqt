@@ -222,3 +222,36 @@ function generate_css($post_ID)  {
     }
 } 
 add_action('acf/save_post', 'generate_css');
+
+// AJAX Search
+function ajax_search(){
+
+    $the_query = new WP_Query( array( 'posts_per_page' => -1, 's' => esc_attr( $_POST['search'] ), 'post_type' => 'product' ) );
+
+    if( $the_query->have_posts() ) {
+        echo '<div class="productWrapper flex flex-col mx-auto my-6 border border-b-0 border-gray-500">';
+        while( $the_query->have_posts() ): $the_query->the_post();
+            global $product;
+            $image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'single-post-thumbnail' );
+            $price = wc_price( wc_get_price_to_display( $product, array( 'price' => $product->get_regular_price() ) ) );
+            ?>
+
+            <div class="foundProduct flex justify-start items-center py-2 px-2 border-b border-gray-500">
+                <div class="foundProductImage mr-8"><img src="<?php echo $image[0]; ?>"></div>
+                <div class="foundProductInfo flex flex-col justify-start">
+                    <h2><a href="<?php echo esc_url( post_permalink() ); ?>"><?php the_title();?></a></h2>
+                    <h4 class="text-sm text-gray-500"><?php echo $price; ?></h4>
+                </div>
+            </div>
+
+        <?php endwhile;
+        echo '</div>';
+        wp_reset_postdata();  
+    } else {
+        echo '<div class="nothingFoundWrapper">Niks gevonden</div>';
+    }
+
+    die();
+}
+add_action('wp_ajax_ajax_search' , 'ajax_search');
+add_action('wp_ajax_nopriv_ajax_search','ajax_search');

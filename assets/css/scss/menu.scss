@@ -198,3 +198,15 @@ header {
     }
     
 } 
+
+.productWrapper {
+    max-width: 300px;
+
+    .foundProduct {
+
+    }
+    .foundProductImage {
+        width: 60px;
+        object-fit: contain;
+    }
+}
