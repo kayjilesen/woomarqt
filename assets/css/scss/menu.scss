@@ -16,6 +16,8 @@ header {
             .itemWrapper {
                 display: flex;
                 flex-direction: row;
+                width: 100%;
+                justify-content: space-between;
             }
         }
     }
@@ -32,14 +34,26 @@ header {
         position: fixed;
         height: 100vh;
         background-color: white;
-        transition: 0.4s;
+        transition: 0.5s;
         left: -100%;
-    }
-    .show-menu .mobileNavContainer {
         display: flex;
         flex-direction: column;
-        left: 0;
-        box-shadow: 5px 0px 30px rgba(0,0,0,0.12);
+        margin-left: 0px !important;
+
+        .searchCol {
+            flex: unset;    
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+
+            input {
+                border: 0px;
+                box-shadow: unset;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
 
         .nav-item {
             padding: 0px;
@@ -66,6 +80,11 @@ header {
             }
         }
     }
+
+    .show-menu .mobileNavContainer {
+        left: 0;
+        box-shadow: 5px 0px 30px rgba(0,0,0,0.12);
+    }
     .mobileNav {
         order: 99;
 
@@ -89,7 +108,7 @@ header {
         margin: 6px 0;
         transition: 0.3s;
     }
-    .show-menu #head .menuCol {
+    #head .menuCol {
         display: flex;
         width: 100%;
         order: 100 !important;
