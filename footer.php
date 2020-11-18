@@ -17,7 +17,7 @@ $footer_carriers            =   get_field('footer_carriers', 'option');
 <footer id="footer" class="w-full">
     <?php if ($footer_settings['show_usps']) { ?>
 
-        <section id="footer-usps" class="w-full">
+        <section id="footer-usps" class="w-full px-4 lg:px-0">
             <div class="py-8 mx-auto max-w-screen-sm max-w-screen-md max-w-screen-lg max-w-screen-xl grid">
                 <p>Hier komen USP's</p>
             </div>
@@ -27,7 +27,7 @@ $footer_carriers            =   get_field('footer_carriers', 'option');
 
     <?php if ($footer_settings['show_widgets']) { ?>
 
-        <section id="footer-widgets" class="w-full">
+        <section id="footer-widgets" class="w-full px-4 lg:px-0">
             <div class="py-10 mx-auto max-w-screen-sm max-w-screen-md max-w-screen-lg max-w-screen-xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
                 <?php if ($footer_widgets['show_contact']) { ?>
                     <div class="">
@@ -109,7 +109,7 @@ $footer_carriers            =   get_field('footer_carriers', 'option');
     <?php } ?>
 
     <?php if ($footer_settings['show_copyright']) { ?>
-        <section id="footer-copyright" class="w-full">
+        <section id="footer-copyright" class="w-full px-4 lg:px-0">
             <div class="py-6 mx-auto max-w-screen-sm max-w-screen-md max-w-screen-lg max-w-screen-xl grid grid-cols-2 text-sm">
                 <div class="grid self-center">
                     <p>Copyright &copy; <?php echo date("Y") . " " . get_bloginfo('name') . " | " . "powered by <a href='#'>WooMarqt</a>" ?></p>
