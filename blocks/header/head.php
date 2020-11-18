@@ -20,10 +20,12 @@
                                 $firstChild = true;
                                 echo ($firstParent == true ? $firstParent = false : '</div>');
                                 echo '<div class="nav-item ' . ($i < (count($menuitems)-1)?($menuitems[$i + 1]->menu_item_parent != 0 ? 'dropdown' : ''):'') . ($menuitems[$i]->title == 'Contact' ? 'contact ' : '') . (get_the_title() ===  $menuitems[$i]->title ? 'active' : '') . '">';
-                                    echo '<a title="' . get_bloginfo( ) . ' Pagina ' . $menuitems[$i]->title . '" href="' .  $menuitems[$i]->url . '" class="nav-link flex items-center title">';
-                                        echo '<h3>' .  $menuitems[$i]->title . ($i < (count($menuitems)-1)?($menuitems[$i + 1]->menu_item_parent != 0 ? '' : ''): '') . '</h3>';
-                                    echo '</a>';
-                                    echo ($menuitems[$i + 1]->menu_item_parent != 0 ? '<div class="openDropdown flex justify-center items-center">></div>' : '');
+                                    echo '<div class="itemWrapper">';
+                                        echo '<a title="' . get_bloginfo( ) . ' Pagina ' . $menuitems[$i]->title . '" href="' .  $menuitems[$i]->url . '" class="nav-link flex items-center title">';
+                                            echo '<h3>' .  $menuitems[$i]->title . ($i < (count($menuitems)-1)?($menuitems[$i + 1]->menu_item_parent != 0 ? '' : ''): '') . '</h3>';
+                                        echo '</a>';
+                                        echo ($menuitems[$i + 1]->menu_item_parent != 0 ? '<div class="openDropdown flex justify-center items-center">' . getIcon('chevron-down', '1em') . '</div>' : '');
+                                    echo '</div>';
                             } else {
                                 if($firstChild == true){
                                     $firstChild = false;

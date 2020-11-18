@@ -10,6 +10,11 @@ jQuery(document).ready(function(){
         }
     });
 
+    jQuery('.openDropdown').click(function(e){
+        var parent = jQuery(this).parent().parent();
+        parent.toggleClass('open');
+    });
+
     // Check Menu on Scroll
     jQuery(window).scroll(function() {
         checkMenu();

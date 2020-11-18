@@ -4,8 +4,18 @@
 header {
     #head {
         .logoCol {
-            img {
+            order: 1;
+            img { 
                 max-height: 50px;
+            }
+        }
+        .mobileNavContainer {
+            order: 2;
+        }
+        .nav-item {
+            .itemWrapper {
+                display: flex;
+                flex-direction: row;
             }
         }
     }
@@ -36,9 +46,8 @@ header {
             border-bottom: 1px solid #ddd;
             display: flex;
             flex-direction: row;
-            &.dropdown {
-            }
-            a.nav-link {
+
+            a.nav-link { 
                 color: black;
                 font-weight: 400;
                 min-height: 50px;
@@ -48,7 +57,12 @@ header {
                 position: relative;
                 height: 50px;
                 width: 50px;
-                background-color: #ddd;
+                background-color: #eee;
+                color: black;
+
+                svg {
+                    transition: 0.3s;
+                }
             }
         }
     }
@@ -70,7 +84,7 @@ header {
     .navbar-toggler .navbar-bar {
         width: 30px;
         height: 2px;
-        content: '';
+        content: ''; 
         background-color: white;
         margin: 6px 0;
         transition: 0.3s;
@@ -101,4 +115,4 @@ header {
         transform: rotate(45deg) translate(-7px, -5px);
     }
     
-}
+} 
