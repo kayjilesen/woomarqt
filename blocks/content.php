@@ -78,11 +78,10 @@
             echo '</section>';
         }
         if($layout['acf_fc_layout'] === 'custom'){
-
             echo '<section id="block' . $blockIndex . '" class="custom bg-gray-600 py-' . $layout['styling']['padding_y'] . ' px-' . $layout['styling']['padding_x'] . '">';
-                echo '<div class="row  sm:px-3 flex flex-wrap ' . $layout['styling']['width'] . ' mx-auto px-4 lg:px-0">';     
+                echo '<div class="row  sm:px-3 flex flex-wrap ' . $layout['styling']['width'] . ' ' . ($layout['styling']['same_height'] ? '' : ' ' . $layout['styling']['uitlijning'] ) . ' mx-auto px-4 lg:px-0">';     
                     foreach($layout['kolommen'] as $kolom){
-                        echo '<div class="column lg:' . $kolom['breedte'] . ' flex flex-col">';
+                        echo '<div class="column lg:' . $kolom['breedte'] . ' flex flex-col bg-white' . ($layout['styling']['same_height'] ? '' : ' h-full') . '">';
 
                             foreach($kolom['subblokken'] as $subblok){
                                 echo '<div class="subblock ' . 'py-' . $subblok['styling']['padding_y'] . ' px-' . $subblok['styling']['padding_x'] . '">';
