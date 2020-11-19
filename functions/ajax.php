@@ -54,14 +54,17 @@
             if(!empty($items)){
                 echo '<div class="cartWrapper flex flex-col">';
                 foreach($items as $item => $values) { 
-                    echo '<div class="cartProduct flex">';
+                    echo '<div class="cartProduct flex items-center hover:shadow-md p-2 my-2 hover:border border-gray-200">';
                         $image = wp_get_attachment_image_src( get_post_thumbnail_id( $values['data']->get_id() ), 'single-post-thumbnail' );
-                        echo '<a class="cartImage mr-3" href=""><img src="' . $image[0] . '"></a>';
-                        echo '<div class="cartProductInfo">';
+                        echo '<a class="cartImage mr-3" href="' . get_the_permalink($values['data']->get_id()) . '"><img src="' . $image[0] . '"></a>';
+                        echo '<div class="cartProductInfo flex justify-between items-center w-full">';
                             $_product =  wc_get_product( $values['data']->get_id()); 
-                            echo "<b>".$_product->get_title().'</b>  <br> Aantal: '.$values['quantity'].'<br>'; 
-                            $price = get_post_meta($values['product_id'] , '_price', true) * $values['quantity'];
-                            echo "  Price: ".$price."<br>";
+                            echo '<a href="' . get_the_permalink($values['data']->get_id()) . '" class="cartProductTitle font-bold text-sm w-full">' . $_product->get_title() .'</a>';
+                            echo '<div class="productPricing flex justify-end">';
+                                echo '<div class="cartProductQuantity text-sm mr-2 w-8 text-right">' .$values['quantity']. ' x</div>'; 
+                                $price = get_post_meta($values['product_id'] , '_price', true) * $values['quantity'];
+                                echo '<div class="cartProductPrice text-sm w-16 text-right">€ ' . $price . '</div>';
+                            echo '</div>';
                         echo '</div>';
                     echo '</div>';
                 } 

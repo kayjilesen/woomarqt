@@ -111,11 +111,11 @@ jQuery(document).ready(function(){
             var message = jQuery( data ).find( 'supplemental message' ).text();
             // If we are successful, add the success message and remove the link
             if( status == 'success' ) {
-                jQuery('#cart').html(data);
+                jQuery('#cartProducts').html(data);
                 jQuery(document.body).trigger('added_to_cart', [response.fragments, response.cart_hash, $thisbutton]);
             } else {
                 // An error occurred, alert an error message
-                jQuery('#cart').html(data);
+                jQuery('#cartProducts').html(data);
             }
         });
         e.preventDefault();
