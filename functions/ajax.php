@@ -15,7 +15,7 @@
                 <div class="foundProduct flex justify-start items-center py-2 px-2 border-b border-gray-500">
                     <a href="<?php echo get_the_permalink(); ?>" class="foundProductImage mr-8"><img src="<?php echo $image[0]; ?>"></a>
                     <div class="foundProductInfo flex flex-col justify-start">
-                        <h2><a href="<?php echo esc_url( post_permalink() ); ?>"><?php the_title();?></a></h2>
+                        <h2><a href="<?php echo esc_url( post_permalink() ); ?>" class="text-black"><?php the_title();?></a></h2>
                         <h4 class="text-sm text-gray-500"><?php echo $price; ?></h4>
                     </div>
                 </div>

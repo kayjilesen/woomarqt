@@ -38,8 +38,12 @@
                         echo '</div>';
                     ?> 
                 </nav>
-                <div class="md:flex items-center justify-end space-x-8 md:flex-1 lg:w-3/12 searchCol">
-                    <?php if($header['show_searchbar']) echo '<form id="searchForm" action="' . get_permalink() . '" method="GET"><input type="text" class="focus:outline-none" name="search" placeholder="Zoeken..." value=""><button type="submit" class="searchSubmit flex items-center justify-center">' . getIcon('search', '1em') . '</button></form>'; ?>
+                <div class="md:flex items-center justify-end space-x-8 md:flex-1 lg:w-3/12 searchCol relative">
+                    <?php if($header['show_searchbar']) {
+                            echo '<form id="searchForm" action="' . get_permalink() . '" method="GET"><input type="text" class="focus:outline-none" name="search" placeholder="Zoeken..." value=""><button type="submit" class="searchSubmit flex items-center justify-center">' . getIcon('search', '1em') . '</button></form>'; 
+                            echo '<div id="searchProducts" class="bg-white w-full bottom-0 right-0 absolute duration-300 origin-top shadow-lg"></div>';
+                        }
+                    ?>
                 </div>
             </div>
             <div class="flex lg:hidden mobileNav">
@@ -51,7 +55,7 @@
             </div>
             <div class="flex iconRow">
                 <div class="icon cart flex items-center dropdown px-2">
-                    <?php echo getIcon('cart', '1.3em'); ?>
+                    <a href="/winkelwagen"><?php echo getIcon('cart', '1.3em'); ?></a>
                     <div class="cartDropdown shadow-lg">
                         <div class="cartContentWrapper bg-white border text-black p-4">
                             <span class="text-xl font-bold mt-6 mb-8 pl-2">Winkelwagen</span>
@@ -60,7 +64,7 @@
                                     global $woocommerce;
                                     $items = $woocommerce->cart->get_cart();
                                     foreach($items as $item => $values) { 
-                                        echo '<div class="cartProduct flex items-center hover:shadow-md p-2 my-2 hover:border border-gray-200">';
+                                        echo '<div class="cartProduct flex items-center hover:shadow-md p-5 hover:border border-gray-200">';
                                             $image = wp_get_attachment_image_src( get_post_thumbnail_id( $values['data']->get_id() ), 'single-post-thumbnail' );
                                             echo '<a class="cartImage mr-3" href="' . get_the_permalink($values['data']->get_id()) . '"><img src="' . $image[0] . '"></a>';
                                             echo '<div class="cartProductInfo flex justify-between items-center w-full">';

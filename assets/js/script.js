@@ -77,10 +77,12 @@ jQuery(document).ready(function(){
 			var message = jQuery( data ).find( 'supplemental message' ).text();
 			// If we are successful, add the success message and remove the link
 			if( status == 'success' ) {
-                jQuery('#search').html(data);
+                jQuery('#searchProducts').html(data);
+                jQuery('#searchProducts').addClass('open');
 			} else {
                 // An error occurred, alert an error message
-                jQuery('#search').html(data);
+                jQuery('#searchProducts').html(data);
+                jQuery('#searchProducts').addClass('open');
 			}
 		});
         // Prevent the default behavior for the link

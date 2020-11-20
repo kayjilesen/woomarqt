@@ -37,6 +37,16 @@ header {
                 border-radius: 0px;
             }
         }
+        .searchCol {
+            #searchProducts {
+                max-width: 360px;
+                transform: translateY(100%) scaleY(0);
+
+                &.open {
+                    transform: translateY(100%) scaleY(1);
+                }
+            }
+        }
         .iconRow {
             order: 200;
             position: relative;
