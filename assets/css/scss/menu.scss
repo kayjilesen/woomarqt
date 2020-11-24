@@ -64,7 +64,7 @@ header {
 
                 .cartDropdown {
                     position: absolute;
-                    width: 360px;
+                    width: 420px;
                     max-width: 100vw;
                     right: 0;
                     bottom: 0;
@@ -90,6 +90,30 @@ header {
                         &:hover {
                             z-index: 3;
                         }
+                    }
+                }
+            }
+            .icon {
+                position: relative;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    background-color: unset;
+                    width: 36px;
+                    height: 36px;
+                    left: 50%;
+                    top: 50%;
+                    border-radius: 50%;
+                    z-index: -1;
+                    transform: translate(-50%, -50%);
+                    transition: 0.2s;
+                }
+                &:hover {
+                    &:after {
+                        background-color: rgba(0,0,0,0.12);
+                        width: 42px;
+                        height: 42px;
                     }
                 }
             }
@@ -263,4 +287,10 @@ header {
         width: 60px;
         object-fit: contain;
     }
+}
+
+.cartItemsCount {
+    top: calc(50% - 0.1rem);
+    transform: translate(calc(50% - 0.3rem), -100%);
+    font-size: 10px;
 }

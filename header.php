@@ -17,6 +17,8 @@ $huisstijl = get_field('huisstijl', 'option');
 $menu = wp_get_nav_menu_object( get_nav_menu_locations()[ 'header-menu' ] );
 $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
 
+global $woocommerce;
+
 ?>
 
 <!DOCTYPE html>
