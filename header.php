@@ -32,7 +32,8 @@ global $woocommerce;
     <title><?php echo get_the_title(); ?></title>
 
     <!-- Load Tailwind CSS CDN -->
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <!-- <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"> -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 
     <!-- Load Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
