@@ -61,5 +61,5 @@ global $woocommerce;
             // Show USP's - Default = Active - When First
             if($menuOrder === 'thsu' && $uspbar['show_usps']) include 'blocks/header/usp.php';
         ?>
-        <div class="headerOverlay"></div>
     </header>
+    <div class="headerOverlay"></div>

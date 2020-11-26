@@ -41,6 +41,7 @@ header {
             #searchProducts {
                 width: 320px;
                 transform: translateY(100%) scaleY(0);
+                transition: .5s;
 
                 &.open {
                     transform: translateY(100%) scaleY(1);
@@ -129,6 +130,27 @@ header {
             border: 1px solid #eee;
             border-left: 0px;
         }
+    }
+}
+
+/* On Search */
+body.show-search {
+    overflow-y: hidden;
+
+    #searchProducts {
+        transform: translateY(100%) scaleY(1) !important;
+        z-index: 2;
+    }
+
+    .headerOverlay {
+        pointer-events: none;
+        content: '';
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        z-index: 1;
     }
 }
 

@@ -51,7 +51,7 @@
                 ));
             }
 
-            echo '<section id="block' . $blockIndex . '" class="product bg-gray-300 py-' . $layout['styling']['padding_y'] . ' px-' . $layout['styling']['padding_x'] . '">';
+            echo '<section id="block' . $blockIndex . '" class="product py-' . $layout['styling']['padding_y'] . ' px-' . $layout['styling']['padding_x'] . '">';
                 echo '<div class="row ' . $layout['styling']['width'] . ' mx-auto px-4 lg:px-0">';
                     if($productQuery->have_posts()) :
                         echo '<div class="grid grid-cols-' . $layout['styling']['aantal_in_rij_mobiel']['value'] . ' md:grid-cols-2 lg:auto-cols-fr lg:grid-flow-col gap-6">';

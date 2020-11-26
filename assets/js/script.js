@@ -86,6 +86,11 @@ jQuery(document).ready(function(){
     });
 
     function searchAJAX(data){
+        // Open Search
+        jQuery('body').addClass('show-search');
+        jQuery('body').one('click', function(event){
+            jQuery(this).removeClass('show-search');
+        });
         // Post to the server
         jQuery.post( admin_url, data, function( data ) {
 
@@ -97,11 +102,9 @@ jQuery(document).ready(function(){
             // If we are successful, add the success message and remove the link
             if( status == 'success' ) {
                 jQuery('#searchProducts').html(data);
-                jQuery('#searchProducts').addClass('open');
             } else {
                 // An error occurred, alert an error message
                 jQuery('#searchProducts').html(data);
-                jQuery('#searchProducts').addClass('open');
             }
         });
     }

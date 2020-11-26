@@ -5,7 +5,7 @@
 
 ?>
 
-<div id="head" class="navigation-bar <?php if($header['sticky_head']) echo 'sticky '; ?><?php echo $header['custom_volgorde']; ?> items-center flex flex-row w-full">
+<div id="head" class="navigation-bar <?php if($header['sticky_head']) echo 'stick '; ?><?php echo $header['custom_volgorde']; ?> items-center flex flex-row w-full relative">
 
     <div class="navbar-nav sm:px-3 mx-auto sm:px-6m <?php echo $menuStyling['width']; ?> w-full">
         <div class="flex flex-wrap justify-between py-2 lg:py-0 px-4 lg:px-<?php echo $header['styling']['padding_x']; ?> md:space-x-10">
