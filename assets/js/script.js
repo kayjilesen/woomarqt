@@ -67,27 +67,44 @@ jQuery(document).ready(function(){
             search:  jQuery(this).find('input[name="search"]').val(),
             action: 'ajax_search'
         }
-        // Post to the server
-        jQuery.post( admin_url, data, function( data ) {
-
-			// Parse the XML response with jQuery
-            // Get the Status
-			var status = jQuery( data ).find( 'response_data' ).text();
-			// Get the Message
-			var message = jQuery( data ).find( 'supplemental message' ).text();
-			// If we are successful, add the success message and remove the link
-			if( status == 'success' ) {
-                jQuery('#searchProducts').html(data);
-                jQuery('#searchProducts').addClass('open');
-			} else {
-                // An error occurred, alert an error message
-                jQuery('#searchProducts').html(data);
-                jQuery('#searchProducts').addClass('open');
-			}
-		});
+        searchAJAX(data);
         // Prevent the default behavior for the link
         e.preventDefault();
     });
+
+    // AJAX Search
+    jQuery(document).find('input[name="search"]').keyup(function(e){
+        if(jQuery(this).val().length > 2){
+            var data = {
+                search:  jQuery(this).val(),
+                action: 'ajax_search'
+            }
+            searchAJAX(data);
+            // Prevent the default behavior for the link
+            e.preventDefault();
+        }
+    });
+
+    function searchAJAX(data){
+        // Post to the server
+        jQuery.post( admin_url, data, function( data ) {
+
+            // Parse the XML response with jQuery
+            // Get the Status
+            var status = jQuery( data ).find( 'response_data' ).text();
+            // Get the Message
+            var message = jQuery( data ).find( 'supplemental message' ).text();
+            // If we are successful, add the success message and remove the link
+            if( status == 'success' ) {
+                jQuery('#searchProducts').html(data);
+                jQuery('#searchProducts').addClass('open');
+            } else {
+                // An error occurred, alert an error message
+                jQuery('#searchProducts').html(data);
+                jQuery('#searchProducts').addClass('open');
+            }
+        });
+    }
 
     /* -----------------
     // AJAX Add To Cart
@@ -105,6 +122,9 @@ jQuery(document).ready(function(){
                 quantity: product_qty,
                 variation_id: variation_id,   
         };
+        console.log(thisbutton);
+        thisbutton.context.innerHTML = thisbutton.attr('data-loading');
+        thisbutton.addClass('loading');
         jQuery.post( admin_url, data, function( data ) {
 
             // Get the Status
@@ -115,12 +135,17 @@ jQuery(document).ready(function(){
             if( status == 'success' ) {
                 jQuery('#cartProducts').html(data);
                 jQuery(document.body).trigger('added_to_cart', [response.fragments, response.cart_hash, $thisbutton]);
+                thisbutton.context.innerHTML = thisbutton.attr('data-added');
+                thisbutton.addClass('added');
+                thisbutton.removeClass('loading');
             } else {
                 // An error occurred, alert an error message
                 jQuery('#cartProducts').html(data);
+                thisbutton.context.innerHTML = thisbutton.attr('data-added');
             }
         });
         e.preventDefault();
     });
+
 
 });

@@ -83,6 +83,12 @@ if ( function_exists('acf_add_options_page') ) {
     ));
 
     acf_add_options_sub_page(array(
+		'page_title' 	=> 'Labels',
+		'menu_title'	=> 'Labels',
+		'parent_slug'	=> 'woomarqt-settings',
+    ));
+
+    acf_add_options_sub_page(array(
 		'page_title' 	=> 'Shoppagina',
 		'menu_title'	=> 'Shoppagina',
 		'parent_slug'	=> 'woomarqt-settings',

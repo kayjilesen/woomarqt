@@ -3,7 +3,7 @@
  *	Header
  */
 
-//  Define Variables
+// Menu
 $menuOrder = get_field('menu_order', 'option');
 $menuStyling = get_field('menu_styling', 'option');
 $topbar = get_field('topbar', 'option');
@@ -11,6 +11,8 @@ $topbarOptions = get_field('topbar_options', 'option');
 $header = get_field('head', 'option');
 $subbar = get_field('subbar', 'option');
 $uspbar = get_field('usp', 'option');
+// Labels
+$labels = get_field('labels', 'option');
 
 $huisstijl = get_field('huisstijl', 'option');
 

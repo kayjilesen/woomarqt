@@ -5,7 +5,7 @@
         $the_query = new WP_Query( array( 'posts_per_page' => -1, 's' => esc_attr( $_POST['search'] ), 'post_type' => 'product' ) );
 
         if( $the_query->have_posts() ) {
-            echo '<div class="productWrapper flex flex-col mx-auto my-6 border border-b-0 border-gray-500">';
+            echo '<div class="productWrapper flex flex-col mx-auto my-2 border border-b-0 border-gray-500">';
             while( $the_query->have_posts() ): $the_query->the_post();
                 global $product;
                 $image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'single-post-thumbnail' );

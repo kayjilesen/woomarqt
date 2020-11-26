@@ -39,7 +39,7 @@ header {
         }
         .searchCol {
             #searchProducts {
-                max-width: 360px;
+                width: 320px;
                 transform: translateY(100%) scaleY(0);
 
                 &.open {
@@ -100,8 +100,8 @@ header {
                     content: '';
                     position: absolute;
                     background-color: unset;
-                    width: 36px;
-                    height: 36px;
+                    width: 30px;
+                    height: 30px;
                     left: 50%;
                     top: 50%;
                     border-radius: 50%;
@@ -287,6 +287,15 @@ header {
         width: 60px;
         object-fit: contain;
     }
+}
+
+.searchOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
 }
 
 .cartItemsCount {

@@ -40,8 +40,9 @@
                 </nav>
                 <div class="md:flex items-center justify-end space-x-8 md:flex-1 searchCol relative">
                     <?php if($header['show_searchbar']) {
-                            echo '<form id="searchForm" action="' . get_permalink() . '" method="GET"><input type="text" class="focus:outline-none" name="search" placeholder="Zoeken..." value=""><button type="submit" class="searchSubmit flex items-center justify-center">' . getIcon('search', '1em') . '</button></form>'; 
-                            echo '<div id="searchProducts" class="bg-white w-full bottom-0 right-0 absolute duration-300 origin-top shadow-lg"></div>';
+                            echo '<form id="searchForm" action="' . get_permalink() . '" method="GET"><input type="text" class="focus:outline-none" name="search" placeholder="' . $labels['placeholder_search'] . '" value=""><button type="submit" class="searchSubmit flex items-center justify-center">' . getIcon('search', '1em') . '</button></form>'; 
+                            echo '<div id="searchProducts" class="bg-white bottom-0 right-0 absolute duration-300 origin-top shadow-lg"></div>';
+                            echo '<div id="searchOverlay"></div>';
                         }
                     ?>
                 </div>
@@ -55,14 +56,14 @@
             </div>
             <div class="flex iconRow">
                 <div class="icon account flex items-center px-2">
-                    <a href="/mijn-account"><?php echo getIcon('person', '1.6em'); ?></a>
+                    <a href="/mijn-account"><?php echo getIcon($labels['account_icon_menu'], '1.6em'); ?></a>
                 </div>
                 <div class="icon cart flex items-center dropdown px-2">
-                    <a href="/winkelwagen"><?php echo getIcon('cart', '1.3em'); ?></a>
+                    <a href="/winkelwagen"><?php echo getIcon($labels['cart_icon_menu'], '1.3em'); ?></a>
                     <div class="cartItemsCount absolute bg-green-600 text-white font-bold rounded-full top-0 right-0 w-5 h-5 flex items-center justify-center"><?php echo $woocommerce->cart->cart_contents_count; ?></div>
-                    <div class="cartDropdown shadow-lg">
+                    <div class="cartDropdown shadow-lg rounded">
                         <div class="cartContentWrapper bg-white border text-black p-4">
-                            <span class="text-xl font-bold mt-6 mb-8 pl-2">Winkelwagen</span>
+                            <span class="text-xl font-bold mt-6 mb-8 pl-2"><?php echo $labels['cart_name']; ?></span>
                             <div id="cartProducts">
                                 <?php
                                     global $woocommerce;
@@ -86,8 +87,8 @@
                                 ?>
                             </div>
                             <div class="cartButtons grid grid-cols-2 gap-1">
-                                <a href="/winkelwagen" class="cartButton text-center text-sm bg-gray-500 hover:bg-gray-700 text-white py-4 rounded-sm hover:shadow-lg duration-300 flex items-center justify-center"><?php echo getIcon('cart', '1.3em'); ?><span class="pl-2">Winkelmand</span></a>
-                                <a href="/checkout" class="cartButton text-center text-sm bg-green-600 hover:bg-green-700 text-white py-4 rounded-sm hover:shadow-lg duration-300 flex items-center justify-center"><span class="pr-2">Afrekenen</span><?php echo getIcon('chevron-right', '1.3em'); ?></a>
+                                <a href="/winkelwagen" class="cartButton text-center text-sm bg-gray-500 hover:bg-gray-700 text-white py-4 rounded hover:shadow-lg duration-300 flex items-center justify-center"><?php echo getIcon($labels['cart_icon_menu'], '1.3em'); ?><span class="pl-2">Winkelmand</span></a>
+                                <a href="/checkout" class="cartButton text-center text-sm bg-green-600 hover:bg-green-700 text-white py-4 rounded hover:shadow-lg duration-300 flex items-center justify-center"><span class="pr-2">Afrekenen</span><?php echo getIcon('chevron-right', '1.3em'); ?></a>
                             </div> 
                         </div>
                     </div>
