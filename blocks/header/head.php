@@ -60,7 +60,7 @@
                 </div>
                 <div class="icon cart flex items-center dropdown px-2">
                     <a href="/winkelwagen"><?php echo getIcon($labels['cart_icon_menu'], '1.3em'); ?></a>
-                    <div class="cartItemsCount absolute bg-green-600 text-white font-bold rounded-full top-0 right-0 w-5 h-5 flex items-center justify-center"><?php echo $woocommerce->cart->cart_contents_count; ?></div>
+                    <div class="cartItemsCount absolute bg-green-600 text-white font-bold rounded-full top-0 right-0 w-5 h-5 flex items-center justify-center"><span id="itemAmount"><?php echo $woocommerce->cart->cart_contents_count; ?></span></div>
                     <div class="cartDropdown shadow-lg rounded">
                         <div class="cartContentWrapper bg-white border text-black p-4">
                             <span class="text-xl font-bold mt-6 mb-8 pl-2"><?php echo $labels['cart_name']; ?></span>

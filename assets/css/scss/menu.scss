@@ -97,6 +97,10 @@ header {
             .icon {
                 position: relative;
 
+                a {
+                    z-index: 3;
+                }
+
                 &:after {
                     content: '';
                     position: absolute;
@@ -106,7 +110,7 @@ header {
                     left: 50%;
                     top: 50%;
                     border-radius: 50%;
-                    z-index: -1;
+                    z-index: 2;
                     transform: translate(-50%, -50%);
                     transition: 0.2s;
                 }
@@ -324,4 +328,68 @@ body.show-search {
     top: calc(50% - 0.1rem);
     transform: translate(calc(50% - 0.3rem), -100%);
     font-size: 10px;
+    z-index: 3;
 }
+
+.single-add-to-cart-button {
+    transition: 0.3s;
+    position: relative;
+    height: 40px;
+    overflow: hidden;
+    font-size: 0.8em;
+    font-weight: 500;
+
+    span {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        transition: 0.3s;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+    }
+
+    .added, .loading {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    &.loading {
+        background-color: #00b900;
+
+        .add {
+            opacity: 0;
+            transform: translateY(100%);
+        }
+        .loading {
+            opacity: 1;
+            transform: unset;
+        }
+    }
+    &.added {
+        background-color: #ddd;
+        color: black;
+        .add {
+            transform: translateY(-100%);
+        }
+        .added {
+            opacity: 1;
+            color: black;
+            transform: unset;
+        }
+    }
+
+    &:hover {
+        background-color: #00b900;
+        cursor: pointer;
+
+        &.added {
+            .added {
+                color: white;
+            }
+        }
+    }
+}   

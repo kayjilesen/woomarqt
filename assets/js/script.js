@@ -125,8 +125,8 @@ jQuery(document).ready(function(){
                 quantity: product_qty,
                 variation_id: variation_id,   
         };
-        console.log(thisbutton);
-        thisbutton.context.innerHTML = thisbutton.attr('data-loading');
+        
+        if(thisbutton.hasClass('added')) thisbutton.removeClass('added');
         thisbutton.addClass('loading');
         jQuery.post( admin_url, data, function( data ) {
 
@@ -138,13 +138,17 @@ jQuery(document).ready(function(){
             if( status == 'success' ) {
                 jQuery('#cartProducts').html(data);
                 jQuery(document.body).trigger('added_to_cart', [response.fragments, response.cart_hash, $thisbutton]);
-                thisbutton.context.innerHTML = thisbutton.attr('data-added');
                 thisbutton.addClass('added');
                 thisbutton.removeClass('loading');
+                console.log(jQuery('.cartItemsCount').innerHTML);
+                jQuery('#itemAmount').text(parseInt(jQuery('#itemAmount').text()) + 1);
             } else {
                 // An error occurred, alert an error message
                 jQuery('#cartProducts').html(data);
-                thisbutton.context.innerHTML = thisbutton.attr('data-added');
+                thisbutton.addClass('added');
+                thisbutton.removeClass('loading');
+                console.log(jQuery('#itemAmount'));
+                jQuery('#itemAmount').text(parseInt(jQuery('#itemAmount').text()) + 1);
             }
         });
         e.preventDefault();

@@ -69,7 +69,7 @@
                                 echo '<div class="infoWrapper mt-6">';
                                     echo '<h4 class="text-lg"><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h4>';
                                     echo $onSale !== '' ? '<del class="text-opacity-25">' . $price . '</del> ' . $sale : $price;
-                                    echo '<div class="w-full bg-green-600 text-white text-center py-3 mt-3 rounded single-add-to-cart-button" data-product-id="' . get_the_ID() . '" data-loading="' . $labels['add_to_cart_loading'] . '" data-added="' . $labels['add_to_cart_finished'] . '">' . $labels['add_to_cart'] . '</div>';
+                                    echo '<div class="w-full bg-green-600 text-white text-center mt-3 rounded relative single-add-to-cart-button" data-product-id="' . get_the_ID() . '"><span class="add">' . $labels['add_to_cart'] . '</span><span class="loading">' . $labels['add_to_cart_loading'] . '</span><span class="added">' . $labels['add_to_cart_finished'] . '</span></div>';
                                 echo '</div>';
                             echo '</div>';
                         endwhile;   
