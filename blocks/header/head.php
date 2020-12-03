@@ -87,7 +87,7 @@
                                 ?>
                             </div>
                             <div class="cartButtons grid grid-cols-2 gap-1">
-                                <a href="/winkelwagen" class="cartButton text-center text-sm bg-gray-500 hover:bg-gray-700 text-white py-4 rounded hover:shadow-lg duration-300 flex items-center justify-center"><?php echo getIcon($labels['cart_icon_menu'], '1.3em'); ?><span class="pl-2">Winkelmand</span></a>
+                                <a href="/winkelmand" class="cartButton text-center text-sm bg-gray-500 hover:bg-gray-700 text-white py-4 rounded hover:shadow-lg duration-300 flex items-center justify-center"><?php echo getIcon($labels['cart_icon_menu'], '1.3em'); ?><span class="pl-2">Winkelmand</span></a>
                                 <a href="/checkout" class="cartButton text-center text-sm bg-green-600 hover:bg-green-700 text-white py-4 rounded hover:shadow-lg duration-300 flex items-center justify-center"><span class="pr-2">Afrekenen</span><?php echo getIcon('chevron-right', '1.3em'); ?></a>
                             </div> 
                         </div>
