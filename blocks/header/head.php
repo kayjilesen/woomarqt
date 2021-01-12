@@ -58,8 +58,8 @@
                 <div class="icon account flex items-center px-2">
                     <a href="/mijn-account"><?php echo getIcon($labels['account_icon_menu'], '1.6em'); ?></a>
                 </div>
-                <div class="icon cart flex items-center <?php if($header['winkelwagen'] === 'dropdown') echo 'dropdown '; ?>px-2">
-                    <?php echo ($header['winkelwagen'] !== 'side' ? '<a href="/winkelwagen">' . getIcon($labels['cart_icon_menu'], '1.3em') . '</a>' : '<div id="openCartButton">' . getIcon($labels['cart_icon_menu'], '1.3em') . '</div>' ); ?>
+                <div class="icon cart flex items-center <?php if($header['winkelwagen'] === 'dropdown') echo 'dropdown '; ?>px-2" id="openCartButton">
+                    <?php echo ($header['winkelwagen'] !== 'side' ? '<a href="/winkelwagen">' . getIcon($labels['cart_icon_menu'], '1.3em') . '</a>' : '<div>' . getIcon($labels['cart_icon_menu'], '1.3em') . '</div>' ); ?>
                     <div class="cartItemsCount absolute bg-green-600 text-white font-bold rounded-full top-0 right-0 w-5 h-5 flex items-center justify-center"><span id="itemAmount"><?php echo $woocommerce->cart->cart_contents_count; ?></span></div>
                     <?php if($header['winkelwagen'] === 'dropdown') { ?>
                         <div class="cartDropdown shadow-lg rounded">

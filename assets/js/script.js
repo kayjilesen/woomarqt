@@ -163,12 +163,11 @@
     var cartSide = document.getElementById('cartSide');
     var openCartSide = document.getElementById('openCartButton');
     var closeCartSide = document.getElementById('closeCartSide');
-    jQuery('#closeCa7rtSide').on('click', function(){
+    jQuery('#closeCartSide').on('click', function(){
         cartSide.classList.remove('open');
     });
-    console.log(jQuery('#openCartSide'));
-    alert('test');
-    jQuery('#openCartSide').on('click', function(){
+    console.log(jQuery('#openCartButton'));
+    jQuery('#openCartButton').on('click', function(){
         if(cartSide.classList.contains('open')){
             cartSide.classList.remove('open');
         } else {

@@ -2,7 +2,7 @@
     <div class="cartWrapper">
         <div class="titleBar">
             <span class="cartTitle">Winkelwagen</span>
-            <div id="closeCartSide"><i class="fa fa-times"></i></div>
+            <div id="closeCartSide"><?php echo getIcon('cross', '1.8em'); ?></div>
         </div>
         <div id="cartProducts">
             <?php
