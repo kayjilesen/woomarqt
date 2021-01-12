@@ -63,3 +63,6 @@ global $woocommerce;
         ?>
     </header>
     <div class="headerOverlay"></div>
+    
+    <?php if($header['winkelwagen'] === 'side') { include 'blocks/header/side-cart.php'; } ?>
+

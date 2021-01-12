@@ -175,10 +175,6 @@ function custom_woomarqt_scripts() {
         wp_register_script('slider-slick', get_template_directory_uri() . '/assets/js/slider.js', filemtime(get_theme_file_path('/assets/js/slider.js'))); // Conditional script(s)
         wp_enqueue_script('slider-slick'); // Slick Slider Script
     }   
-
-    wp_register_script('script-woomarqt', get_template_directory_uri() . '/assets/js/script.js', array('jquery'), filemtime(get_theme_file_path('/assets/js/script.js'))); // Conditional script(s)
-    wp_enqueue_script('script-woomarqt'); // Basic Script
-
 }
 add_action('wp_print_scripts', 'custom_woomarqt_scripts'); // Add Conditional Page Scripts
 

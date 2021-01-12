@@ -28,7 +28,7 @@
     <?php if ($footer_settings['show_widgets']) { ?>
 
         <section id="footer-widgets" class="w-full px-4 lg:px-0">
-            <div class="py-10 mx-auto max-w-screen-sm max-w-screen-md max-w-screen-lg max-w-screen-xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+            <div class="py-<?php echo $footer_widgets['styling']['padding_y']; ?> px-<?php echo $footer_widgets['styling']['padding_x']; ?> mx-auto max-w-screen-sm max-w-screen-md max-w-screen-lg max-w-screen-xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
                 <?php if ($footer_widgets['show_contact']) { ?>
                     <div class="">
                         <h5 class="mb-4 text-xl">Contact</h5>
@@ -143,6 +143,8 @@
     <?php } ?>
 
 </footer>
+
+<?php echo '<script src="' . get_stylesheet_directory_uri() . '/assets/js/script.js?v=' . filemtime(get_stylesheet_directory() . '/assets/js/script.js') . '" type="text/javascript">'; ?>
 
 <script type="text/javascript">
     var admin_url = "<?php echo admin_url('admin-ajax.php'); ?>";

@@ -28,13 +28,17 @@ function get_css_content(){
     if($uspbar['show_usps']) $content .= '#usp{background-color:' . $uspbar['styling']['background_color'] . ';color:' . $uspbar['styling']['text_color'] . '}#usp svg{color: ' . $uspbar['icon_color'] . ';}';
 
     // Footer CSS
-    $content .= '#footer-usps{ background-color: ' . $footer_usps['background_color'] . ';}';
-    $content .= '#footer-widgets{ background-color: ' . $footer_widgets['background_color'] . ';}';
-    $content .= '#footer-copyright{ background-color: ' . $footer_copyright['background_color'] . ';}';
+    $content .= '#footer-usps{ background-color: ' . $footer_usps['styling']['background_color'] . '; color: ' . $footer_usps['styling']['text_color'] . ';}';
+    $content .= '#footer-widgets{ background-color: ' . $footer_widgets['styling']['background_color'] . '; color: ' . $footer_widgets['styling']['text_color'] . ';}';
+    $content .= '#footer-copyright{ background-color: ' . $footer_copyright['styling']['background_color'] . '; color: ' . $footer_copyright['styling']['text_color'] . ';}';
 
     // Fonts
     $content .= 'h1, h2, h3, h4, h5, h6 { font-family: ' . $huisstijl['heading_font'] . ', "Arial";}';
     $content .= 'p, ul, ul li, ol, ol li { font-family: ' . $huisstijl['body_font'] . ', "Arial";}';
+
+    // Settings
+    $filePath = TEMPLATEPATH . '/assets/css/';
+    if($header['winkelwagen'] === 'side') $content .= file_get_contents($filePath . 'menu-side-cart.min.css');
     
     return $content;
 }

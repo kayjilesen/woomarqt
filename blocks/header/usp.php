@@ -3,7 +3,7 @@
         <?php   
         if(!empty($uspbar['usps'])) :
             foreach($uspbar['usps'] as $usp){
-                echo '<div class="w-full flex md:w-auto"><div class="uspBlock flex justify-center md:justify-start items-center text-sm md:mr-8 text-center md:text-left"><div class="mr-1">' . getIcon( $usp['icon'], '1.6em' ) .  '</div>' . $usp['usp'] . '</div></div>';
+                echo '<div class="w-full flex md:w-auto"><div class="uspBlock flex justify-center md:justify-start witems-center text-sm md:mr-8 text-center md:text-left"><div class="mr-1">' . getIcon( $usp['icon'], '1.6em' ) .  '</div>' . $usp['usp'] . '</div></div>';
             }
         endif;
         ?>

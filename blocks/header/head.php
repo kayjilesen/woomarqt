@@ -58,40 +58,42 @@
                 <div class="icon account flex items-center px-2">
                     <a href="/mijn-account"><?php echo getIcon($labels['account_icon_menu'], '1.6em'); ?></a>
                 </div>
-                <div class="icon cart flex items-center dropdown px-2">
-                    <a href="/winkelwagen"><?php echo getIcon($labels['cart_icon_menu'], '1.3em'); ?></a>
+                <div class="icon cart flex items-center <?php if($header['winkelwagen'] === 'dropdown') echo 'dropdown '; ?>px-2">
+                    <?php echo ($header['winkelwagen'] !== 'side' ? '<a href="/winkelwagen">' . getIcon($labels['cart_icon_menu'], '1.3em') . '</a>' : '<div id="openCartButton">' . getIcon($labels['cart_icon_menu'], '1.3em') . '</div>' ); ?>
                     <div class="cartItemsCount absolute bg-green-600 text-white font-bold rounded-full top-0 right-0 w-5 h-5 flex items-center justify-center"><span id="itemAmount"><?php echo $woocommerce->cart->cart_contents_count; ?></span></div>
-                    <div class="cartDropdown shadow-lg rounded">
-                        <div class="cartContentWrapper bg-white border text-black p-4">
-                            <span class="text-xl font-bold mt-6 mb-8 pl-2"><?php echo $labels['cart_name']; ?></span>
-                            <div id="cartProducts">
-                                <?php
-                                    global $woocommerce;
-                                    $items = $woocommerce->cart->get_cart();
-                                    foreach($items as $item => $values) { 
-                                        $_product =  wc_get_product( $values['data']->get_id()); 
-                                        $price = wc_price( wc_get_price_to_display( $_product, array( 'price' => $_product->get_regular_price() * $values['quantity'] ) ) );
-                                        echo '<div class="cartProduct flex items-center hover:shadow-md p-5 hover:border border-gray-200">';
-                                            $image = wp_get_attachment_image_src( get_post_thumbnail_id( $values['data']->get_id() ), 'single-post-thumbnail' );
-                                            echo '<a class="cartImage mr-3" href="' . get_the_permalink($values['data']->get_id()) . '"><img src="' . $image[0] . '"></a>';
-                                            echo '<div class="cartProductInfo flex justify-between items-center w-full">';
-                                                echo '<a href="' . get_the_permalink($values['data']->get_id()) . '" class="cartProductTitle font-bold text-sm w-full">' . $_product->get_title() .'</a>';
-                                                echo '<div class="productPricing flex justify-end">';
-                                                    echo '<div class="cartProductQuantity text-sm mr-2 w-8 text-right">' .$values['quantity']. ' x</div>'; 
-                                                    //$price = get_post_meta($values['product_id'] , '_price', true) * $values['quantity'];
-                                                    echo '<div class="cartProductPrice text-sm w-20 text-right">' . $price . '</div>';
+                    <?php if($header['winkelwagen'] === 'dropdown') { ?>
+                        <div class="cartDropdown shadow-lg rounded">
+                            <div class="cartContentWrapper bg-white border text-black p-4">
+                                <span class="text-xl font-bold mt-6 mb-8 pl-2"><?php echo $labels['cart_name']; ?></span>
+                                <div id="cartProducts">
+                                    <?php
+                                        global $woocommerce;
+                                        $items = $woocommerce->cart->get_cart();
+                                        foreach($items as $item => $values) { 
+                                            $_product =  wc_get_product( $values['data']->get_id()); 
+                                            $price = wc_price( wc_get_price_to_display( $_product, array( 'price' => $_product->get_regular_price() * $values['quantity'] ) ) );
+                                            echo '<div class="cartProduct flex items-center hover:shadow-md p-5 hover:border border-gray-200">';
+                                                $image = wp_get_attachment_image_src( get_post_thumbnail_id( $values['data']->get_id() ), 'single-post-thumbnail' );
+                                                echo '<a class="cartImage mr-3" href="' . get_the_permalink($values['data']->get_id()) . '"><img src="' . $image[0] . '"></a>';
+                                                echo '<div class="cartProductInfo flex justify-between items-center w-full">';
+                                                    echo '<a href="' . get_the_permalink($values['data']->get_id()) . '" class="cartProductTitle font-bold text-sm w-full">' . $_product->get_title() .'</a>';
+                                                    echo '<div class="productPricing flex justify-end">';
+                                                        echo '<div class="cartProductQuantity text-sm mr-2 w-8 text-right">' .$values['quantity']. ' x</div>'; 
+                                                        //$price = get_post_meta($values['product_id'] , '_price', true) * $values['quantity'];
+                                                        echo '<div class="cartProductPrice text-sm w-20 text-right">' . $price . '</div>';
+                                                    echo '</div>';
                                                 echo '</div>';
                                             echo '</div>';
-                                        echo '</div>';
-                                    }
-                                ?>
+                                        }
+                                    ?>
+                                </div>
+                                <div class="cartButtons grid grid-cols-2 gap-1">
+                                    <a href="/winkelmand" class="cartButton text-center text-sm bg-gray-500 hover:bg-gray-700 text-white py-4 rounded hover:shadow-lg duration-300 flex items-center justify-center"><?php echo getIcon($labels['cart_icon_menu'], '1.3em'); ?><span class="pl-2">Winkelmand</span></a>
+                                    <a href="/checkout" class="cartButton text-center text-sm bg-green-600 hover:bg-green-700 text-white py-4 rounded hover:shadow-lg duration-300 flex items-center justify-center"><span class="pr-2">Afrekenen</span><?php echo getIcon('chevron-right', '1.3em'); ?></a>
+                                </div> 
                             </div>
-                            <div class="cartButtons grid grid-cols-2 gap-1">
-                                <a href="/winkelmand" class="cartButton text-center text-sm bg-gray-500 hover:bg-gray-700 text-white py-4 rounded hover:shadow-lg duration-300 flex items-center justify-center"><?php echo getIcon($labels['cart_icon_menu'], '1.3em'); ?><span class="pl-2">Winkelmand</span></a>
-                                <a href="/checkout" class="cartButton text-center text-sm bg-green-600 hover:bg-green-700 text-white py-4 rounded hover:shadow-lg duration-300 flex items-center justify-center"><span class="pr-2">Afrekenen</span><?php echo getIcon('chevron-right', '1.3em'); ?></a>
-                            </div> 
                         </div>
-                    </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>

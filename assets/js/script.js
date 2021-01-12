@@ -1,4 +1,8 @@
-jQuery(document).ready(function(){
+/*
+    Base JS 
+*/
+
+;(function($){
 
     checkMenu();
 
@@ -155,4 +159,22 @@ jQuery(document).ready(function(){
     });
 
 
-});
+    // Open Cart 
+    var cartSide = document.getElementById('cartSide');
+    var openCartSide = document.getElementById('openCartButton');
+    var closeCartSide = document.getElementById('closeCartSide');
+    jQuery('#closeCa7rtSide').on('click', function(){
+        cartSide.classList.remove('open');
+    });
+    console.log(jQuery('#openCartSide'));
+    alert('test');
+    jQuery('#openCartSide').on('click', function(){
+        if(cartSide.classList.contains('open')){
+            cartSide.classList.remove('open');
+        } else {
+            cartSide.classList.add('open');
+        }
+    });
+
+
+})(jQuery);
