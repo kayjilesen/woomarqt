@@ -10,6 +10,8 @@
     $footer_payment_methods     =   get_field('footer_payment_methods', 'option');
     $footer_carriers            =   get_field('footer_carriers', 'option');
 
+    if($footer_usps['inherit_usps']) $usps = get_field('usp', 'option');
+
     if(!empty(get_field('blok'))) include 'blocks/content.php'; 
 
 ?>
@@ -19,7 +21,19 @@
 
         <section id="footer-usps" class="w-full px-4 lg:px-0">
             <div class="py-8 mx-auto max-w-screen-sm max-w-screen-md max-w-screen-lg max-w-screen-xl grid">
-                <p>Hier komen USP's</p>
+                <?php 
+                    if($footer_usps['inherit_usps']) {
+                        echo '<div class="navigation-bar w-full ' . ( $usps['styling']['height'] === 'auto' ? '' : 'h-' . $usps['styling']['height'] ) . '">';
+                            echo '<div id="uspSlider" class="innerWrapper sm:px-3 md:flex py-' . $usps['styling']['padding_y'] . ' lg:px-' . $usps['styling']['padding_x'] . ' justify-center mx-auto">';
+                            foreach($usps['usps'] as $usp){
+                                echo '<div class="w-full flex md:w-auto"><div class="uspBlock flex justify-center md:justify-start witems-center text-sm md:mr-8 text-center md:text-left"><div class="mr-1">' . getIcon( $usp['icon'], '1.6em' ) .  '</div>' . $usp['usp'] . '</div></div>';
+                            }
+                            echo '</div>';
+                        echo '</div>';
+                    } else {
+                        echo 'Eigen USP\'s';
+                    }
+                ?>  
             </div>
         </section>
 

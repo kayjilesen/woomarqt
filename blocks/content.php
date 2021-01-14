@@ -16,6 +16,7 @@
 
     foreach(get_field('blok') as $layout){ 
         if($layout['acf_fc_layout'] === 'producten'){
+
             $filter = $layout['type'];
             if($filter === 'category') {
                 foreach ( $layout['categorie'] as $term => $val ) $cats_array[] = $val;
@@ -77,8 +78,8 @@
                     endif;
                 echo '</div>';
             echo '</section>';
-        }
-        if($layout['acf_fc_layout'] === 'custom'){
+        } else if($layout['acf_fc_layout'] === 'custom'){
+
             echo '<section id="block' . $blockIndex . '" class="custom bg-gray-600 py-' . $layout['styling']['padding_y'] . ' px-' . $layout['styling']['padding_x'] . '">';
                 echo '<div class="row  sm:px-3 flex flex-wrap ' . $layout['styling']['width'] . ' ' . ($layout['styling']['same_height'] ? '' : ' ' . $layout['styling']['uitlijning'] ) . ' mx-auto px-4 lg:px-0">';     
                     foreach($layout['kolommen'] as $kolom){
@@ -106,7 +107,22 @@
                     }
                 echo '</div>';
             echo '</section>';
+        } else if($layout['acf_fc_layout'] === 'categorieen'){
 
+            echo '<section id="block' . $blockIndex . '" class="custom py-' . $layout['styling']['padding_y'] . ' px-' . $layout['styling']['padding_x'] . '">';
+                if($layout['show_title']) echo '<div class="text-center"><h2>' . $layout['title'] . '</h2></div>';
+                echo '<div class="row grid lg:grid-cols-' . count($layout['categorie']) . ' gap-' . $layout['blokstyling']['margin_x'] . ' sm:px-3 flex flex-wrap ' . $layout['styling']['width'] . ' ' . ($layout['styling']['same_height'] ? '' : ' ' . $layout['styling']['uitlijning'] ) . ' mx-auto px-4 lg:px-0">';     
+                    foreach($layout['categorie'] as $cat){
+                        $thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true );
+                        $image = wp_get_attachment_url( $thumbnail_id );
+                        echo '<div class="column flex flex-col bg-white' . ($layout['styling']['same_height'] ? '' : ' h-full') . ' px-' . $layout['blokstyling']['padding_x'] . ' py-' . $layout['blokstyling']['padding_y'] . ' ' . $layout['blokstyling']['align_text'] . '" style="background-color:' . $layout['blokstyling']['background_color'] . ';">';
+                            echo $cat->name;
+                            echo '<img src="' . $image . '">';
+                            echo '<a class="button " href="' . $cat->slug . '">Bekijken</a>';
+                        echo '</div>';
+                    }
+                echo '</div>';
+            echo '</section>';
         }
         $blockIndex++;
     }
