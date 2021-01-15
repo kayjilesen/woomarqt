@@ -21,6 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header( 'shop' ); ?>
 
+
     <div class="container productContainer">
 
 	<?php

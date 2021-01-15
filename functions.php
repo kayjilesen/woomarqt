@@ -95,6 +95,12 @@ if ( function_exists('acf_add_options_page') ) {
     ));
 
     acf_add_options_sub_page(array(
+		'page_title' 	=> 'Klantenservice',
+		'menu_title'	=> 'Klantenservice',
+		'parent_slug'	=> 'woomarqt-settings',
+    ));
+
+    acf_add_options_sub_page(array(
 		'page_title' 	=> 'Productpagina',
 		'menu_title'	=> 'Productpagina',
 		'parent_slug'	=> 'woomarqt-settings',
