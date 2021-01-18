@@ -1,0 +1,28 @@
+@import 'basics';
+
+.sidebar {
+    min-width: 200px;
+
+    .active {
+        font-weight: bold;
+    }
+}
+
+.pageContent {
+    h1, h2, h3, h4, h5, h6 {
+
+    }
+    h4 {
+        font-size: 1em;
+
+        &:not(:nth-child(1)){
+            margin-top: 32px;
+        }
+    }
+    strong {
+        font-weight: bold;
+    }
+    p {
+        margin: 12px 0 12px 0;
+    }
+}

@@ -43,6 +43,8 @@ global $woocommerce;
     <link href="https://fonts.googleapis.com/css2?family=<?php echo $huisstijl['heading_font'] ?>&display=swap" rel="stylesheet">
     <!-- Body Font -->
     <link href="https://fonts.googleapis.com/css2?family=<?php echo $huisstijl['body_font'] ?>&display=swap" rel="stylesheet">
+    <!-- Parent Styling -->
+    <?php if($post->post_parent !== 0 && file_exists(get_template_directory() . '/assets/css/' . get_post($post->post_parent)->post_name . '.min.css')) echo '<link href="' . get_template_directory_uri() . '/assets/css/' . get_post($post->post_parent)->post_name . '.min.css?v=' . filemtime(get_theme_file_path() . '/assets/css/' . get_post($post->post_parent)->post_name . '.min.css') . '" rel="stylesheet" type="text/css">'; ?>
 
 	<?php wp_head(); ?>
 </head>
