@@ -46,7 +46,7 @@
             <div class="py-<?php echo $footer_widgets['styling']['padding_y']; ?> px-<?php echo $footer_widgets['styling']['padding_x']; ?> mx-auto max-w-screen-sm max-w-screen-md max-w-screen-lg max-w-screen-xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
                 <?php if ($footer_widgets['show_contact']) { ?>
                     <div class="">
-                        <h5 class="mb-4 text-xl">Contact</h5>
+                        <h5 class="mb-6 text-xl font-medium">Contact</h5>
 
                         <?php
                             $company = get_field('company', 'option');
@@ -106,7 +106,7 @@
 
                 <?php if ($footer_widgets['show_service']) { ?>
                     <div class="">
-                        <h5 class="mb-4 text-xl">Klantenservice</h5>
+                        <h5 class="mb-6 text-xl font-medium">Klantenservice</h5>
                         <?php
                             if ($footer_widgets['service_menu']) :
                                 ?> <ul> <?php

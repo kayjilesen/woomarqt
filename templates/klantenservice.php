@@ -8,7 +8,7 @@
 ?>
 
     <div class="<?php echo $data['container_width']; ?> my-<?php echo $data['styling']['margin_y']; ?> mx-auto">
-        <?php if($data['show_title']) echo '<div class="mb-6 ' . $data['font_size'] . '">' . get_the_title() . '</div>'; ?>
+        <?php if($data['show_title']) echo '<div class="mb-16 priTextColor font-bold ' . $data['font_size'] . '">' . get_the_title() . '</div>'; ?>
         <div class="infoWrapper flex mx-auto <?php echo ($data['show_sidebar'] ? 'flex-row' : '' ); ?>">
             <?php 
                 if($data['show_sidebar']){

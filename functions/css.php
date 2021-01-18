@@ -36,6 +36,7 @@ function get_css_content(){
     // Fonts
     $content .= 'h1, h2, h3, h4, h5, h6 { font-family: ' . $huisstijl['heading_font'] . ', "Arial";}';
     $content .= 'p, ul, ul li, ol, ol li { font-family: ' . $huisstijl['body_font'] . ', "Arial";}';
+    $content .= 'p a { color: ' . $huisstijl['primary_color'] . '; font-weight: 500;}';
 
     // Settings
     $filePath = TEMPLATEPATH . '/assets/css/';

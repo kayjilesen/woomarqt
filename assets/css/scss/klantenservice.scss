@@ -10,14 +10,19 @@
 
 .pageContent {
     h1, h2, h3, h4, h5, h6 {
-
+        font-weight: bold;
     }
     h4 {
-        font-size: 1em;
+        font-size: 1.1em;
 
         &:not(:nth-child(1)){
             margin-top: 32px;
         }
+    }
+    ol {
+        margin: 18px 0 32px 0;
+        list-style-type: decimal;
+        padding-left: 20px;
     }
     strong {
         font-weight: bold;

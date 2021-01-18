@@ -84,23 +84,24 @@
                 echo '<div class="row  sm:px-3 flex flex-wrap ' . $layout['styling']['width'] . ' ' . ($layout['styling']['same_height'] ? '' : ' ' . $layout['styling']['uitlijning'] ) . ' mx-auto px-4 lg:px-0">';     
                     foreach($layout['kolommen'] as $kolom){
                         echo '<div class="column lg:' . $kolom['breedte'] . ' flex flex-col bg-white' . ($layout['styling']['same_height'] ? '' : ' h-full') . '">';
+                            if(!empty($kolom['subblokken'])){
+                                foreach($kolom['subblokken'] as $subblok){
+                                    echo '<div class="subblock ' . 'py-' . $subblok['styling']['padding_y'] . ' px-' . $subblok['styling']['padding_x'] . '">';
 
-                            foreach($kolom['subblokken'] as $subblok){
-                                echo '<div class="subblock ' . 'py-' . $subblok['styling']['padding_y'] . ' px-' . $subblok['styling']['padding_x'] . '">';
-
-                                    foreach($subblok['sub_content'] as $content){
-                                        if($content['acf_fc_layout'] === 'titel'){
-                                            echo '<' . $content['type'] . '>' . $content['tekst'] . '</' . $content['type'] . '>';
-                                        } else if($content['acf_fc_layout'] === 'cta'){
-                                            if($content['type'] === 'button'){
-                                                echo '<a class="button" href="' . $content['link']['url'] . '">' . $content['tekst'] . '</a>';
-                                            } else if($content['type'] === 'text'){
-                                                echo '<a class="text" href="' . $content['link']['url'] . '">' . $content['tekst'] . '</a>';
+                                        foreach($subblok['sub_content'] as $content){
+                                            if($content['acf_fc_layout'] === 'titel'){
+                                                echo '<' . $content['type'] . '>' . $content['tekst'] . '</' . $content['type'] . '>';
+                                            } else if($content['acf_fc_layout'] === 'cta'){
+                                                if($content['type'] === 'button'){
+                                                    echo '<a class="button" href="' . $content['link']['url'] . '">' . $content['tekst'] . '</a>';
+                                                } else if($content['type'] === 'text'){
+                                                    echo '<a class="text" href="' . $content['link']['url'] . '">' . $content['tekst'] . '</a>';
+                                                }
                                             }
                                         }
-                                    }
 
-                                echo '</div>';
+                                    echo '</div>';
+                                }
                             }
 
                         echo '</div>';
