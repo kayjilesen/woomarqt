@@ -11,7 +11,8 @@
     $footer_carriers            =   get_field('footer_carriers', 'option');
 
     if($footer_usps['inherit_usps']) $usps = get_field('usp', 'option');
-
+    
+    // Insert Custom added Blocks Content
     if(!empty(get_field('blok'))) include 'blocks/content.php'; 
 
 ?>

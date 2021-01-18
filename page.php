@@ -33,23 +33,31 @@
             <?php } else { ?>
                 <section>
 
-                    <h1><?php the_title(); ?></h1>
+                    <?php if (have_posts()): while (have_posts()) : the_post();
 
-                    <?php if (have_posts()): while (have_posts()) : the_post(); ?>
+                    // Insert Template if has post has Parent page and Template exists
+                    if($wp_query->post->post_parent !== 0 && file_exists(get_template_directory() . '/templates/' . get_post($wp_query->post->post_parent)->post_name . '.php')) {
+                        include 'templates/' . get_post($wp_query->post->post_parent)->post_name . '.php';
+                    } else {
+                        ?>
+                        <!-- article -->
+                        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-                    <!-- article -->
-                    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                            <h1><?php the_title(); ?></h1>
 
-                        <?php the_content(); ?>
+                            <?php the_content(); ?>
 
-                        <?php comments_template( '', true ); // Remove if you don't want comments ?>
+                            <?php comments_template( '', true ); // Remove if you don't want comments ?>
 
-                        <br class="clear">
+                            <br class="clear">
 
-                        <?php edit_post_link(); ?>
+                            <?php edit_post_link(); ?>
 
-                    </article>
-                    <!-- /article -->
+                        </article>
+                        <!-- /article -->
+                        <?php
+                    }
+                    ?>
 
                     <?php endwhile; ?>
 
