@@ -23,12 +23,6 @@ get_header( );
 
 ?>
 
-<?php 
-    if(is_shop()){
-        include get_theme_file_path( '/templates/verhuur.php' );
-    } 
-?>
-
 <section id="productCategory">
     <div class="container-fluid">
         <div class="container">

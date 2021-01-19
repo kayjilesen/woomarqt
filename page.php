@@ -39,6 +39,7 @@
                     if($wp_query->post->post_parent !== 0 && file_exists(get_template_directory() . '/templates/' . get_post($wp_query->post->post_parent)->post_name . '.php')) {
                         include 'templates/' . get_post($wp_query->post->post_parent)->post_name . '.php';
                     } else {
+
                         ?>
                         <!-- article -->
                         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

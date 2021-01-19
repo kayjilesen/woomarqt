@@ -70,8 +70,9 @@ global $woocommerce;
     <?php if($header['winkelwagen'] === 'side') { include 'blocks/header/side-cart.php'; } ?>
 
     <?php 
+        // Show Breadcrumbs when Active
         $args = array(
-            'delimiter' => $breadcrumbs['seperator']
+            'delimiter' => (strlen($breadcrumbs['seperator']) > 4 ? getIcon($breadcrumbs['seperator'], '1em') : $breadcrumbs['seperator'] )
         );
         if(!is_front_page() && $breadcrumbs['show_breadcrumbs']) {
             echo '<div id="breadcrumbContainer" class=" mx-auto ' . $menuStyling['width'] . ' w-full px-' . $breadcrumbs['styling']['padding_x'] . ' py-' . $breadcrumbs['styling']['padding_y'] . '">';

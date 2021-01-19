@@ -7,6 +7,11 @@ include 'functions/icons.php';
 include 'functions/css.php';
 include 'functions/ajax.php';
 
+function mytheme_add_woocommerce_support() {
+	add_theme_support( 'woocommerce' );
+}
+add_action( 'after_setup_theme', 'mytheme_add_woocommerce_support' );
+
 // Add Menu's
 function woomarqt_nav()
 {
