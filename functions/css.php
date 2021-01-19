@@ -6,6 +6,7 @@ function get_css_content(){
     $topbar = get_field('topbar', 'option');
     $subbar = get_field('topbar', 'option');
     $uspbar = get_field('usp', 'option');
+    $breadcrumbs = get_field('breadcrumbs', 'option');
 
     // Footer Variables
     $footer_settings            =   get_field('footer_settings', 'option');
@@ -27,6 +28,12 @@ function get_css_content(){
     $content .= '}';
     if($topbar['show_topbar']) $content .= '#top{background-color:' . $topbar['styling']['background_color'] . ';color:' . $topbar['styling']['text_color'] . ';}#top svg{color: ' . $topbar['styling']['text_color'] . ';}';
     if($uspbar['show_usps']) $content .= '#usp{background-color:' . $uspbar['styling']['background_color'] . ';color:' . $uspbar['styling']['text_color'] . '}#usp svg{color: ' . $uspbar['icon_color'] . ';}';
+    if($breadcrumbs['show_breadcrumbs']) {
+        $content .= '#breadcrumbContainer .woocommerce-breadcrumb a{margin:0px ' . $breadcrumbs['seperator_margin_x'] . 'px; color: ' . $breadcrumbs['styling']['link_color'] . ';}';
+        $content .= '#breadcrumbContainer .woocommerce-breadcrumb {margin-bottom:0px;color:' . $breadcrumbs['styling']['text_color'] . ';}';
+        $content .= '#breadcrumbContainer .woocommerce-breadcrumb .lastItem{margin-left:' . $breadcrumbs['seperator_margin_x'] . 'px;}';
+        $content .= '#breadcrumbContainer {background-color:' . $breadcrumbs['styling']['background_color'] . ';margin-bottom:' . $breadcrumbs['seperator_margin_x'] . 'px;}';
+    }
 
     // Footer CSS
     $content .= '#footer-usps{ background-color: ' . $footer_usps['styling']['background_color'] . '; color: ' . $footer_usps['styling']['text_color'] . ';}';

@@ -11,6 +11,7 @@ $topbarOptions = get_field('topbar_options', 'option');
 $header = get_field('head', 'option');
 $subbar = get_field('subbar', 'option');
 $uspbar = get_field('usp', 'option');
+$breadcrumbs = get_field('breadcrumbs', 'option');
 // Labels
 $labels = get_field('labels', 'option');
 
@@ -68,3 +69,13 @@ global $woocommerce;
     
     <?php if($header['winkelwagen'] === 'side') { include 'blocks/header/side-cart.php'; } ?>
 
+    <?php 
+        $args = array(
+            'delimiter' => $breadcrumbs['seperator']
+        );
+        if(!is_front_page() && $breadcrumbs['show_breadcrumbs']) {
+            echo '<div id="breadcrumbContainer" class=" mx-auto ' . $menuStyling['width'] . ' w-full px-' . $breadcrumbs['styling']['padding_x'] . ' py-' . $breadcrumbs['styling']['padding_y'] . '">';
+                woocommerce_breadcrumb( $args );
+            echo '</div>';
+        }
+    ?>

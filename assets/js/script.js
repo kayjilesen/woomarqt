@@ -146,6 +146,7 @@
                 thisbutton.removeClass('loading');
                 console.log(jQuery('.cartItemsCount').innerHTML);
                 jQuery('#itemAmount').text(parseInt(jQuery('#itemAmount').text()) + 1);
+                openCart();
             } else {
                 // An error occurred, alert an error message
                 jQuery('#cartProducts').html(data);
@@ -153,6 +154,7 @@
                 thisbutton.removeClass('loading');
                 console.log(jQuery('#itemAmount'));
                 jQuery('#itemAmount').text(parseInt(jQuery('#itemAmount').text()) + 1);
+                openCart();
             }
         });
         e.preventDefault();
@@ -168,12 +170,16 @@
     });
     console.log(jQuery('#openCartButton'));
     jQuery('#openCartButton').on('click', function(){
+        openCart();
+    });
+
+    function openCart(){
         if(cartSide.classList.contains('open')){
             cartSide.classList.remove('open');
         } else {
             cartSide.classList.add('open');
         }
-    });
+    }
 
 
 })(jQuery);

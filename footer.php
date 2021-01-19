@@ -159,11 +159,11 @@
 
 </footer>
 
-<?php echo '<script src="' . get_stylesheet_directory_uri() . '/assets/js/script.js?v=' . filemtime(get_stylesheet_directory() . '/assets/js/script.js') . '" type="text/javascript">'; ?>
-
 <script type="text/javascript">
     var admin_url = "<?php echo admin_url('admin-ajax.php'); ?>";
 </script>
+
+<?php echo '<script src="' . get_stylesheet_directory_uri() . '/assets/js/script.js?v=' . filemtime(get_stylesheet_directory() . '/assets/js/script.js') . '" type="text/javascript">'; ?>
 
 <?php wp_footer(); ?>
 
