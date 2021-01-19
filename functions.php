@@ -178,6 +178,13 @@ if ( $custom_post_types['vacatures'] ) {
     add_action('init', 'woomarqt_vacatures');
 }
 
+// Remove Basic Woocommerce Breadcrumbs
+add_action('template_redirect', 'remove_shop_breadcrumbs' );
+function remove_shop_breadcrumbs(){
+    remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0);
+}
+ 
+
 // Load Custom WooMarqt Scripts
 function custom_woomarqt_scripts() {
 

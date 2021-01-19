@@ -19,10 +19,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	//exit; // Exit if accessed directly
 }
 
+$productSettings = get_field('settings', 'option');
+$productStyling = get_field('styling', 'option');
+
 get_header( 'shop' ); ?>
 
-
-    <div class="container productContainer">
+    <div class="<?php echo $productStyling['container']; ?> w-full mx-auto productContainer">
 
 	<?php
 		/**
