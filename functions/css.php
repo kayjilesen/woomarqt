@@ -1,10 +1,11 @@
 <?php
 
 function get_css_content(){
+
     $huisstijl = get_field('huisstijl', 'option');
     $header = get_field('head', 'option');
     $topbar = get_field('topbar', 'option');
-    $subbar = get_field('topbar', 'option');
+    $subbar = get_field('subbar', 'option');
     $uspbar = get_field('usp', 'option');
     $breadcrumbs = get_field('breadcrumbs', 'option');
 
@@ -28,11 +29,19 @@ function get_css_content(){
     $content .= '}';
     if($topbar['show_topbar']) $content .= '#top{background-color:' . $topbar['styling']['background_color'] . ';color:' . $topbar['styling']['text_color'] . ';}#top svg{color: ' . $topbar['styling']['text_color'] . ';}';
     if($uspbar['show_usps']) $content .= '#usp{background-color:' . $uspbar['styling']['background_color'] . ';color:' . $uspbar['styling']['text_color'] . '}#usp svg{color: ' . $uspbar['icon_color'] . ';}';
+
+    // Subbar
+    if($subbar['show_subbar']){
+        $content .= '#sub .nav-item h3{color:' . $subbar['styling']['text_color'] . ';font-weight:400;}';
+        $content .= '#sub{background-color:' . $subbar['styling']['background_color'] . ';box-shadow: 0px 6px 30px rgba(0,0,0, ' . ((float)$subbar['styling']['show_shadow'] / 100) . ');}';
+        if($subbar['show_icons'] && !empty($subbar['styling']['icon_color'])) $content .= '#sub .menuIcon{color:' . $subbar['styling']['icon_color'] . ';transition:.3s;}#sub .nav-item:hover .menuIcon{color:' . $huisstijl['primary_color'] . ';}';
+    }
+    // BreadCrumbs
     if($breadcrumbs['show_breadcrumbs']) {
-        $content .= '#breadcrumbContainer .woocommerce-breadcrumb a{margin:0px ' . $breadcrumbs['seperator_margin_x'] . 'px; color: ' . $breadcrumbs['styling']['link_color'] . ';}';
-        $content .= '#breadcrumbContainer .woocommerce-breadcrumb {margin-bottom:0px;color:' . $breadcrumbs['styling']['text_color'] . ';font-weight:400;font-weight:500;display:flex;flex-direction:row;align-items:center;flex-wrap:wrap; font-size:0.9em}';
-        $content .= '#breadcrumbContainer .woocommerce-breadcrumb .lastItem{margin-left:' . $breadcrumbs['seperator_margin_x'] . 'px;}';
         $content .= '#breadcrumbContainer {background-color:' . $breadcrumbs['styling']['background_color'] . ';margin-bottom:' . $breadcrumbs['seperator_margin_x'] . 'px;}';
+        $content .= '#breadcrumbContainer .woocommerce-breadcrumb {margin-bottom:0px;color:' . $breadcrumbs['styling']['text_color'] . ';font-weight:400;font-weight:500;display:flex;flex-direction:row;align-items:center;flex-wrap:wrap; font-size:0.9em}';
+        $content .= '#breadcrumbContainer .woocommerce-breadcrumb a{margin:0px ' . $breadcrumbs['seperator_margin_x'] . 'px; color: ' . $breadcrumbs['styling']['link_color'] . ';}';
+        $content .= '#breadcrumbContainer .woocommerce-breadcrumb .lastItem{margin-left:' . $breadcrumbs['seperator_margin_x'] . 'px;}';
     }
 
     // Footer CSS
