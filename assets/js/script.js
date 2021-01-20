@@ -181,5 +181,11 @@
         }
     }
 
+    jQuery(document).keyup(function(e) {
+        if (e.key === "Escape") { 
+            if(cartSide.classList.contains('open')) cartSide.classList.remove('open');
+       }
+   });
+
 
 })(jQuery);

@@ -7,19 +7,20 @@
 
 <div id="head" class="navigation-bar <?php if($header['sticky_head']) echo 'stick '; ?><?php echo $header['custom_volgorde']; ?> items-center flex flex-row w-full relative">
 
-    <div class="navbar-nav sm:px-3 mx-auto sm:px-6m <?php echo $menuStyling['width']; ?> w-full">
+    <div class="navbar-nav sm:px-3 mx-auto sm:px-6m <?php echo $menuStyling['width']; ?> w-full py-<?php echo $header['styling']['padding_y']; ?>">
         <div class="flex flex-wrap justify-between py-2 lg:py-0 px-4 lg:px-<?php echo $header['styling']['padding_x']; ?> md:space-x-10">
             <div class="md:flex items-center justify-start space-x-8 logoCol">
                 <?php  if(!empty($huisstijl['logo'])) echo '<a href="' . home_url() . '">' . ($header['kleur_logo'] ? '<img src="' . $huisstijl['logo']['url'] . '" alt="' . $huisstijl['logo']['alt'] . '">' : '<img src="' . $huisstijl['logo_light']['url'] . '" alt="' . $huisstijl['logo_light']['alt'] . '">' ) . '</a>'; ?>
             </div>
             <div class="md:flex mobileNavContainer space-x-8">
+                <?php if($header['show_menu_items']){ ?>
                 <nav class="hidden md:flex space-x-3 menuCol justify-center">
                     <?php
                         for($i = 0; $i < count($menuitems); $i++){
                             if($menuitems[$i]->menu_item_parent == 0){
                                 $firstChild = true;
                                 echo ($firstParent == true ? $firstParent = false : '</div>');
-                                echo '<div class="nav-item py-' . $header['styling']['padding_y'] . ' ' . ($i < (count($menuitems)-1)?($menuitems[$i + 1]->menu_item_parent != 0 ? 'dropdown' : ''):'') . ($menuitems[$i]->title == 'Contact' ? 'contact ' : '') . (get_the_title() ===  $menuitems[$i]->title ? 'active' : '') . ( $header['styling']['height'] === ' auto' ? '' : ' lg:h-' . $header['styling']['height'] ) . '">';
+                                echo '<div class="nav-item ' . ($i < (count($menuitems)-1)?($menuitems[$i + 1]->menu_item_parent != 0 ? 'dropdown' : ''):'') . ($menuitems[$i]->title == 'Contact' ? 'contact ' : '') . (get_the_title() ===  $menuitems[$i]->title ? 'active' : '') . ( $header['styling']['height'] === ' auto' ? '' : ' lg:h-' . $header['styling']['height'] ) . '">';
                                     echo '<div class="itemWrapper">';
                                         echo '<a title="' . get_bloginfo( ) . ' Pagina ' . $menuitems[$i]->title . '" href="' .  $menuitems[$i]->url . '" class="nav-link flex items-center title">';
                                             echo '<h3>' .  $menuitems[$i]->title . ($i < (count($menuitems)-1)?($menuitems[$i + 1]->menu_item_parent != 0 ? '' : ''): '') . '</h3>';
@@ -38,6 +39,7 @@
                         echo '</div>';
                     ?> 
                 </nav>
+                <?php } ?>
                 <div class="md:flex items-center justify-end space-x-8 md:flex-1 searchCol relative">
                     <?php if($header['show_searchbar']) {
                             echo '<form id="searchForm" action="' . get_permalink() . '" method="GET"><input type="text" class="focus:outline-none" name="search" placeholder="' . $labels['placeholder_search'] . '" value=""><button type="submit" class="searchSubmit flex items-center justify-center">' . getIcon('search', '1em') . '</button></form>'; 
