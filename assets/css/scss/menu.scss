@@ -55,6 +55,13 @@ header {
             order: 200;
             position: relative;
 
+            .logoRow {
+                margin-right: 12px;
+                img {
+                    max-height: 40px;
+                }
+            }
+
             .cart.dropdown {
                 position: relative;
 

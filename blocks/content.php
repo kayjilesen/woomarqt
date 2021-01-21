@@ -11,6 +11,7 @@
     
     $page_id = get_queried_object_id();
     $labels = get_field('labels', 'option');
+    $productblock = get_field('productblock', 'option');
 
     $blockIndex = 1;
 
@@ -55,7 +56,7 @@
             echo '<section id="block' . $blockIndex . '" class="product py-' . $layout['styling']['padding_y'] . ' px-' . $layout['styling']['padding_x'] . '">';
                 echo '<div class="row ' . $layout['styling']['width'] . ' mx-auto px-4 lg:px-0">';
                     if($productQuery->have_posts()) :
-                        echo '<div class="grid grid-cols-' . $layout['styling']['aantal_in_rij_mobiel']['value'] . ' md:grid-cols-2 lg:auto-cols-fr lg:grid-flow-col gap-6">';
+                        echo '<ul class="products grid grid-cols-' . $layout['styling']['aantal_in_rij_mobiel']['value'] . ' md:grid-cols-2 lg:auto-cols-fr lg:grid-flow-col gap-6">';
                         while($productQuery->have_posts()) : $productQuery->the_post();
                             global $product;
                             $image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'single-post-thumbnail' );
@@ -63,18 +64,18 @@
                             $onSale = $product->get_sale_price();
                             $sale = wc_price( wc_get_price_to_display( $product, array( 'price' => $product->get_sale_price() ) ) );
         
-                            echo '<div class="productBlock' . ($layout['productstyling']['shadow'] ? ' shadow-lg' : '') . ' py-' . $layout['productstyling']['padding_y'] . ' px-' . $layout['productstyling']['padding_x'] . ' bg-white ' . $layout['productstyling']['border_radius'] . '">';
+                            echo '<div class="productBlock py-' . $layout['productstyling']['padding_y'] . ' px-' . $layout['productstyling']['padding_x'] . ' bg-white ' . $layout['productstyling']['border_radius'] . '">';
                                 echo '<a href="' . get_the_permalink() . '" class="imageWrapper">';
                                     echo '<img src="' . $image[0] . '" alt="">';
                                 echo '</a>';
                                 echo '<div class="infoWrapper mt-6">';
                                     echo '<h4 class="text-lg"><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h4>';
                                     echo $onSale !== '' ? '<del class="text-opacity-25">' . $price . '</del> ' . $sale : $price;
-                                    echo '<div class="w-full bg-green-600 text-white text-center mt-3 rounded relative single-add-to-cart-button" data-product-id="' . get_the_ID() . '"><span class="add">' . $labels['add_to_cart'] . '</span><span class="loading">' . $labels['add_to_cart_loading'] . '</span><span class="added">' . $labels['add_to_cart_finished'] . '</span></div>';
+                                    echo '<div class="w-full add_to_cart_button text-white text-center mt-3 rounded relative single-add-to-cart-button" data-product-id="' . get_the_ID() . '"><span class="add">' . $labels['add_to_cart'] . '</span><span class="loading">' . $labels['add_to_cart_loading'] . '</span><span class="added">' . $labels['add_to_cart_finished'] . '</span></div>';
                                 echo '</div>';
                             echo '</div>';
                         endwhile;   
-                        echo '</div>';
+                        echo '</ul>';
                     endif;
                 echo '</div>';
             echo '</section>';
@@ -116,10 +117,10 @@
                     foreach($layout['categorie'] as $cat){
                         $thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true );
                         $image = wp_get_attachment_url( $thumbnail_id );
-                        echo '<div class="column flex flex-col bg-white' . ($layout['styling']['same_height'] ? '' : ' h-full') . ' px-' . $layout['blokstyling']['padding_x'] . ' py-' . $layout['blokstyling']['padding_y'] . ' ' . $layout['blokstyling']['align_text'] . ' ' . $layout['blokstyling']['border_radius'] . '" style="background-color:' . $layout['blokstyling']['background_color'] . ';">';
-                            echo $cat->name;
-                            echo '<img src="' . $image . '">';
-                            echo '<a class="button " href="' . $cat->slug . '">Bekijken</a>';
+                        echo '<div class="column flex justify-between flex-col bg-white' . ($layout['styling']['same_height'] ? '' : ' h-full') . ' px-' . $layout['blokstyling']['padding_x'] . ' py-' . $layout['blokstyling']['padding_y'] . ' ' . $layout['blokstyling']['align_text'] . ' ' . $layout['blokstyling']['border_radius'] . '" style="background-color:' . $layout['blokstyling']['background_color'] . ';">';
+                            echo '<a href="' . $cat->slug . '"><h3>' . $cat->name . '</h3></a>';
+                            echo '<a href="' . $cat->slug . '"><img src="' . $image . '"></a>';
+                            echo '<a class="button " href="' . $cat->slug . '">Bekijk producten</a>';
                         echo '</div>';
                     }
                 echo '</div>';

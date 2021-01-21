@@ -7,7 +7,7 @@
 
 <div id="head" class="navigation-bar <?php if($header['sticky_head']) echo 'stick '; ?><?php echo $header['custom_volgorde']; ?> items-center flex flex-row w-full relative">
 
-    <div class="navbar-nav sm:px-3 mx-auto sm:px-6m <?php echo $menuStyling['width']; ?> w-full py-<?php echo $header['styling']['padding_y']; ?>">
+    <div class="navbar-nav sm:px-3 lg:px-0 mx-auto sm:px-6m <?php echo $menuStyling['width']; ?> w-full py-<?php echo $header['styling']['padding_y']; ?>">
         <div class="flex flex-wrap justify-between py-2 lg:py-0 px-4 lg:px-<?php echo $header['styling']['padding_x']; ?> md:space-x-10">
             <div class="md:flex items-center justify-start space-x-8 logoCol">
                 <?php  if(!empty($huisstijl['logo'])) echo '<a href="' . home_url() . '">' . ($header['kleur_logo'] ? '<img src="' . $huisstijl['logo']['url'] . '" alt="' . $huisstijl['logo']['alt'] . '">' : '<img src="' . $huisstijl['logo_light']['url'] . '" alt="' . $huisstijl['logo_light']['alt'] . '">' ) . '</a>'; ?>
@@ -58,11 +58,13 @@
             </div>
             <div class="flex iconRow">
                 <?php
-                    /*
-                    if(have_rows($header['logos'])) :
-                        echo 'test';
+                    if(!empty($header['logos'])) :
+                        echo '<div class="logoRow">';
+                        foreach($header['logos'] as $logo){
+                            echo '<img src="' . $logo['logo']['url'] . '">';
+                        }
+                        echo '</div>';
                     endif;
-                    */
                 ?>
                 <div class="icon account flex items-center px-2">
                     <a href="/mijn-account"><?php echo getIcon($labels['account_icon_menu'], '1.6em'); ?></a>

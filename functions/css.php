@@ -9,6 +9,7 @@ function get_css_content(){
     $uspbar = get_field('usp', 'option');
     $breadcrumbs = get_field('breadcrumbs', 'option');
     $shop = get_field('shop', 'option');
+    $productblock = get_field('productblock', 'option');
 
     // Footer Variables
     $footer_settings            =   get_field('footer_settings', 'option');
@@ -19,6 +20,10 @@ function get_css_content(){
     $footer_carriers            =   get_field('footer_carriers', 'option');
 
     $content = '/* Generated CSS file based on Theme Settings */';
+
+    // General
+    $content .= 'h1,h2,h3,h4,h5,h6{font-family:"' . $huisstijl['heading_font'] . '", "' . $huisstijl['body_font'] . '", sans-serif;}';
+    $content .= 'p, li{font-family:"' . $huisstijl['body_font'] . '", "' . $huisstijl['heading_font'] . '", sans-serif;}';
 
     // Header CSS
     $content .= (!empty($huisstijl['primary_color']) ? '.priBackgroundColor{background-color:' . $huisstijl['primary_color'] . ';}.priTextColor{color:' . $huisstijl['primary_color'] . ';}' : '');
@@ -40,15 +45,24 @@ function get_css_content(){
     }
     // BreadCrumbs
     if($breadcrumbs['show_breadcrumbs']) {
-        $content .= '#breadcrumbContainer {background-color:' . $breadcrumbs['styling']['background_color'] . ';margin-bottom:' . $breadcrumbs['seperator_margin_x'] . 'px;}';
+        $content .= '#breadcrumbContainer {background-color:' . $breadcrumbs['styling']['background_color'] . ';margin-bottom:' . $breadcrumbs['styling']['margin_bottom'] . 'px;}';
         $content .= '#breadcrumbContainer .woocommerce-breadcrumb {margin-bottom:0px;color:' . $breadcrumbs['styling']['text_color'] . ';font-weight:400;font-weight:500;display:flex;flex-direction:row;align-items:center;flex-wrap:wrap; font-size:0.9em}';
         $content .= '#breadcrumbContainer .woocommerce-breadcrumb a{margin:0px ' . $breadcrumbs['seperator_margin_x'] . 'px; color: ' . $breadcrumbs['styling']['link_color'] . ';}';
         $content .= '#breadcrumbContainer .woocommerce-breadcrumb .lastItem{margin-left:' . $breadcrumbs['seperator_margin_x'] . 'px;}';
     }
 
     // Productcategory
-    $content .= 'body.woocommerce ul.products{display:grid;grid-auto-flow:column;grid-template-columns:repeat(' . $shop['product_columns'] . ', minmax(0, 1fr));}';
+    $content .= 'body.woocommerce ul.products{display:grid;grid-auto-flow:row;grid-template-columns:repeat(' . $shop['product_columns'] . ', minmax(0, 1fr));gap:' . $productblock['styling']['margin'] . 'rem;}';
     $content .= 'body.woocommerce ul.products::after,body.woocommerce ul.products::before{content:unset;}';
+
+    // Productblock
+    $content .= 'ul.products .productBlock{padding:' . $productblock['styling']['padding_y'] . 'em ' . $productblock['styling']['padding_x'] . 'em;box-shadow: 0px 6px 30px rgba(0,0,0, ' . ((float)$productblock['styling']['shadow'] / 100) . ');border-radius:' . $productblock['styling']['border_radius'] . 'px;}';
+    $content .= 'ul.products .productBlock .add_to_cart_button{color:' . $productblock['styling']['knop_text_kleur'] . ';background-color:' . $productblock['styling']['knop_kleur'] . ';transition:.3s;border-radius:' . $productblock['styling']['knop_border_radius'] . 'px;font-weight:' . $productblock['styling']['font_weight'] . ';}';
+    $content .= 'ul.products .productBlock .add_to_cart_button:hover{color:' . $productblock['styling']['knop_text_kleur_hover'] . ';background-color:' . $productblock['styling']['knop_kleur_hover'] . ';transition:.3s;}';
+
+    // Custom Categorieën
+    $content .= 'section.custom h3{color:' . $huisstijl['primary_color'] . ';font-weight:bold;margin-bottom:24px;}';
+    $content .= 'section.custom .button{background-color:' . $huisstijl['primary_color'] . ';color:' . $header['styling']['text_color'] . ';padding: 10px 12px;border-radius:' . $productblock['styling']['knop_border_radius'] . 'px;font-weight:' . $productblock['styling']['font_weight'] . ';margin-top: 24px;}';
 
     // Footer CSS
     $content .= '#footer-usps{ background-color: ' . $footer_usps['styling']['background_color'] . '; color: ' . $footer_usps['styling']['text_color'] . ';}';
