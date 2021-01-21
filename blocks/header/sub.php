@@ -19,7 +19,7 @@
                     if($menuitems[$i]->menu_item_parent == 0){
                         $firstChild = true;
                         echo ($firstParent == true ? $firstParent = false : '</div>');
-                        echo '<div class="nav-item py-' . $subbar['styling']['padding_y'] . ' ' . ($i < (count($menuitems)-1)?($menuitems[$i + 1]->menu_item_parent != 0 ? 'dropdown' : ''):'') . ($menuitems[$i]->title == 'Contact' ? 'contact ' : '') . (get_the_title() ===  $menuitems[$i]->title ? 'active' : '') . ( $subbar['styling']['height'] === ' auto' ? '' : ' lg:h-' . $subbar['styling']['height'] ) . '">';
+                        echo '<div class="nav-item mr-2 py-' . $subbar['styling']['padding_y'] . ' ' . ($i < (count($menuitems)-1)?($menuitems[$i + 1]->menu_item_parent != 0 ? 'dropdown' : ''):'') . ($menuitems[$i]->title == 'Contact' ? 'contact ' : '') . (get_the_title() ===  $menuitems[$i]->title ? 'active' : '') . ( $subbar['styling']['height'] === ' auto' ? '' : ' lg:h-' . $subbar['styling']['height'] ) . '">';
                             echo '<div class="itemWrapper">';
                                 echo '<a title="' . get_bloginfo( ) . ' Pagina ' . $menuitems[$i]->title . '" href="' .  $menuitems[$i]->url . '" class="nav-link flex items-center title">';
                                     echo ($subbar['show_icons'] && !empty($menuitems[$i]->classes[0]) ? '<div class="menuIcon mr-2">' . getIcon($menuitems[$i]->classes[0], '1em') . '</div>' : '' ) . '<h3>' . $menuitems[$i]->title . ($i < (count($menuitems)-1)?($menuitems[$i + 1]->menu_item_parent != 0 ? '' : ''): '') . '</h3>';

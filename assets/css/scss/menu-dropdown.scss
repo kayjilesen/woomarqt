@@ -3,8 +3,11 @@
         &.dropdown {
             &:hover {
 
-                svg {
-                    transform: rotate(180deg);
+                .openDropdown {
+
+                    svg {
+                        transform: rotate(180deg);
+                    }
                 }
                 .dropdown-menu {
                     transform: scaleY(1);
@@ -28,6 +31,7 @@ nav {
         transition: 0.2s;
         transform: translateY(2px);
         display: flex;
+        flex-direction: row;
         align-items: center;
 
         a.nav-link {
@@ -87,7 +91,6 @@ nav {
                     h6 {
                         font-size: 1em;
                         color: black;
-                        margin-top: 6px;
                         transition: 0.3s;
                     }
 

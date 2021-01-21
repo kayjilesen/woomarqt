@@ -8,6 +8,7 @@ function get_css_content(){
     $subbar = get_field('subbar', 'option');
     $uspbar = get_field('usp', 'option');
     $breadcrumbs = get_field('breadcrumbs', 'option');
+    $shop = get_field('shop', 'option');
 
     // Footer Variables
     $footer_settings            =   get_field('footer_settings', 'option');
@@ -24,6 +25,7 @@ function get_css_content(){
     $content .= (!empty($huisstijl['secondary_color']) ? '.secBackgroundColor{background-color:' . $huisstijl['secondary_color'] . ';}.secTextColor{color:' . $huisstijl['secondary_color'] . ';}' : '');
     $content .= (!empty($huisstijl['light_color']) ? '.lightBackgroundColor{background-color:' . $huisstijl['light_color'] . ';}.lightTextColor{color:' . $huisstijl['light_color'] . ';}' : '');
     $content .= '#head{background-color:' . $header['styling']['background_color'] . ';color:' . $header['styling']['text_color'] . ';}';
+    $content .= 'header .openDropdown{color:' . $huisstijl['primary_color'] . ';}';
     $content .= '@media (min-width:993px){';
         $content .= ($header['custom_volgorde'] === 'lmsi' ? '#head.lmsi .logoCol{order: 1;}#head.lmsi  .menuCol{order: 2;}#head.lmsi .searchCol{order: 3;}' : ($header['custom_volgorde'] === 'lsmi' ? '#head.lsmi .logoCol{order: 1;}#head.lsmi .menuCol{order: 3;}#head.lsmi .searchCol{order: 2;}' : '' ));
     $content .= '}';
@@ -43,6 +45,10 @@ function get_css_content(){
         $content .= '#breadcrumbContainer .woocommerce-breadcrumb a{margin:0px ' . $breadcrumbs['seperator_margin_x'] . 'px; color: ' . $breadcrumbs['styling']['link_color'] . ';}';
         $content .= '#breadcrumbContainer .woocommerce-breadcrumb .lastItem{margin-left:' . $breadcrumbs['seperator_margin_x'] . 'px;}';
     }
+
+    // Productcategory
+    $content .= 'body.woocommerce ul.products{display:grid;grid-auto-flow:column;grid-template-columns:repeat(' . $shop['product_columns'] . ', minmax(0, 1fr));}';
+    $content .= 'body.woocommerce ul.products::after,body.woocommerce ul.products::before{content:unset;}';
 
     // Footer CSS
     $content .= '#footer-usps{ background-color: ' . $footer_usps['styling']['background_color'] . '; color: ' . $footer_usps['styling']['text_color'] . ';}';

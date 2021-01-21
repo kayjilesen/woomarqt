@@ -37,12 +37,9 @@ global $woocommerce;
     <!-- Load Tailwind CSS CDN -->
     <!-- <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"> -->
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-
     <!-- Load Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <!-- Heading Font -->
     <link href="https://fonts.googleapis.com/css2?family=<?php echo $huisstijl['heading_font'] ?>:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Body Font -->
     <link href="https://fonts.googleapis.com/css2?family=<?php echo $huisstijl['body_font'] ?>:wght@400;500;700&display=swap" rel="stylesheet">
     <!-- Parent Styling -->
     <?php if(!empty($post->post_parent) && $post->post_parent !== 0 && file_exists(get_template_directory() . '/assets/css/' . get_post($post->post_parent)->post_name . '.min.css')) echo '<link href="' . get_template_directory_uri() . '/assets/css/' . get_post($post->post_parent)->post_name . '.min.css?v=' . filemtime(get_theme_file_path() . '/assets/css/' . get_post($post->post_parent)->post_name . '.min.css') . '" rel="stylesheet" type="text/css">'; ?>

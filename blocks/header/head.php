@@ -57,6 +57,13 @@
                 </button>
             </div>
             <div class="flex iconRow">
+                <?php
+                    /*
+                    if(have_rows($header['logos'])) :
+                        echo 'test';
+                    endif;
+                    */
+                ?>
                 <div class="icon account flex items-center px-2">
                     <a href="/mijn-account"><?php echo getIcon($labels['account_icon_menu'], '1.6em'); ?></a>
                 </div>

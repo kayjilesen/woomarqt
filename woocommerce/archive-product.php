@@ -23,9 +23,8 @@ get_header( );
 
 ?>
 
-<section id="productCategory">
-    <div class="container-fluid">
-        <div class="container">
+<section id="productCategory w-full">
+    <div class="max-w-screen-xl w-full mx-auto">
 
         <?php
             /**
@@ -104,9 +103,7 @@ get_header( );
             ?>
 
 
-        </div>
     </div>
-
 </section>
 
 <?php

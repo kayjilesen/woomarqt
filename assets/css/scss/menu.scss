@@ -9,6 +9,14 @@ html, body {
 }
 
 header {
+    .nav-item {
+        .itemWrapper {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-between;
+        }
+    }
     #head {
         .logoCol {
             order: 1;
@@ -21,14 +29,6 @@ header {
         }
         a.nav-link {
             font-weight: 400;
-        }
-        .nav-item {
-            .itemWrapper {
-                display: flex;
-                flex-direction: row;
-                width: 100%;
-                justify-content: space-between;
-            }
         }
         #searchForm {
             display: flex;

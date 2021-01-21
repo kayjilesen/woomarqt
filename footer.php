@@ -106,14 +106,32 @@
 
                 <?php if ($footer_widgets['show_service']) { ?>
                     <div class="">
-                        <h5 class="mb-6 text-xl font-medium">Klantenservice</h5>
+                        <h5 class="mb-6 text-xl font-medium"><a href="/klantenservice">Klantenservice</a></h5>
                         <?php
                             if ($footer_widgets['service_menu']) :
-                                ?> <ul> <?php
-                                    foreach ($footer_widgets['service_menu'] as $page => $page_value) {
-                                        ?> <li class="mb-2"><a href="<?php echo esc_url(get_permalink($page_value['page']->ID)) ?>"> <?php echo $page_value['page']->post_title; ?> </a></li> <?php
+                                echo '<ul>';
+                                    foreach ($footer_widgets['service_menu'] as $page => $page_value) { 
+                                        if($page_value['page']->post_title !== 'Klantenservice') echo '<li class="mb-2"><a href="' . esc_url(get_permalink($page_value['page']->ID)) . '">' . $page_value['page']->post_title . '</a></li>';
                                     }
-                                ?> </ul> <?php
+                                echo '</ul>';
+                            endif;
+                        ?>
+                    </div>
+                <?php } ?>
+
+                <?php if ($footer_widgets['show_products']) { ?>
+                    <div class="col-products">
+                        <h5 class="mb-6 text-xl font-medium">Producten</h5>
+                        <?php
+                            if ($footer_widgets['products_menu']) :
+                                echo '<ul>';
+                                    foreach ($footer_widgets['products_menu'] as $cats) {
+                                        foreach($cats['category'] as $cat){
+                                            echo '<li class="mb-2">' . get_term_by( 'id', $cat, 'product_cat' )->name . '</li>';
+                                        }
+                                        //if($page_value['page']->post_title !== 'Klantenservice') echo '<li class="mb-2"><a href="' . esc_url(get_permalink($page_value['page']->ID)) . '">' . $page_value['page']->post_title . '</a></li>';
+                                    }
+                                echo '</ul>';
                             endif;
                         ?>
                     </div>
