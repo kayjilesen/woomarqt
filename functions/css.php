@@ -10,6 +10,9 @@ function get_css_content(){
     $breadcrumbs = get_field('breadcrumbs', 'option');
     $shop = get_field('shop', 'option');
     $productblock = get_field('productblock', 'option');
+    
+    $productSettings = get_field('settings', 'option');
+    $productStyling = get_field('product_styling', 'option');
     $productSpecificaties = get_field('specificaties', 'option');
     $productVoordelen = get_field('voordelen', 'option');
 
@@ -72,8 +75,18 @@ function get_css_content(){
     $content .= 'section.custom .button{background-color:' . $huisstijl['primary_color'] . ';color:' . $header['styling']['text_color'] . ';padding: 10px 12px;border-radius:' . $productblock['styling']['knop_border_radius'] . 'px;font-weight:' . $productblock['styling']['font_weight'] . ';margin-top: 24px;}';
 
     // Productpage
+    $content .= '.product.type-product{align-items:' . $productSettings['product_info_align'] . ';}';
+    $content .= '.summary h1{font-size:' . $productStyling['product_title_size'] . 'em;}';
     $content .= 'body.single-product #main .single_add_to_cart_button{color:' . $productblock['styling']['knop_text_kleur'] . ';background-color:' . $productblock['styling']['knop_kleur'] . ';transition:.3s;border-radius:' . $productblock['styling']['knop_border_radius'] . 'px;font-weight:' . $productblock['styling']['font_weight'] . ';}';
     $content .= 'body.single-product #main .single_add_to_cart_button:hover{color:' . $productblock['styling']['knop_text_kleur_hover'] . ';background-color:' . $productblock['styling']['knop_kleur_hover'] . ';transition:.3s;}';
+    if($productSettings['show_advantages']) {
+        $content .= '.productInfo{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;}';
+        $content .= '.woocommerce-tabs, .voordelenWrapper{width:49%;}';
+        $content .= '.voordelenWrapper{order:2;}';
+        $content .= '.upsells, .related{order:3;}';
+        $content .= '.voordeelIcon{background-color:' . $productVoordelen['circle_background_color'] . ';color:' . $productVoordelen['circle_icon_color'] . ';border-radius:50%;}';
+    }
+
 
     // Footer CSS
     $content .= '#footer-usps{ background-color: ' . $footer_usps['styling']['background_color'] . '; color: ' . $footer_usps['styling']['text_color'] . ';}';

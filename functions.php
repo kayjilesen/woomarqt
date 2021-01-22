@@ -210,6 +210,8 @@ function custom_woomarqt_styles() {
             wp_register_style('generated', get_template_directory_uri() . '/assets/css/generated.min.css', array(),  filemtime(get_theme_file_path('/assets/css/generated.min.css')), 'all');
             wp_enqueue_style('generated'); // Menu
         }
+        wp_register_style('product', get_template_directory_uri() . '/assets/css/product.min.css', array(),  filemtime(get_theme_file_path('/assets/css/product.min.css')), 'all');
+        wp_enqueue_style('product'); // Menu
 
         $usps = get_field('usp', 'option');
         if($usps['show_usps']){

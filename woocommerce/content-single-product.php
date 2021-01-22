@@ -60,19 +60,8 @@ if ( post_password_required() ) {
             do_action( 'woocommerce_single_product_summary' );
 		?>
 
-
-        <?php
-            if(have_rows('voordelen')) : 
-                echo '<div class="voordelenWrapper">';
-                while(have_rows('voordelen')) : the_row();
-                    echo '<div class="voordeelRow"><i class="fa fa-check"></i>' . get_sub_field('voordeel') . '</div>';
-                endwhile;
-                echo '</div>';
-            endif;
-        ?>
-
 	</div>
-
+    <div class="productInfo">
 	<?php
 	/**
 	 * Hook: woocommerce_after_single_product_summary.
@@ -81,8 +70,12 @@ if ( post_password_required() ) {
 	 * @hooked woocommerce_upsell_display - 15
 	 * @hooked woocommerce_output_related_products - 20
 	 */
+
 	do_action( 'woocommerce_after_single_product_summary' );
 	?>
+    </div>
 </div>
+
+
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>

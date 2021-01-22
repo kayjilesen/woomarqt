@@ -1,0 +1,14 @@
+@import 'basics';
+
+.product.type-product {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.productInfo {
+    position: relative;
+    float: unset;
+    clear: unset;
+} 
