@@ -10,6 +10,8 @@ function get_css_content(){
     $breadcrumbs = get_field('breadcrumbs', 'option');
     $shop = get_field('shop', 'option');
     $productblock = get_field('productblock', 'option');
+    $productSpecificaties = get_field('specificaties', 'option');
+    $productVoordelen = get_field('voordelen', 'option');
 
     // Footer Variables
     $footer_settings            =   get_field('footer_settings', 'option');
@@ -23,7 +25,8 @@ function get_css_content(){
 
     // General
     $content .= 'h1,h2,h3,h4,h5,h6{font-family:"' . $huisstijl['heading_font'] . '", "' . $huisstijl['body_font'] . '", sans-serif;}';
-    $content .= 'p, li{font-family:"' . $huisstijl['body_font'] . '", "' . $huisstijl['heading_font'] . '", sans-serif;}';
+    $content .= 'p, li, button{font-family:"' . $huisstijl['body_font'] . '", "' . $huisstijl['heading_font'] . '", sans-serif;}';
+    $content .= '.greenText{color:' . $huisstijl['green_color'] . ';font-weight:700;}';
 
     // Header CSS
     $content .= (!empty($huisstijl['primary_color']) ? '.priBackgroundColor{background-color:' . $huisstijl['primary_color'] . ';}.priTextColor{color:' . $huisstijl['primary_color'] . ';}' : '');
@@ -59,10 +62,18 @@ function get_css_content(){
     $content .= 'ul.products .productBlock{padding:' . $productblock['styling']['padding_y'] . 'em ' . $productblock['styling']['padding_x'] . 'em;box-shadow: 0px 6px 30px rgba(0,0,0, ' . ((float)$productblock['styling']['shadow'] / 100) . ');border-radius:' . $productblock['styling']['border_radius'] . 'px;}';
     $content .= 'ul.products .productBlock .add_to_cart_button{color:' . $productblock['styling']['knop_text_kleur'] . ';background-color:' . $productblock['styling']['knop_kleur'] . ';transition:.3s;border-radius:' . $productblock['styling']['knop_border_radius'] . 'px;font-weight:' . $productblock['styling']['font_weight'] . ';}';
     $content .= 'ul.products .productBlock .add_to_cart_button:hover{color:' . $productblock['styling']['knop_text_kleur_hover'] . ';background-color:' . $productblock['styling']['knop_kleur_hover'] . ';transition:.3s;}';
+    // -- Specificaties
+    $content .= 'body.single-product th.woocommerce-product-attributes-item__label{text-align:' . $productSpecificaties['title_align'] . ';font-weight:' . $productSpecificaties['title_font_weight'] . ';color:' . $productSpecificaties['title_color'] . ';min-width:200px;}';
+    $content .= 'body.single-product td.woocommerce-product-attributes-item__value{text-align:' . $productSpecificaties['value_align'] . ';font-weight:' . $productSpecificaties['value_font_weight'] . ';color:' . $productSpecificaties['value_color'] . ';}';
+    // -- Voordelen
 
     // Custom Categorieën
     $content .= 'section.custom h3{color:' . $huisstijl['primary_color'] . ';font-weight:bold;margin-bottom:24px;}';
     $content .= 'section.custom .button{background-color:' . $huisstijl['primary_color'] . ';color:' . $header['styling']['text_color'] . ';padding: 10px 12px;border-radius:' . $productblock['styling']['knop_border_radius'] . 'px;font-weight:' . $productblock['styling']['font_weight'] . ';margin-top: 24px;}';
+
+    // Productpage
+    $content .= 'body.single-product #main .single_add_to_cart_button{color:' . $productblock['styling']['knop_text_kleur'] . ';background-color:' . $productblock['styling']['knop_kleur'] . ';transition:.3s;border-radius:' . $productblock['styling']['knop_border_radius'] . 'px;font-weight:' . $productblock['styling']['font_weight'] . ';}';
+    $content .= 'body.single-product #main .single_add_to_cart_button:hover{color:' . $productblock['styling']['knop_text_kleur_hover'] . ';background-color:' . $productblock['styling']['knop_kleur_hover'] . ';transition:.3s;}';
 
     // Footer CSS
     $content .= '#footer-usps{ background-color: ' . $footer_usps['styling']['background_color'] . '; color: ' . $footer_usps['styling']['text_color'] . ';}';

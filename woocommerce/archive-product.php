@@ -38,7 +38,7 @@ get_header( );
         ?>
 
         <?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-            <h1 class="woocommerce-products-header__title page-title"><?php echo (is_shop() ? 'Alle producten' : woocommerce_page_title() . ' huren?' ); ?></h1>
+            <h1 class="woocommerce-products-header__title page-title"><?php echo (is_shop() ? 'Alle producten' : woocommerce_page_title() . ' kopen?' ); ?></h1>
         <?php endif; ?>
 
         <?php
@@ -108,7 +108,7 @@ get_header( );
 
 <?php
 
-if(!empty(get_field('uitgebreide_omschrijving', 'term_' . $category->term_id))) :
+if(!empty($category->term_id) && !empty(get_field('uitgebreide_omschrijving', 'term_' . $category->term_id))) :
     echo '<section id="omschrijving">';
         echo '<div class="container-fluid"><div class="container"><div class="row"><div class="col-12">';
             echo '<div class="categorieOmschrijving">' . get_field('uitgebreide_omschrijving', 'term_' . $category->term_id) . '</div>';

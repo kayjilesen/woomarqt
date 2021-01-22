@@ -16,31 +16,35 @@
  * @see         woocommerce_breadcrumb()
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+    $breadCrumbs = get_field('breadcrumbs', 'option');
 
-if ( ! empty( $breadcrumb ) ) {
+    if ( ! defined( 'ABSPATH' ) ) {
+        exit;
+    }
 
-	echo $wrap_before;
+    if ( ! empty( $breadcrumb ) ) {
 
-	foreach ( $breadcrumb as $key => $crumb ) {
+        echo $wrap_before;
 
-		echo $before;
+        foreach ( $breadcrumb as $key => $crumb ) {
 
-		if ( ! empty( $crumb[1] ) && sizeof( $breadcrumb ) !== $key + 1 ) {
-			echo '<a href="' . esc_url( $crumb[1] ) . '">' . esc_html( $crumb[0] ) . '</a>';
-		} else {
-			echo '<div class="lastItem">' . esc_html( $crumb[0] ) . '</div>';
-		}
+            echo $before;
+            
+            if($key === 0){
+                echo '<a href="' . esc_url( $crumb[1] ) . '">' . ($breadCrumbs['first_item_icon'] ? getIcon($breadCrumbs['first_item'], '1em') : ucfirst($breadCrumbs['first_item'])) . '</a>';
+            } else if ( ! empty( $crumb[1] ) && sizeof( $breadcrumb ) !== $key + 1 ) {
+                echo '<a href="' . esc_url( $crumb[1] ) . '">' . esc_html( $crumb[0] ) . '</a>';
+            } else {
+                echo '<div class="lastItem">' . esc_html( $crumb[0] ) . '</div>';
+            }
 
-		echo $after;
+            echo $after;
 
-		if ( sizeof( $breadcrumb ) !== $key + 1 ) {
-			echo $delimiter;
-		}
-	}
+            if ( sizeof( $breadcrumb ) !== $key + 1 ) {
+                echo $delimiter;
+            }
+        }
 
-	echo $wrap_after;
+        echo $wrap_after;
 
-}
+    }

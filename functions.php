@@ -6,6 +6,7 @@
 include 'functions/icons.php';
 include 'functions/css.php';
 include 'functions/ajax.php';
+include 'functions/product-page.php';
 
 function woomarqt_add_woocommerce_support() {
 	add_theme_support( 'woocommerce' );
@@ -183,7 +184,6 @@ add_action('template_redirect', 'remove_shop_breadcrumbs' );
 function remove_shop_breadcrumbs(){
     remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0);
 }
- 
 
 // Load Custom WooMarqt Scripts
 function custom_woomarqt_scripts() {
