@@ -16,6 +16,8 @@ function get_css_content(){
     $productSpecificaties = get_field('specificaties', 'option');
     $productVoordelen = get_field('voordelen', 'option');
 
+    $filePath = TEMPLATEPATH . '/assets/css/';
+
     // Footer Variables
     $footer_settings            =   get_field('footer_settings', 'option');
     $footer_usps                =   get_field('footer_usps', 'option');
@@ -57,13 +59,24 @@ function get_css_content(){
         $content .= '#breadcrumbContainer .woocommerce-breadcrumb .lastItem{margin-left:' . $breadcrumbs['seperator_margin_x'] . 'px;}';
     }
 
+    // Shoppage
+    $content .= '.archive.woocommerce h1.page-title{font-size:' . $shop['title_size'] . 'em;margin:' . ($shop['title_size'] / 2) . 'em 0em;}';
+    if($shop['products_pagination'] === 'paginate'){
+        $pagination = get_field('pagination', 'option');
+        $content .= '#primary ul.page-numbers{border:0px;}';
+        $content .= '#primary ul.page-numbers span.page-numbers.current{background-color:' . $pagination['primary_color'] . ';color:' . $pagination['sub_color'] . ';}';
+        $content .= '#primary ul.page-numbers span.page-numbers{color:' . $pagination['primary_color'] . ';width:100%;height:100%;display:flex;justify-content:center;align-items: center;}';
+        $content .= '#primary ul.page-numbers li, #primary ul.page-numbers li a {border:0px;width:36px;height:36px;color:' . $pagination['primary_color'] . ';border-radius:3px;display:flex;justify-content:center;align-items: center;}';
+        $content .= 'nav.woocommerce-pagination{margin:' . $pagination['margin_y'] . 'px 0px;justify-content:' . $pagination['align'] . '}';
+    }
+
     // Productcategory
     $content .= 'body.woocommerce ul.products{display:grid;grid-auto-flow:row;grid-template-columns:repeat(' . $shop['product_columns'] . ', minmax(0, 1fr));gap:' . $productblock['styling']['margin'] . 'rem;}';
     $content .= 'body.woocommerce ul.products::after,body.woocommerce ul.products::before{content:unset;}';
 
     // Productblock
-    $content .= 'ul.products .productBlock{padding:' . $productblock['styling']['padding_y'] . 'em ' . $productblock['styling']['padding_x'] . 'em;box-shadow: 0px 6px 30px rgba(0,0,0, ' . ((float)$productblock['styling']['shadow'] / 100) . ');border-radius:' . $productblock['styling']['border_radius'] . 'px;}';
-    $content .= 'ul.products .productBlock .add_to_cart_button{color:' . $productblock['styling']['knop_text_kleur'] . ';background-color:' . $productblock['styling']['knop_kleur'] . ';transition:.3s;border-radius:' . $productblock['styling']['knop_border_radius'] . 'px;font-weight:' . $productblock['styling']['font_weight'] . ';}';
+    $content .= 'ul.products .productBlock{padding:' . $productblock['styling']['padding_y'] . 'em ' . $productblock['styling']['padding_x'] . 'em;box-shadow: 0px 6px 30px rgba(0,0,0, ' . ((float)$productblock['styling']['shadow'] / 100) . ');border-radius:' . $productblock['styling']['border_radius'] . 'px;display:flex;flex-direction:column;justify-content:space-between;height:100%;}';
+    $content .= 'ul.products .productBlock .add_to_cart_button{margin-top:12px;color:' . $productblock['styling']['knop_text_kleur'] . ';background-color:' . $productblock['styling']['knop_kleur'] . ';transition:.3s;border-radius:' . $productblock['styling']['knop_border_radius'] . 'px;font-weight:' . $productblock['styling']['font_weight'] . ';font-size:1em;text-align:center;}';
     $content .= 'ul.products .productBlock .add_to_cart_button:hover{color:' . $productblock['styling']['knop_text_kleur_hover'] . ';background-color:' . $productblock['styling']['knop_kleur_hover'] . ';transition:.3s;}';
     // -- Specificaties
     $content .= 'body.single-product th.woocommerce-product-attributes-item__label{text-align:' . $productSpecificaties['title_align'] . ';font-weight:' . $productSpecificaties['title_font_weight'] . ';color:' . $productSpecificaties['title_color'] . ';min-width:200px;}';
@@ -99,8 +112,10 @@ function get_css_content(){
     $content .= 'p a { color: ' . $huisstijl['primary_color'] . '; font-weight: 500;}';
 
     // Settings
-    $filePath = TEMPLATEPATH . '/assets/css/';
     if($header['winkelwagen'] === 'side') $content .= file_get_contents($filePath . 'menu-side-cart.min.css');
+    
+    // Custom CSS
+    $content .= file_get_contents($filePath . 'custom.min.css');
     
     return $content;
 }

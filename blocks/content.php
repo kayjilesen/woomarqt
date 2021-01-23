@@ -125,6 +125,10 @@
                     }
                 echo '</div>';
             echo '</section>';
+        } else if($layout['acf_fc_layout'] === 'code'){
+            echo '<section id="' . $layout['section_id'] . '" class="' . $layout['section_class'] . ' custom">';
+                echo $layout['code'];
+            echo '</section>';
         }
         $blockIndex++;
     }
