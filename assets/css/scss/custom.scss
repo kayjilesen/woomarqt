@@ -5,16 +5,26 @@
         background-color: #FDF4F3;
         z-index: 1;
 
-        #leftColImage {
-            position: absolute;
-            right: -20px;
-            bottom: -40px;
-            transform: rotate(20deg);
-            width: 100%;
-            max-width: 220px;
-            object-fit: contain;
-            z-index: 2;
+    }
+    .rightCol {
+        color: white;
+
+        .bannerBlock {
+            position: relative;
         }
+        .rightBottomImage {
+            max-width: 180px;
+        }
+    }
+    .rightBottomImage {
+        position: absolute;
+        right: -20px;
+        bottom: -40px;
+        transform: rotate(20deg);
+        width: 100%;
+        max-width: 220px;
+        object-fit: contain;
+        z-index: 2;
     }
     .backgroundImageBlock {
         position: absolute;
@@ -45,20 +55,37 @@
             }
 
             &.black {
-                &::after { background-color: rgba(0,0,0,0.2) };
+                &::after { background-color: rgba(0,0,0,0.5) };
             }
             &.red {
-                &::after { background-color: rgba(0,0,0,0.2) };
+                &::after { background-color: rgba(206,52,44,0.65) };
             }
         }
-    }
-    .bannerBlock {
-        position: relative;
-        overflow: hidden;
     }
     .innerWrapper {
         position: relative;
         z-index: 3;
+    }
+
+    .lineButton {
+        position: relative;
+
+        &:after {
+            content: '';
+            width: 100%;
+            height: 1px;
+            left: 0;
+            bottom: -4px;
+            position: absolute;
+            transition: .3s;
+            background-color: white;
+        }
+
+        &:hover {
+            &::after {
+                bottom: -8px;
+            }
+        }
     }
 }
 
@@ -68,10 +95,8 @@ section.product {
 
 @media (max-width: 992px){
     #banner {
-        .leftCol {
-            #leftColImage {
-                max-width: 160px;
-            }
+        .rightBottomImage {
+            max-width: 160px;
         }
     }
 }

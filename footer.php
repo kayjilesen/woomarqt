@@ -10,6 +10,8 @@
     $footer_payment_methods     =   get_field('footer_payment_methods', 'option');
     $footer_carriers            =   get_field('footer_carriers', 'option');
 
+    $huisstijl = get_field('huisstijl', 'option');
+
     if($footer_usps['inherit_usps']) $usps = get_field('usp', 'option');
     
     // Insert Custom added Blocks Content
@@ -43,7 +45,7 @@
     <?php if ($footer_settings['show_widgets']) { ?>
 
         <section id="footer-widgets" class="w-full px-4 lg:px-0">
-            <div class="py-<?php echo $footer_widgets['styling']['padding_y']; ?> px-<?php echo $footer_widgets['styling']['padding_x']; ?> mx-auto max-w-screen-sm max-w-screen-md max-w-screen-lg max-w-screen-xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+            <div class="py-<?php echo $footer_widgets['styling']['padding_y']; ?> px-<?php echo $footer_widgets['styling']['padding_x']; ?> mx-auto max-w-screen-sm max-w-screen-md max-w-screen-lg max-w-screen-xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
                 <?php if ($footer_widgets['show_contact']) { ?>
                     <div class="">
                         <h5 class="mb-6 text-xl font-medium">Contact</h5>
@@ -134,6 +136,12 @@
                                 echo '</ul>';
                             endif;
                         ?>
+                    </div>
+                <?php } ?>
+
+                <?php if ($footer_widgets['logo_column']) { ?>
+                    <div class="col-logo text-left md:text-right">
+                        <img class="w-3/5 inline-block object-contain" src="<?php echo $huisstijl['logo_light']['url']; ?>" alt="<?php echo $huisstijl['logo_light']['alt']; ?>">
                     </div>
                 <?php } ?>
             </div>
