@@ -45,7 +45,7 @@
     <?php if ($footer_settings['show_widgets']) { ?>
 
         <section id="footer-widgets" class="w-full px-4 lg:px-0">
-            <div class="py-<?php echo $footer_widgets['styling']['padding_y']; ?> px-<?php echo $footer_widgets['styling']['padding_x']; ?> mx-auto max-w-screen-sm max-w-screen-md max-w-screen-lg max-w-screen-xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            <div class="py-<?php echo $footer_widgets['styling']['padding_y']; ?> px-<?php echo $footer_widgets['styling']['padding_x']; ?> mx-auto max-w-screen-sm max-w-screen-md max-w-screen-lg max-w-screen-lg grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
                 <?php if ($footer_widgets['show_contact']) { ?>
                     <div class="">
                         <h5 class="mb-6 text-xl font-medium">Contact</h5>
@@ -60,49 +60,49 @@
                             $coc = get_field('coc', 'option');
                             $vat = get_field('vat', 'option');
                         ?>
-
+                        <ul>
                         <?php if ($company) { ?>
-                            <div class="grid grid-flow-col auto-cols-max gap-4 items-center mb-4">
+                            <li class="grid grid-flow-col auto-cols-max gap-4 items-center mb-4">
                                 <?php echo getIcon( 'company', '1em' ), $company; ?>
-                            </div>
+                            </li>
                         <?php } ?>
 
                         <?php if ($address) { ?>
-                            <div class="grid grid-flow-col auto-cols-max gap-4 items-center mb-2">
+                            <li class="grid grid-flow-col auto-cols-max gap-4 items-center mb-2">
                                 <?php echo getIcon( 'address', '1em' ), $address; ?>
-                            </div>
+                            </li>
                         <?php } ?>
 
                         <?php if ($zip && $city) { ?>
-                            <div class="grid grid-flow-col auto-cols-max gap-4 items-center mb-4">
+                            <li class="grid grid-flow-col auto-cols-max gap-4 items-center mb-4">
                                 <?php echo getIcon( 'city', '1em' ), $zip . ' ' . $city; ?>
-                            </div>
+                            </li>
                         <?php } ?>
 
                         <?php if ($email_address) { ?>
-                            <div class="grid grid-flow-col auto-cols-max gap-4 items-center mb-2">
+                            <li class="grid grid-flow-col auto-cols-max gap-4 items-center mb-2">
                                 <?php echo getIcon( 'email', '1em' ), $email_address; ?>
-                            </div>
+                            </li>
                         <?php } ?>
 
                         <?php if ($phone) { ?>
-                            <div class="grid grid-flow-col auto-cols-max gap-4 items-center mb-4">
+                            <li class="grid grid-flow-col auto-cols-max gap-4 items-center mb-4">
                                 <?php echo getIcon( 'phone', '1em' ), $phone; ?>
-                            </div>
+                            </li>
                         <?php } ?>
 
                         <?php if ($coc) { ?>
-                            <div class="grid grid-flow-col auto-cols-max gap-4 items-center mb-2">
+                            <li class="grid grid-flow-col auto-cols-max gap-4 items-center mb-2">
                                 <?php echo getIcon( 'coc', '1em' ), $coc; ?>
-                            </div>
+                            </li>
                         <?php } ?>
 
                         <?php if ($vat) { ?>
-                            <div class="grid grid-flow-col auto-cols-max gap-4 items-center mb-2">
+                            <li class="grid grid-flow-col auto-cols-max gap-4 items-center mb-2">
                                 <?php echo getIcon( 'vat', '1em' ), $vat; ?>
-                            </div>
+                            </li>
                         <?php } ?>
-                        
+                        </ul>
                     </div>
                 <?php } ?>
 
@@ -140,8 +140,8 @@
                 <?php } ?>
 
                 <?php if ($footer_widgets['logo_column']) { ?>
-                    <div class="col-logo text-left md:text-right">
-                        <img class="w-3/5 inline-block object-contain" src="<?php echo $huisstijl['logo_light']['url']; ?>" alt="<?php echo $huisstijl['logo_light']['alt']; ?>">
+                    <div class="col-logo text-left md:text-left">
+                        <a href="/"><img class="w-2/3 inline-block object-contain" src="<?php echo $huisstijl['logo_light']['url']; ?>" alt="<?php echo $huisstijl['logo_light']['alt']; ?>"></a>
                     </div>
                 <?php } ?>
             </div>
@@ -151,9 +151,9 @@
 
     <?php if ($footer_settings['show_copyright']) { ?>
         <section id="footer-copyright" class="w-full px-4 lg:px-0">
-            <div class="py-6 mx-auto max-w-screen-sm max-w-screen-md max-w-screen-lg max-w-screen-xl grid grid-cols-1 lg:grid-flow-col text-sm">
+            <div class="py-6 mx-auto max-w-screen-sm max-w-screen-md max-w-screen-lg grid grid-cols-1 lg:grid-flow-col text-sm">
                 <div class="grid self-center">
-                    <p class="text-center lg:text-left">Copyright &copy; <?php echo date("Y") . " " . get_bloginfo('name') . " | " . "powered by <a href='#'>WooMarqt</a>" ?></p>
+                    <p class="text-center lg:text-left">&copy; <?php echo date("Y") . " " . get_bloginfo('name') . " | " . "powered by <a href='#'>WooMarqt</a>" ?></p>
                 </div>
 
                 <?php if ($footer_settings['show_payment_methods'] || $footer_settings['show_carriers']) { ?>
