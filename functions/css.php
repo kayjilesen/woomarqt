@@ -33,6 +33,11 @@ function get_css_content(){
     $content .= 'p, li, button{font-family:"' . $huisstijl['body_font'] . '", "' . $huisstijl['heading_font'] . '", sans-serif;}';
     $content .= '.greenText{color:' . $huisstijl['green_color'] . ';font-weight:700;}';
 
+    // Notifications 
+    $content .= 'body .woocommerce-info {border-top: 0px;}';
+    $content .= 'body .woocommerce-info::before {color: ' . $huisstijl['secondary_color'] . ';}';
+    $content .= 'body .woocommerce-info a{color:' . $huisstijl['primary_color'] . ';}';
+
     // Header CSS
     $content .= (!empty($huisstijl['primary_color']) ? '.priBackgroundColor{background-color:' . $huisstijl['primary_color'] . ';}.priTextColor{color:' . $huisstijl['primary_color'] . ';}' : '');
     $content .= (!empty($huisstijl['secondary_color']) ? '.secBackgroundColor{background-color:' . $huisstijl['secondary_color'] . ';}.secTextColor{color:' . $huisstijl['secondary_color'] . ';}' : '');
@@ -73,10 +78,18 @@ function get_css_content(){
     // Productcategory
     $content .= 'body.woocommerce ul.products{display:grid;grid-auto-flow:row;grid-template-columns:repeat(' . $shop['product_columns'] . ', minmax(0, 1fr));gap:' . $productblock['styling']['margin'] . 'rem;}';
     $content .= 'body.woocommerce ul.products::after,body.woocommerce ul.products::before{content:unset;}';
+    $content .= '@media (max-width:992px){';
+        $content .= 'ul.products .productBlock .imageWrapper{width: calc(100% - (' . $productblock['styling']['image_padding'] . 'rem / 2)) !important;padding-bottom:calc(100% - (' . $productblock['styling']['image_padding'] . 'rem) / 2) !important;margin:0 auto ' . $productblock['styling']['image_padding'] / 2 . 'rem auto !important;}';
+        $content .= 'ul.products .productBlock {padding:' . $productblock['styling']['padding_y'] / 2 . 'em ' . $productblock['styling']['padding_x'] / 2 . 'em !important;}';
+        $content .= 'body.woocommerce ul.products{grid-template-columns:repeat(' . $shop['product_columns_on_mobile'] . ', minmax(0, 1fr));gap:' . $productblock['styling']['margin'] / 2 . 'rem;}';
+    $content .= '}';
 
     // Productblock
-    $content .= 'ul.products .productBlock{padding:' . $productblock['styling']['padding_y'] . 'em ' . $productblock['styling']['padding_x'] . 'em;box-shadow: 0px 6px 30px rgba(0,0,0, ' . ((float)$productblock['styling']['shadow'] / 100) . ');border-radius:' . $productblock['styling']['border_radius'] . 'px;display:flex;flex-direction:column;justify-content:space-between;height:100%;}';
-    $content .= 'ul.products .productBlock .add_to_cart_button{margin-top:12px;color:' . $productblock['styling']['knop_text_kleur'] . ';background-color:' . $productblock['styling']['knop_kleur'] . ';transition:.3s;border-radius:' . $productblock['styling']['knop_border_radius'] . 'px;font-weight:' . $productblock['styling']['font_weight'] . ';font-size:1em;text-align:center;}';
+    $content .= 'ul.products .productBlock{padding:' . $productblock['styling']['padding_y'] . 'em ' . $productblock['styling']['padding_x'] . 'em;box-shadow: 0px 6px 30px rgba(0,0,0, ' . ((float)$productblock['styling']['shadow'] / 100) . ');border-radius:' . $productblock['styling']['border_radius'] . 'px;display:flex;flex-direction:column;justify-content:space-between;height:100%;width:100%;}';
+    $content .= 'ul.products .productBlock .imageWrapper{width: calc(100% - (0.5 * ' . $productblock['styling']['image_padding'] . 'rem));padding:0 ' . $productblock['styling']['image_padding'] / 4 . 'rem 100% ' . $productblock['styling']['image_padding'] / 4 . 'rem ;margin:0 auto ' . $productblock['styling']['image_padding'] / 4 . 'rem auto;}';
+    $content .= 'ul.products .productBlock:hover .imageWrapper img{transform: scale(1.04) translate(-48%, -48%);}';
+    $content .= 'ul.products .productBlock .imageWrapper img{transition:.3s;}';
+    $content .= 'ul.products .productBlock .add_to_cart_button{padding:16px;margin-top:12px;color:' . $productblock['styling']['knop_text_kleur'] . ';background-color:' . $productblock['styling']['knop_kleur'] . ';transition:.3s;border-radius:' . $productblock['styling']['knop_border_radius'] . 'px;font-weight:' . $productblock['styling']['font_weight'] . ';font-size:1em;text-align:center;}';
     $content .= 'ul.products .productBlock .add_to_cart_button:hover{color:' . $productblock['styling']['knop_text_kleur_hover'] . ';background-color:' . $productblock['styling']['knop_kleur_hover'] . ';transition:.3s;}';
     // -- Specificaties
     $content .= 'body.single-product th.woocommerce-product-attributes-item__label{text-align:' . $productSpecificaties['title_align'] . ';font-weight:' . $productSpecificaties['title_font_weight'] . ';color:' . $productSpecificaties['title_color'] . ';min-width:200px;}';
@@ -85,21 +98,35 @@ function get_css_content(){
 
     // Custom Categorieën
     //$content .= 'section.custom h3{color:' . $huisstijl['primary_color'] . ';font-weight:bold;margin-bottom:24px;}';
-    $content .= 'section.custom .button{background-color:' . $huisstijl['primary_color'] . ';color:' . $header['styling']['text_color'] . ';padding: 10px 12px;border-radius:' . $productblock['styling']['knop_border_radius'] . 'px;font-weight:' . $productblock['styling']['font_weight'] . ';margin-top: 24px;}';
+    $content .= '.button{background-color:' . $huisstijl['primary_color'] . ';color:' . $header['styling']['text_color'] . ';padding: 12px 18px;border:1px solid ' . $huisstijl['primary_color'] . ';border-radius:' . $productblock['styling']['knop_border_radius'] . 'px;font-weight:' . $productblock['styling']['font_weight'] . ';margin-top: 24px;transition:.3s;}';
+    $content .= '.button:hover{background-color:' . $huisstijl['light_color'] . ';color:' . $huisstijl['primary_color'] . ';}';
 
     // Productpage
     $content .= '.product.type-product{align-items:' . $productSettings['product_info_align'] . ';}';
-    $content .= '.summary h1{font-size:' . $productStyling['product_title_size'] . 'em;}';
+    $content .= 'body.single-product .summary{display:flex;flex-direction:column;}';
+    $content .= '.summary h1{font-size:' . $productStyling['product_title_size'] . 'em;line-height:' . $productStyling['product_title_size'] / 2 . 'em;margin-bottom:' . $productStyling['product_title_size'] / 2 . 'rem;font-weight:500;order:1;}';
     $content .= 'body.single-product #main .single_add_to_cart_button{color:' . $productblock['styling']['knop_text_kleur'] . ';background-color:' . $productblock['styling']['knop_kleur'] . ';transition:.3s;border-radius:' . $productblock['styling']['knop_border_radius'] . 'px;font-weight:' . $productblock['styling']['font_weight'] . ';}';
     $content .= 'body.single-product #main .single_add_to_cart_button:hover{color:' . $productblock['styling']['knop_text_kleur_hover'] . ';background-color:' . $productblock['styling']['knop_kleur_hover'] . ';transition:.3s;}';
+    $content .= 'body.single-product h2:not(.woocommerce-loop-product__title){font-size:' . $productStyling['subtitle_size'] . 'em;font-weight:500;margin-bottom:' . $productStyling['subtitle_size'] / 2 . 'rem;}';
+    $content .= 'body.single-product section.related.products{margin:5rem 0;}';
+    $content .= 'body.single-product div.product div.images img {padding:50px;}';
     if($productSettings['show_advantages']) {
         $content .= '.productInfo{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;}';
-        $content .= '.woocommerce-tabs, .voordelenWrapper{width:49%;}';
+        $content .= '.woocommerce-tabs, .voordelenWrapper{width:45%;}';
         $content .= '.voordelenWrapper{order:2;}';
         $content .= '.upsells, .related{order:3;}';
-        $content .= '.voordeelIcon{background-color:' . $productVoordelen['circle_background_color'] . ';color:' . $productVoordelen['circle_icon_color'] . ';border-radius:50%;}';
+        $content .= '.voordeelIcon{background-color:' . $productVoordelen['circle_background_color'] . ';color:' . $productVoordelen['circle_icon_color'] . ';border-radius:50%;height:100%;}';
     }
+    if(!$productSettings['show_tabs']) $content .= 'ul.tabs.wc-tabs{display:none;}';
 
+    // Cart
+    $content .= '#cart .woocommerce a.button.alt{background-color:' . $huisstijl['green_color'] . ';}';
+    $content .= '#cart .woocommerce a.button.alt:hover{background-color:#019303;}';
+    $content .= '#cart h1{font-size:1.8em;font-weight:500;margin-bottom:.6em;color:' . $huisstijl['primary_color'] . ';}';
+
+    // Checkout 
+    $content .= '#checkout .woocommerce button.button.alt{background-color:' . $huisstijl['green_color'] . ';}';
+    $content .= '#checkout .woocommerce button.button.alt:hover{background-color:#019303;}';
 
     // Footer CSS
     $content .= '#footer-usps{ background-color: ' . $footer_usps['styling']['background_color'] . '; color: ' . $footer_usps['styling']['text_color'] . ';}';
@@ -109,7 +136,7 @@ function get_css_content(){
     // Fonts
     $content .= 'h1, h2, h3, h4, h5, h6 { font-family: ' . $huisstijl['heading_font'] . ', "Arial";}';
     $content .= 'p, ul, ul li, ol, ol li { font-family: ' . $huisstijl['body_font'] . ', "Arial";}';
-    $content .= 'p a { color: ' . $huisstijl['primary_color'] . '; font-weight: 500;}';
+    $content .= 'main p a, main li a, #footer-copyright a { color: ' . $huisstijl['primary_color'] . '; font-weight: 500;}';
 
     // Settings
     if($header['winkelwagen'] === 'side') $content .= file_get_contents($filePath . 'menu-side-cart.min.css');

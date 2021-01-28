@@ -8,9 +8,23 @@
             <?php if (is_cart() ) { ?>
 
                 <section id="cart" class="empty">
-                    <div class="max-w-screen-xl mx-auto">
+                    <div class="lg:max-w-screen-lg xl:max-w-screen-xl mx-auto my-12">
 
                         <h1>Winkelwagen</h1>
+
+                        <?php the_content(); ?>
+
+                    </div>
+                </section>
+
+            <?php } else if(is_front_page()){ ?>
+
+
+
+            <?php } else if(is_checkout()){ ?>
+
+                <section id="checkout">
+                    <div class="lg:max-w-screen-lg mx-auto my-12">
 
                         <?php the_content(); ?>
 
@@ -21,7 +35,7 @@
             <?php } else if( is_account_page() ){ ?>
                 
                 <section id="account" class="empty">
-                    <div class="max-w-screen-xl mx-auto">
+                    <div class="lg:max-w-screen-lg xl:max-w-screen-xl mx-auto my-20">
 
                         <h1>Mijn account</h1>
 
@@ -43,9 +57,9 @@
                         ?>
                         <!-- article -->
                         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
-                            <?php the_content(); ?>
-
+                            <div class="w-full lg:max-w-screen-lg xl:max-w-screen-xl mx-auto my-20">
+                                <?php the_content(); ?>
+                            </div>
                         </article>
                         <!-- /article -->
                         <?php

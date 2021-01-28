@@ -22,7 +22,7 @@
     if($settings['show_stock']){
         function woomarqt_show_product_stock() { 
             global $settings;
-            echo '<div class="mb-2"><span class="productStock greenText">' . $settings['show_stock_label'] . '</span></div>';
+            echo '<div id="stockLabel" class="mb-0"><span class="productStock greenText">' . $settings['show_stock_label'] . '</span></div>';
         };     
         add_action( 'woocommerce_single_product_summary', 'woomarqt_show_product_stock', 15 ); 
     }
@@ -41,7 +41,7 @@
         global $voordelen;
         if(have_rows('voordelen')) : 
             echo '<div class="voordelenWrapper">';
-            echo '<h3>Voordelen</h3>';
+            echo '<h2>Voordelen</h2>';
             while(have_rows('voordelen')) : the_row();
                 echo '<div class="voordeelRow mb-2 flex"><div class="voordeelIcon mr-2">' . getIcon($voordelen['icon'], '1.5em') . '</div>' . get_sub_field('voordeel') . '</div>';
             endwhile;
@@ -50,4 +50,9 @@
     }
     add_action( 'woocommerce_after_single_product_summary', 'woomarqt_add_product_advantages', 9); 
 
+    // Product Omschrijving kop
+    function woomarqt_add_omschrijving_head(){
+            echo '<h3 class="omschrijvingHead font-bold">Product omschrijving</h3>';
+    }
+    add_filter( 'woocommerce_single_product_summary', 'woomarqt_add_omschrijving_head', 15); 
     

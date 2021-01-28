@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?> 
 
-<div class="container"> 
+<div class="w-full lg:max-w-screen-lg xl:max-w-screen-xl mx-auto mb-20"> 
 
 <?php
 
@@ -44,13 +44,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
             <?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
 
             <div class="col2-set" id="customer_details">
-                <div class="col-1">
-                    <?php do_action( 'woocommerce_checkout_billing' ); ?>
-                </div>
-
-                <div class="col-2">
-                    <?php do_action( 'woocommerce_checkout_shipping' ); ?>
-                </div>
+                <?php do_action( 'woocommerce_checkout_billing' ); ?>
             </div>
 
             <?php do_action( 'woocommerce_checkout_after_customer_details' ); ?>
@@ -62,6 +56,9 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
     </div>
     
     <div class="reviewCol">
+        <div class="col-2">
+            <?php do_action( 'woocommerce_checkout_shipping' ); ?>
+        </div>
         <h3 id="order_review_heading"><?php esc_html_e( 'Your order', 'woocommerce' ); ?></h3>
         
         <?php do_action( 'woocommerce_checkout_before_order_review' ); ?>

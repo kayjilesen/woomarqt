@@ -12,3 +12,27 @@
     float: unset;
     clear: unset;
 } 
+
+.woocommerce-product-gallery {
+    position: relative;
+}
+figure.woocommerce-product-gallery__wrapper {
+    position: relative;
+    padding-bottom: 100% !important;
+}
+.woocommerce-product-gallery__image {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+}
+
+@media (max-width: 992px){
+    body.single-product .summary {
+       padding: 0;
+    } 
+    .woocommerce-tabs, .voordelenWrapper {
+        width: 100%;
+    }
+}

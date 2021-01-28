@@ -8,7 +8,7 @@
     }
     .rightCol {
         color: white;
-
+ 
         .bannerBlock {
             position: relative;
         }
@@ -99,6 +99,52 @@ footer {
 
 section.product {
     z-index: 3;
+}
+
+body.single-product {
+    .summary {
+        padding: 5rem 0;
+        h1 {
+            order: 1;
+        }
+        .productUspWrapper {
+            order: 2;
+        }
+        .price {
+            order: 4;
+            margin-bottom: 1rem;
+
+            .woocommerce-Price-currencySymbol {
+                color: #ddd;
+                font-size: 0.8em;
+                font-weight: 500;
+                margin-right: 16px;
+            }
+
+            bdi {
+                color: #000000;
+                font-size: 1.4em;
+                font-weight: bold;
+            }
+        }
+        #stockLabel {
+            order: 3;
+        }
+        form.cart {
+            order: 5;
+            display: flex;
+            flex-direction: row;
+        }
+        h3.omschrijvingHead {
+            order: 6;
+        }
+        .woocommerce-product-details__short-description {
+            order: 7;
+        }
+        .product_meta {
+            order: 8;
+        }
+    }
 }
 
 @media (max-width: 992px){

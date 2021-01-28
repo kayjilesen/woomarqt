@@ -43,7 +43,10 @@ global $woocommerce;
     <link href="https://fonts.googleapis.com/css2?family=<?php echo $huisstijl['body_font'] ?>:wght@400;500;700&display=swap" rel="stylesheet">
     <!-- Parent Styling -->
     <?php if(!empty($post->post_parent) && $post->post_parent !== 0 && file_exists(get_template_directory() . '/assets/css/' . get_post($post->post_parent)->post_name . '.min.css')) echo '<link href="' . get_template_directory_uri() . '/assets/css/' . get_post($post->post_parent)->post_name . '.min.css?v=' . filemtime(get_theme_file_path() . '/assets/css/' . get_post($post->post_parent)->post_name . '.min.css') . '" rel="stylesheet" type="text/css">'; ?>
-
+    <!-- Page Styling -->
+    <?php if(is_cart()) echo '<link href="' . get_template_directory_uri() . '/assets/css/cart.min.css?v=' . filemtime(get_template_directory() . '/assets/css/cart.min.css')  . '" rel="stylesheet">'; ?>
+    <?php if(is_checkout()) echo '<link href="' . get_template_directory_uri() . '/assets/css/checkout.min.css?v=' . filemtime(get_template_directory() . '/assets/css/checkout.min.css')  . '" rel="stylesheet">'; ?>
+    
 	<?php wp_head(); ?>
 </head>
 

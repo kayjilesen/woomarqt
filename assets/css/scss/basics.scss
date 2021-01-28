@@ -1,2 +1,23 @@
 @import 'variables';
 @import 'icons';
+
+.imageWrapper {
+    width: 100%;
+    position: relative;
+    padding-bottom: 100%;
+
+    img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+article {
+    ul {
+        padding-left: 20px;
+        list-style-type: disc;
+        margin: 20px 0;
+    }
+}

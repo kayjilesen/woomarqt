@@ -45,7 +45,7 @@
     <?php if ($footer_settings['show_widgets']) { ?>
 
         <section id="footer-widgets" class="w-full px-4 lg:px-0">
-            <div class="py-<?php echo $footer_widgets['styling']['padding_y']; ?> px-<?php echo $footer_widgets['styling']['padding_x']; ?> mx-auto max-w-screen-sm max-w-screen-md max-w-screen-lg max-w-screen-lg grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            <div class="py-<?php echo $footer_widgets['styling']['padding_y']; ?> px-<?php echo $footer_widgets['styling']['padding_x']; ?> mx-auto max-w-screen-sm max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
                 <?php if ($footer_widgets['show_contact']) { ?>
                     <div class="">
                         <h5 class="mb-6 text-xl font-medium">Contact</h5>
@@ -129,7 +129,7 @@
                                 echo '<ul>';
                                     foreach ($footer_widgets['products_menu'] as $cats) {
                                         foreach($cats['category'] as $cat){
-                                            echo '<li class="mb-2">' . get_term_by( 'id', $cat, 'product_cat' )->name . '</li>';
+                                            echo '<li class="mb-2"><a href="' . site_url() . '/categorie/' . get_term_by( 'id', $cat, 'product_cat' )->slug . '">' . get_term_by( 'id', $cat, 'product_cat' )->name . '</a></li>';
                                         }
                                         //if($page_value['page']->post_title !== 'Klantenservice') echo '<li class="mb-2"><a href="' . esc_url(get_permalink($page_value['page']->ID)) . '">' . $page_value['page']->post_title . '</a></li>';
                                     }
@@ -151,7 +151,7 @@
 
     <?php if ($footer_settings['show_copyright']) { ?>
         <section id="footer-copyright" class="w-full px-4 lg:px-0">
-            <div class="py-6 mx-auto max-w-screen-sm max-w-screen-md max-w-screen-lg grid grid-cols-1 lg:grid-flow-col text-sm">
+            <div class="py-6 mx-auto max-w-screen-sm max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl grid grid-cols-1 lg:grid-flow-col text-sm">
                 <div class="grid self-center">
                     <p class="text-center lg:text-left">&copy; <?php echo date("Y") . " " . get_bloginfo('name') . " | " . "powered by <a href='#'>WooMarqt</a>" ?></p>
                 </div>

@@ -39,8 +39,7 @@ function woomarqt_nav()
 }
 
 // Register Custom Blank Navigation
-function register_custom_menu()
-{
+function register_custom_menu() {
     register_nav_menus(array( // Using array to specify more menus if needed
         'header-menu' => __('Header Menu', 'Hoofdmenu'), // Main Navigation
         'sidebar-menu' => __('Sidebar Menu', 'Hoofdmenu'), // Sidebar Navigation
@@ -245,3 +244,6 @@ function generate_css($post_ID)  {
     }
 } 
 add_action('acf/save_post', 'generate_css');
+
+// Remove cross-sells at cart
+remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );

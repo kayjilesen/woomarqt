@@ -24,7 +24,7 @@ defined( 'ABSPATH' ) || exit;
  */
 ?>
 
-<div class="container">
+<div class="w-full lg:max-w-screen-lg xl:max-w-screen-xl mx-auto">
 
 <?php   
 

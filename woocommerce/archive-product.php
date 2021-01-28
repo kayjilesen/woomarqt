@@ -18,13 +18,14 @@
 defined( 'ABSPATH' ) || exit;
 
 $category = get_queried_object();
+$categoryStyling = get_field('categorie', 'option');
 
 get_header( );
 
 ?>
 
 <section id="productCategory w-full">
-    <div class="max-w-screen-xl w-full mx-auto">
+    <div class="max-w-screen-xl w-full mx-auto mb-20">
 
         <?php
             /**
@@ -108,12 +109,12 @@ get_header( );
 
 <?php
 
-if(!empty($category->term_id) && !empty(get_field('uitgebreide_omschrijving', 'term_' . $category->term_id))) :
-    echo '<section id="omschrijving">';
-        echo '<div class="container-fluid"><div class="container"><div class="row"><div class="col-12">';
-            echo '<div class="categorieOmschrijving">' . get_field('uitgebreide_omschrijving', 'term_' . $category->term_id) . '</div>';
-        echo '</div></div></div></div>';
-    echo '</section>';
-endif;
+    if(!empty($category->term_id) && !empty(get_field('beschrijving', 'term_' . $category->term_id))) :
+        echo '<section id="omschrijving" class="w-full" style="background-color:' . $categoryStyling['styling']['background_color'] . '">';
+            echo '<div class="container w-full lg:max-w-screen-lg xl:max-w-screen-xl mx-auto py-' . $categoryStyling['styling']['margin_y'] . '">';
+                echo '<div class="categorieOmschrijving">' . get_field('beschrijving', 'term_' . $category->term_id) . '</div>';
+            echo '</div>';
+        echo '</section>';
+    endif;
 
 get_footer();

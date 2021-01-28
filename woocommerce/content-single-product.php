@@ -61,7 +61,7 @@ if ( post_password_required() ) {
 		?>
 
 	</div>
-    <div class="productInfo">
+    <div class="productInfo my-20">
 	<?php
 	/**
 	 * Hook: woocommerce_after_single_product_summary.

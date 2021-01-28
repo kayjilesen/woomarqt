@@ -24,7 +24,7 @@ $productStyling = get_field('styling', 'option');
 
 get_header( 'shop' ); ?>
 
-    <div class="<?php echo $productStyling['container']; ?> w-full mx-auto productContainer">
+    <div class="<?php echo $productStyling['container']; ?> w-full mx-auto productContainer px-4 md:px-2 lg:px-0">
 
 	<?php
 		/**
